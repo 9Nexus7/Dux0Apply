@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Logging in… – DUX0</title>
+  <link rel="icon" href="assets/favicon.png">
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #08050f; color: #ece6f8; font: 1rem system-ui, sans-serif; text-align: center; }
+    a { color: #cdb4ff; }
+  </style>
+</head>
+<body>
+  <p id="msg">Logging you in…</p>
+  <script>
+    (async () => {
+      const msg = document.getElementById("msg");
+      const fail = (t) => { msg.innerHTML = t + ' <a href="./">Back to the website</a>'; };
+      try {
+        const q = new URLSearchParams(location.search);
+        if (q.get("error")) return fail("Login was cancelled.");
+        const code = q.get("code");
+        if (!code || q.get("state") !== sessionStorage.getItem("dux0_state")) return fail("Login could not be verified.");
+        const cfg = await (await fetch("config.json?t=" + Date.now())).json();
+        const api = (cfg.api || "").replace(/\/$/, "");
+        if (!api) return fail("The live server is offline.");
+        const res = await fetch(api + "/api/auth/exchange", {
+          method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ code }),
+        });
+        const data = await res.json();
+        if (!res.ok) return fail("Login failed. Please try again.");
+        localStorage.setItem("dux0_token", data.token);
+        sessionStorage.removeItem("dux0_state");
+        const back = sessionStorage.getItem("dux0_return") || "#/";
+        sessionStorage.removeItem("dux0_return");
+        location.replace("./" + back);
+      } catch (e) {
+        fail("The live server did not answer.");
+      }
+    })();
+  </script>
+</body>
+</html>
