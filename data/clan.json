@@ -2,7 +2,7 @@
   "ok": true,
   "name": "DUX0",
   "desc": "gg/dux0",
-  "rank": 348,
+  "rank": 346,
   "members": [
     {
       "id": 2485362828,
@@ -10,10 +10,21 @@
       "display": "Zorro",
       "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-E3A89808D4737903F1455918246BEDBC-Png/150/150/AvatarHeadshot/Png/noFilter",
       "role": "Member",
-      "points": 237666592,
+      "points": 239585788,
       "gems": 10000000,
       "pointsRank": 1,
       "gemsRank": 10
+    },
+    {
+      "id": 8085345792,
+      "name": "PikalinaMama",
+      "display": "PikalinaMama",
+      "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-57CEB5CBBAA5D0B8FB25E10CB29CC7AD-Png/150/150/AvatarHeadshot/Png/noFilter",
+      "role": "Member",
+      "points": 167726573,
+      "gems": 10000000,
+      "pointsRank": 2,
+      "gemsRank": 9
     },
     {
       "id": 3462521468,
@@ -23,19 +34,8 @@
       "role": "Member",
       "points": 164809080,
       "gems": 67000,
-      "pointsRank": 2,
-      "gemsRank": 16
-    },
-    {
-      "id": 8085345792,
-      "name": "PikalinaMama",
-      "display": "PikalinaMama",
-      "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-57CEB5CBBAA5D0B8FB25E10CB29CC7AD-Png/150/150/AvatarHeadshot/Png/noFilter",
-      "role": "Member",
-      "points": 163174956,
-      "gems": 10000000,
       "pointsRank": 3,
-      "gemsRank": 9
+      "gemsRank": 16
     },
     {
       "id": 2822863890,
@@ -43,7 +43,7 @@
       "display": "WQ_WIKTOR",
       "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-3D2DA1FF444E9330031A3D083189F3F9-Png/150/150/AvatarHeadshot/Png/noFilter",
       "role": "Member",
-      "points": 151624330,
+      "points": 155569726,
       "gems": 60000000,
       "pointsRank": 4,
       "gemsRank": 2
@@ -54,7 +54,7 @@
       "display": "Cryon_llmo",
       "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-10A859A1F4681BE9AB2AB04507323EA8-Png/150/150/AvatarHeadshot/Png/noFilter",
       "role": "Member",
-      "points": 117581025,
+      "points": 118419205,
       "gems": 999999,
       "pointsRank": 5,
       "gemsRank": 15
@@ -65,7 +65,7 @@
       "display": "rahoofi",
       "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-B6C437F460AFB2EABECE2CCE38BE7131-Png/150/150/AvatarHeadshot/Png/noFilter",
       "role": "Member",
-      "points": 95548425,
+      "points": 110935829,
       "gems": 0,
       "pointsRank": 6,
       "gemsRank": 19
@@ -76,7 +76,7 @@
       "display": "DEVP4BL00ACC",
       "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-93E6FF26D5874B3FAB62A627D85F7B95-Png/150/150/AvatarHeadshot/Png/noFilter",
       "role": "Member",
-      "points": 82931308,
+      "points": 83684654,
       "gems": 999999,
       "pointsRank": 7,
       "gemsRank": 14
@@ -197,7 +197,7 @@
       "display": "jajogniot1",
       "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-106C82154074766A1126B8B00040BC56-Png/150/150/AvatarHeadshot/Png/noFilter",
       "role": "Member",
-      "points": 32401087,
+      "points": 32493304,
       "gems": 0,
       "pointsRank": 18,
       "gemsRank": 26
@@ -219,7 +219,7 @@
       "display": "simblock",
       "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-9E09C784DD64BF7EE46F690214C63FC3-Png/150/150/AvatarHeadshot/Png/noFilter",
       "role": "Member",
-      "points": 21796826,
+      "points": 22439967,
       "gems": 0,
       "pointsRank": 20,
       "gemsRank": 28
@@ -337,7 +337,7 @@
   ],
   "capacity": 75,
   "totals": {
-    "points": 1751566077,
+    "points": 1779696574,
     "gems": 2547177498,
     "members": 30
   },
@@ -399,9 +399,9 @@
     },
     {
       "name": "SpaceMineBattle2026",
-      "points": 763601754,
-      "place": 348
+      "points": 791732251,
+      "place": 346
     }
   ],
-  "updated": 1789971551
+  "updated": 1789973355
 }
