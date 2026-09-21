@@ -10,7 +10,7 @@
       "display": "Zorro",
       "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-E3A89808D4737903F1455918246BEDBC-Png/150/150/AvatarHeadshot/Png/noFilter",
       "role": "Member",
-      "points": 218109678,
+      "points": 220452934,
       "gems": 10000000,
       "pointsRank": 1,
       "gemsRank": 10
@@ -21,7 +21,7 @@
       "display": "Bennedict_Paapst",
       "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-187030B71F07AB28E1E3C60CA5FB2221-Png/150/150/AvatarHeadshot/Png/noFilter",
       "role": "Member",
-      "points": 159326427,
+      "points": 160316148,
       "gems": 67000,
       "pointsRank": 2,
       "gemsRank": 16
@@ -32,7 +32,7 @@
       "display": "PikalinaMama",
       "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-57CEB5CBBAA5D0B8FB25E10CB29CC7AD-Png/150/150/AvatarHeadshot/Png/noFilter",
       "role": "Member",
-      "points": 138242214,
+      "points": 139115099,
       "gems": 10000000,
       "pointsRank": 3,
       "gemsRank": 9
@@ -43,7 +43,7 @@
       "display": "WQ_WIKTOR",
       "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-3D2DA1FF444E9330031A3D083189F3F9-Png/150/150/AvatarHeadshot/Png/noFilter",
       "role": "Member",
-      "points": 119453622,
+      "points": 122462545,
       "gems": 60000000,
       "pointsRank": 4,
       "gemsRank": 2
@@ -54,7 +54,7 @@
       "display": "Cryon_llmo",
       "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-10A859A1F4681BE9AB2AB04507323EA8-Png/150/150/AvatarHeadshot/Png/noFilter",
       "role": "Member",
-      "points": 108598451,
+      "points": 109381311,
       "gems": 999999,
       "pointsRank": 5,
       "gemsRank": 15
@@ -65,7 +65,7 @@
       "display": "rahoofi",
       "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-B6C437F460AFB2EABECE2CCE38BE7131-Png/150/150/AvatarHeadshot/Png/noFilter",
       "role": "Member",
-      "points": 92259555,
+      "points": 92359371,
       "gems": 0,
       "pointsRank": 6,
       "gemsRank": 19
@@ -208,7 +208,7 @@
       "display": "jajogniot1",
       "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-106C82154074766A1126B8B00040BC56-Png/150/150/AvatarHeadshot/Png/noFilter",
       "role": "Member",
-      "points": 27711299,
+      "points": 27807113,
       "gems": 0,
       "pointsRank": 19,
       "gemsRank": 26
@@ -225,6 +225,17 @@
       "gemsRank": 25
     },
     {
+      "id": 3320443029,
+      "name": "Guhner12get",
+      "display": "simblock",
+      "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-9E09C784DD64BF7EE46F690214C63FC3-Png/150/150/AvatarHeadshot/Png/noFilter",
+      "role": "Member",
+      "points": 17221122,
+      "gems": 0,
+      "pointsRank": 21,
+      "gemsRank": 28
+    },
+    {
       "id": 1527412575,
       "name": "kippenbibsstrijder",
       "display": "kippenbibsstrijder",
@@ -232,19 +243,8 @@
       "role": "Member",
       "points": 16677668,
       "gems": 0,
-      "pointsRank": 21,
-      "gemsRank": 18
-    },
-    {
-      "id": 3320443029,
-      "name": "Guhner12get",
-      "display": "simblock",
-      "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-9E09C784DD64BF7EE46F690214C63FC3-Png/150/150/AvatarHeadshot/Png/noFilter",
-      "role": "Member",
-      "points": 16642925,
-      "gems": 0,
       "pointsRank": 22,
-      "gemsRank": 28
+      "gemsRank": 18
     },
     {
       "id": 3730037769,
@@ -263,7 +263,7 @@
       "display": "maxmax24122006",
       "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-82EB1D06E711284FE37D68692A8E2015-Png/150/150/AvatarHeadshot/Png/noFilter",
       "role": "Member",
-      "points": 6592791,
+      "points": 6620505,
       "gems": 0,
       "pointsRank": 24,
       "gemsRank": 21
@@ -285,7 +285,7 @@
       "display": "Asta",
       "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-DE0D6BA0368126EC05D7C0743376BC16-Png/150/150/AvatarHeadshot/Png/noFilter",
       "role": "Member",
-      "points": 3629824,
+      "points": 3691004,
       "gems": 10000000,
       "pointsRank": 26,
       "gemsRank": 11
@@ -337,7 +337,7 @@
   ],
   "capacity": 75,
   "totals": {
-    "points": 1645903823,
+    "points": 1654764189,
     "gems": 2547177498,
     "members": 30
   },
@@ -399,9 +399,9 @@
     },
     {
       "name": "SpaceMineBattle2026",
-      "points": 657939500,
+      "points": 666799866,
       "place": 339
     }
   ],
-  "updated": 1789953520
+  "updated": 1789955323
 }
