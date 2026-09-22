@@ -213,7 +213,7 @@
     if (S.me) box.append(S.me.user.avatar ? h("img", { src: S.me.user.avatar, alt: "" }) : "", h("span", { class: "who" }, S.me.user.name), h("button", { class: "btn ghost small", onclick: logout }, "Log out"));
     else if (S.token) box.append(h("button", { class: "btn ghost small", onclick: logout }, "Log out"));
     else box.append(h("button", { class: "btn small", onclick: login }, "Log in with Discord"));
-    $("#admin-link").hidden = !(S.me && S.me.admin);
+    $("#owner-link").hidden = !(S.me && S.me.owner);
   }
 
   /* ------------------------------------------------------------------ */
@@ -254,11 +254,17 @@
       r ? h("div", { class: "big" }, "#", num(r.place), h("small", {}, "of " + exact(r.total) + " clans")) : h("div", { class: "big" }, "–"),
       r ? null : h("p", { class: "gap" }, "Place is being calculated. Try again in a minute."));
     const right = h("div", {}, h("p", { class: "cap" }, "Points this battle"), h("div", { class: "big" }, num(ev.points)));
+    const tr = clan.tracking || {};
+    if (tr.rate1h != null) right.append(h("p", { class: "gap" }, h("b", {}, exact(tr.rate1h)), " points per hour (last " + winLabel(tr.window) + ")"));
     if (r && r.above) right.append(h("p", { class: "gap" }, h("b", { class: "up" }, exact(r.above.points - ev.points)), " behind #" + (r.place - 1) + " " + r.above.name));
     if (r && r.below) right.append(h("p", { class: "gap" }, h("b", { class: "down" }, exact(ev.points - r.below.points)), " ahead of " + r.below.name));
     p.append(left, mid, right);
+    const upd = h("span", { class: "upd" });
+    const tick = () => { upd.textContent = (S.offline ? "Saved snapshot from " : "Updated ") + ago(clan.updated) + (S.offline ? "" : " · refreshes every 30 s"); };
+    tick(); S.timers.push(setInterval(tick, 1000)); p.append(upd);
     return p;
   }
+  const winLabel = (sec) => (sec >= 3500 ? "hour" : Math.max(1, Math.round((sec || 0) / 60)) + " min");
 
   function contribRows(members, limit) {
     const top = [...members].sort((a, b) => b.event - a.event).slice(0, limit);
@@ -309,7 +315,6 @@
     loading();
     const [clan, content] = await Promise.all([load("clan"), load("content")]);
     const c = content || {}, t = (clan && clan.totals) || {}, cl = (clan && clan.clan) || {};
-    const invite = c.invite || (S.cfg && S.cfg.invite) || "https://discord.gg/dux0";
     const cap = cl.capacity ? `${t.members}/${cl.capacity}` : (t.members ?? "–");
     const tile = (label, value, cls) => h("div", { class: "tile panel shard " + (cls || "") }, h("b", {}, typeof value === "number" ? num(value) : value), h("span", {}, label));
 
@@ -327,8 +332,8 @@
             h("p", {}, h("a", { href: "#/battles" }, "Open the battle page"))))) : null,
       h("section", { class: "section" }, h("div", { class: "join panel shard" },
         h("div", {}, h("h2", {}, "Join DUX0"), h("p", { class: "about-text" }, c.about || ""),
-          h("div", { class: "cta" }, h("a", { class: "btn", href: "#/apply" }, "Apply to join"),
-            h("a", { class: "btn ghost", href: invite, target: "_blank", rel: "noopener" }, "Open our Discord"))),
+          h("p", { class: "hint" }, "Membership is by application. Once you are accepted you get a personal invite to our Discord."),
+          h("div", { class: "cta" }, h("a", { class: "btn", href: "#/apply" }, "Apply to join"), h("a", { class: "btn ghost", href: "#/apply" }, "Check my application"))),
         c.requirements && c.requirements.length ? h("div", {}, h("h3", {}, "What we look for"), h("ul", { class: "reqs" }, c.requirements.map((r) => h("li", {}, r)))) : null)));
   }
 
@@ -336,6 +341,7 @@
     event: { label: "Battle points", rank: "eventRank", get: (m) => m.event },
     points: { label: "All-time points", rank: "pointsRank", get: (m) => m.points },
     gems: { label: "Gems", rank: "gemsRank", get: (m) => m.gems },
+    gain: { label: "Last hour", rank: null, get: (m) => m.gain || 0 },
     joined: { label: "Longest member", rank: null, get: (m) => -(m.joined || 9e12) },
   };
   function sortedMembers(members, key) {
@@ -344,11 +350,13 @@
   }
   function mainVal(m, key) {
     if (key === "gems") return h("b", { title: exact(m.gems) }, compact(m.gems));
+    if (key === "gain") return h("b", {}, (m.gain ? "+" : "") + exact(m.gain || 0));
     if (key === "joined") return h("b", {}, fmtDate(m.joined));
     return h("b", {}, exact(SORTS[key].get(m)));
   }
   function subVal(m, key) {
-    if (key === "event") return `${exact(m.points)} all-time · ${compact(m.gems)} gems`;
+    if (key === "gain") return `${exact(m.event)} this battle · ${compact(m.gems)} gems`;
+    if (key === "event") return `${exact(m.points)} all-time · ${compact(m.gems)} gems` + (m.gain ? ` · +${exact(m.gain)} recently` : "");
     if (key === "points") return `${exact(m.event)} this battle · ${compact(m.gems)} gems`;
     if (key === "gems") return `${exact(m.event)} battle · ${exact(m.points)} all-time`;
     return `${exact(m.event)} points this battle`;
@@ -412,6 +420,14 @@
         h("span", { class: "place" }, "#" + p.rank), h("span"), h("div", { class: "who" }, h("b", {}, p.name), h("small", {}, p.clan || "")), h("span", { class: "pts" }, exact(p.points)))))));
       if (side.length) parts.push(h("section", { class: "section two" }, side));
     }
+    const trend = ((clan.tracking || {}).trend || []);
+    if (trend.length >= 3) {
+      const placeData = trend.filter((t) => t[2] != null).map((t) => [t[0], t[2]]);
+      parts.push(h("section", { class: "section" }, h("h2", {}, "Live tracking", h("small", {}, "Measured by our bot every minute, last 24 hours")),
+        h("div", { class: "two" },
+          h("div", { class: "chart panel shard" }, h("p", { class: "cap" }, "Points this battle"), lineChart(trend.map((t) => [t[0], t[1]]), { fmt: compact })),
+          placeData.length >= 3 ? h("div", { class: "chart panel shard" }, h("p", { class: "cap" }, "Our global place (higher is better)"), lineChart(placeData, { invert: true, fmt: (v) => "#" + exact(v), color: "#ff4d78" })) : null)));
+    }
     parts.push(h("section", { class: "section" }, h("h2", {}, "Medals"), h("div", { class: "medals" },
       ["gold", "silver", "bronze"].map((k) => h("div", { class: "medal panel shard " + k }, h("b", {}, md[k] || 0), h("span", {}, k[0].toUpperCase() + k.slice(1) + " medals"))))));
     parts.push(h("section", { class: "section" }, h("h2", {}, "Battle history"),
@@ -432,6 +448,28 @@
     }
     svg.append(sv("text", { x: 100, y: 98, "text-anchor": "middle", style: "font:600 30px Teko,sans-serif;fill:#f2ecfc" }, compact(total)),
       sv("text", { x: 100, y: 118, "text-anchor": "middle" }, "points"));
+    return svg;
+  }
+
+  let chartId = 0;
+  function lineChart(data, { invert = false, fmt = exact, color = "#8b3dff" } = {}) {
+    const W = 640, H = 210, pl = 58, pr = 12, pt = 12, pb = 26, id = "lg" + ++chartId;
+    const xs = data.map((d) => d[0]), ys = data.map((d) => d[1]);
+    const x0 = Math.min(...xs), x1 = Math.max(...xs), lo = Math.min(...ys), hi = Math.max(...ys), span = hi - lo || 1;
+    const X = (t) => pl + ((t - x0) / (x1 - x0 || 1)) * (W - pl - pr);
+    const Y = (v) => { const r = (v - lo) / span; return pt + (invert ? r : 1 - r) * (H - pt - pb); };
+    const line = data.map((d, i) => (i ? "L" : "M") + X(d[0]).toFixed(1) + " " + Y(d[1]).toFixed(1)).join(" ");
+    const svg = sv("svg", { viewBox: `0 0 ${W} ${H}`, role: "img" });
+    svg.append(sv("defs", {}, sv("linearGradient", { id, x1: 0, y1: 0, x2: 0, y2: 1 }, sv("stop", { offset: "0%", "stop-color": color, "stop-opacity": .4 }), sv("stop", { offset: "100%", "stop-color": color, "stop-opacity": 0 }))));
+    [0, .5, 1].forEach((f) => {
+      const v = invert ? lo + span * f : hi - span * f, y = pt + f * (H - pt - pb);
+      svg.append(sv("line", { x1: pl, x2: W - pr, y1: y, y2: y, stroke: "#31205a", "stroke-dasharray": "3 5" }), sv("text", { x: pl - 8, y: y + 4, "text-anchor": "end" }, fmt(v)));
+    });
+    svg.append(sv("path", { d: `${line} L${X(x1)} ${H - pb} L${X(x0)} ${H - pb} Z`, fill: `url(#${id})` }), sv("path", { d: line, fill: "none", stroke: color, "stroke-width": 2.5, "stroke-linejoin": "round" }));
+    const tm = (t) => new Date(t * 1000).toLocaleTimeString("en", { hour: "2-digit", minute: "2-digit" });
+    svg.append(sv("text", { x: pl, y: H - 6 }, tm(x0)), sv("text", { x: W - pr, y: H - 6, "text-anchor": "end" }, tm(x1)));
+    const last = data[data.length - 1];
+    svg.append(sv("circle", { cx: X(last[0]), cy: Y(last[1]), r: 4.5, fill: color }));
     return svg;
   }
 
@@ -488,35 +526,107 @@
         h("div", { class: "masonry" }, gal.map((g) => h("figure", {}, picture(g.image, g.caption), g.caption ? h("figcaption", {}, g.caption) : null)))) : null);
   }
 
-  /* ---------------- apply (3-step form) ---------------- */
+  /* ---------------- apply: form, status, invite ---------------- */
   const APPLY_ERRORS = {
     login_required: "Please log in with Discord first.",
     invalid_roblox_name: "That Roblox username does not look right. Use 3 to 20 letters, numbers or underscores.",
     missing_fields: "Please fill in every required field.",
     slow_down: "Please wait a few seconds before sending again.",
-    join_server_first: "You need to be in the DUX0 Discord server first. Join it, then send your application again.",
     already_member: "You already have the DUX0 member role.",
     already_pending: "You already have an application waiting for a decision.",
+    already_accepted: "Your application was already accepted. Open the invite on this page.",
+    cooldown: "You were declined recently. You can apply again after the waiting time shown on this page.",
+    too_many_images: "You can attach up to 5 screenshots.",
+    image_too_large: "One screenshot is too large. Try a smaller one.",
+    not_an_image: "Only PNG, JPG or WEBP screenshots are allowed.",
     bot_not_ready: "The bot is starting up. Try again in a minute.",
+    invite_failed: "The bot could not create an invite right now. Ask staff in Discord.",
+    already_in_server: "You are already on the server.",
+    roblox_verify_required: "Please verify your Roblox account first.",
   };
+
+  async function shrinkImage(file) {
+    if (!/^image\/(png|jpeg|webp)$/.test(file.type)) throw new Error("not_an_image");
+    const bmp = await createImageBitmap(file);
+    const sc = Math.min(1, 1800 / Math.max(bmp.width, bmp.height));
+    const c = document.createElement("canvas"); c.width = Math.round(bmp.width * sc); c.height = Math.round(bmp.height * sc);
+    c.getContext("2d").drawImage(bmp, 0, 0, c.width, c.height);
+    const blob = await new Promise((r) => c.toBlob(r, "image/jpeg", 0.86));
+    return { blob, name: file.name.replace(/\.\w+$/, "") + ".jpg", url: URL.createObjectURL(blob) };
+  }
+
+  const dateTime = (ts) => (ts ? new Date(ts * 1000).toLocaleString("en", { dateStyle: "medium", timeStyle: "short" }) : "");
+  function statusCard(kind, glyph, title, ...body) {
+    return h("div", { class: "status-card panel shard " + kind }, h("div", { class: "status-glyph" }, h("span", {}, glyph)), h("div", { class: "status-body" }, h("h2", {}, title), body));
+  }
+  function timeline(active) {
+    const steps = ["Application sent", "Staff review", "Decision"];
+    return h("ol", { class: "timeline" }, steps.map((t, i) => h("li", { class: i < active ? "done" : i === active ? "now" : "" }, h("i"), t)));
+  }
 
   async function viewApply() {
     loading();
-    const content = (await load("content")) || {};
-    const invite = content.invite || "https://discord.gg/dux0";
-    const head = pageHead("Apply to DUX0", "Three short steps. Our staff reviews every application in Discord and you get a direct message with the decision.");
+    await load("content");
+    const head = pageHead("Apply to DUX0", "Membership is by application. Send yours in three short steps, then come back to this page to see the decision. Accepted players get a personal invite to our Discord.");
     if (S.offline || !S.api) { view.replaceChildren(head, empty("The live server is offline, so applications cannot be sent right now. Please try again later.")); return; }
     if (!S.token || !S.me) {
       view.replaceChildren(head, h("div", { class: "card panel shard" },
-        h("p", {}, "Log in with Discord so the bot can message you the result and give you your role. We only read your Discord name and ID."),
+        h("p", {}, "Log in with Discord so we know who you are and can show you the decision here. You do not need to be in our server yet. We only read your Discord name and ID."),
         h("button", { class: "btn", onclick: login }, "Log in with Discord"),
         h("p", { class: "hint" }, "Login not working? Open the ", h("a", { href: "#/status" }, "site status page"), " to see why.")));
       return;
     }
-    if (!S.me.inServer) { view.replaceChildren(head, h("div", { class: "card panel shard" }, h("p", {}, "You are not in the DUX0 Discord server yet. Join first, then come back and apply."), h("a", { class: "btn", href: invite, target: "_blank", rel: "noopener" }, "Join the Discord"))); return; }
-    if (S.me.pending) { view.replaceChildren(head, h("div", { class: "ok-box shard" }, "Your application is in. Staff will review it in the Discord server and message you with the result.")); return; }
+    const me = S.me, app = me.application;
+    const rerender = () => route({ silent: true });
 
-    const d = { roblox: "", rank: "", playtime: "", gamepasses: "", masteries: "", spend: "", note: "" };
+    if (me.hasRole && (!app || app.status !== "pending")) { view.replaceChildren(head, statusCard("ok", "✓", "You are a DUX0 member", h("p", {}, "You already have the member role on our Discord. See you in the next battle."))); return; }
+
+    if (app && app.status === "pending") {
+      S.timers.push(setInterval(async () => { await refreshMe(); if (!S.me || !S.me.application || S.me.application.status !== "pending") route({ silent: true }); }, 15000));
+      view.replaceChildren(head, statusCard("wait", "…", "Your application is in review",
+        h("p", {}, `Sent as ${app.roblox} on ${dateTime(app.created)}. Our staff reads every application in Discord. This page checks for the decision by itself, so you can leave it open or come back later.`),
+        timeline(1)));
+      return;
+    }
+    if (app && app.status === "accepted") {
+      const body = [h("p", {}, `Welcome to DUX0, ${app.roblox}. ` + (me.inServer ? "You are already on the server and your member role is set." : "Join our Discord with your personal invite. The bot gives you your member role the moment you arrive."))];
+      if (!me.inServer) {
+        const box = h("div", { class: "cta" });
+        const draw = () => {
+          box.replaceChildren(app.invite ? h("a", { class: "btn", href: app.invite, target: "_blank", rel: "noopener" }, "Join the DUX0 Discord") : null,
+            h("button", { class: "btn ghost", type: "button", onclick: async (e) => {
+              e.currentTarget.disabled = true;
+              try { app.invite = (await api("/api/invite", { method: "POST" })).invite; toast("New invite created."); }
+              catch (ex) { toast(APPLY_ERRORS[ex.message] || "Could not create an invite."); }
+              draw();
+            } }, app.invite ? "Invite expired? Get a new one" : "Get my invite"));
+        };
+        draw();
+        body.push(box, h("p", { class: "hint" }, "The invite works for one person and expires after 3 days. People who join without an accepted application are removed automatically."));
+      }
+      body.push(timeline(3));
+      view.replaceChildren(head, statusCard("ok", "✓", "You were accepted", body));
+      return;
+    }
+    if (app && app.status === "declined" && !(me.canReapply && S.reapply)) {
+      const when = me.reapplyAt ? dateTime(me.reapplyAt) : "";
+      const body = [h("p", {}, `Your application as ${app.roblox} was declined.`)];
+      if (app.reason) body.push(h("blockquote", { class: "reason" }, app.reason));
+      if (me.canReapply) body.push(h("div", { class: "cta" }, h("button", { class: "btn", type: "button", onclick: () => { S.reapply = true; rerender(); } }, "Apply again")));
+      else body.push(h("p", { class: "hint" }, "You can apply again after " + when + "."));
+      view.replaceChildren(head, statusCard("bad", "✕", "Not accepted this time", body));
+      return;
+    }
+
+    if (me.requireRoblox && !me.roblox) {
+      view.replaceChildren(head, h("div", { class: "card panel shard" },
+        h("p", {}, "We ask everyone to verify their Roblox account before applying, so staff know it is really you."),
+        robloxWidget(rerender)));
+      return;
+    }
+
+    /* the form */
+    const d = { roblox: me.roblox ? me.roblox.name : "", rank: "", playtime: "", gamepasses: "", masteries: "", spend: "", note: "", images: [] };
     let step = 0;
     const card = h("form", { class: "card panel shard", novalidate: true });
     const err = h("p", { class: "err", role: "alert" });
@@ -527,21 +637,43 @@
     };
     const validate = () => {
       if (step === 0) {
-        if (!/^[A-Za-z0-9_]{3,20}$/.test(d.roblox.trim())) return APPLY_ERRORS.invalid_roblox_name;
+        if (!me.roblox && !/^[A-Za-z0-9_]{3,20}$/.test(d.roblox.trim())) return APPLY_ERRORS.invalid_roblox_name;
         if (!d.rank.trim() || !d.playtime.trim()) return "Please fill in your rank and playtime.";
       }
       if (step === 1 && (!d.gamepasses.trim() || !d.masteries.trim())) return "Please fill in gamepasses and masteries. Write \"none\" if you have none.";
       if (step === 2 && !d.spend) return "Please answer the 3B gems question.";
       return "";
     };
+    const thumbs = h("div", { class: "thumbs" });
+    const drawThumbs = () => thumbs.replaceChildren(...d.images.map((im, i) => h("div", { class: "thumb-item" }, h("img", { src: im.url, alt: "" }),
+      h("button", { type: "button", "aria-label": "Remove screenshot", onclick: () => { URL.revokeObjectURL(im.url); d.images.splice(i, 1); drawThumbs(); } }, "×"))));
+    const addFiles = async (files) => {
+      for (const f of files) {
+        if (d.images.length >= 5) { err.textContent = APPLY_ERRORS.too_many_images; break; }
+        try { d.images.push(await shrinkImage(f)); err.textContent = ""; } catch (_) { err.textContent = APPLY_ERRORS.not_an_image; }
+      }
+      drawThumbs();
+    };
+    const dropzone = () => {
+      const input = h("input", { type: "file", accept: "image/png,image/jpeg,image/webp", multiple: true, hidden: true });
+      input.addEventListener("change", () => { addFiles(Array.from(input.files)); input.value = ""; });
+      const zone = h("div", { class: "drop", tabindex: "0", role: "button", "aria-label": "Add screenshots" }, h("b", {}, "Add screenshots"), h("span", { class: "hint" }, "Your gamepasses, masteries and rank. Drop images here or click. Up to 5, they are shrunk automatically."), input);
+      zone.addEventListener("click", () => input.click());
+      zone.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); input.click(); } });
+      zone.addEventListener("dragover", (e) => { e.preventDefault(); zone.classList.add("over"); });
+      zone.addEventListener("dragleave", () => zone.classList.remove("over"));
+      zone.addEventListener("drop", (e) => { e.preventDefault(); zone.classList.remove("over"); addFiles(Array.from(e.dataTransfer.files)); });
+      return zone;
+    };
     const draw = () => {
       err.textContent = "";
       const titles = ["You", "Progress", "Commitment"];
-      const body = [];
-      body.push(h("ol", { class: "steps" }, titles.map((t, i) => h("li", { class: i === step ? "on" : i < step ? "done" : "" }, `${i + 1}. ${t}`))));
-      body.push(h("div", { class: "who-card" }, S.me.user.avatar ? h("img", { src: S.me.user.avatar, alt: "" }) : null, h("span", {}, "Applying as ", h("b", {}, S.me.user.name))));
-      if (step === 0) body.push(text("roblox", "Roblox username"), text("rank", "Your rank", "(in-game rank)"), text("playtime", "Playtime", "(for example 120 hours)"));
-      if (step === 1) body.push(text("gamepasses", "Gamepasses", "(which ones you own)", true), text("masteries", "Masteries", "(which ones and how far)", true));
+      const body = [h("ol", { class: "steps" }, titles.map((t, i) => h("li", { class: i === step ? "on" : i < step ? "done" : "" }, `${i + 1}. ${t}`))),
+        h("div", { class: "who-card" }, S.me.user.avatar ? h("img", { src: S.me.user.avatar, alt: "" }) : null, h("span", {}, "Applying as ", h("b", {}, S.me.user.name)))];
+      if (step === 0) body.push(
+        me.roblox ? h("div", { class: "verified" }, h("span", { class: "tick" }, "✓"), h("div", {}, h("b", {}, me.roblox.name), h("small", {}, "Verified Roblox account"))) : text("roblox", "Roblox username"),
+        text("rank", "Your rank", "(in-game rank)"), text("playtime", "Playtime", "(for example 120 hours)"));
+      if (step === 1) { body.push(text("gamepasses", "Gamepasses", "(which ones you own)", true), text("masteries", "Masteries", "(which ones and how far)", true), h("div", { class: "field" }, h("label", {}, "Screenshots ", h("span", { class: "hint" }, "(strongly recommended)")), dropzone(), thumbs)); drawThumbs(); }
       if (step === 2) {
         const radios = ["yes", "no"].map((v) => { const i = h("input", { type: "radio", name: "spend", value: v }); i.checked = d.spend === v; i.addEventListener("change", () => { d.spend = v; }); return h("label", {}, i, v === "yes" ? "Yes" : "No"); });
         const note = h("textarea", { id: "note", maxlength: 800 }, d.note); note.addEventListener("input", () => { d.note = note.value; });
@@ -559,9 +691,11 @@
       if (step < 2) { step++; draw(); return; }
       const btn = card.querySelector("button[type=submit]"); btn.disabled = true; btn.textContent = "Sending…";
       try {
-        await api("/api/apply", { method: "POST", json: { roblox: d.roblox.trim(), rank: d.rank.trim(), playtime: d.playtime.trim(), gamepasses: d.gamepasses.trim(), masteries: d.masteries.trim(), can_spend: d.spend === "yes", note: d.note.trim() } });
-        S.me.pending = true;
-        view.replaceChildren(head, h("div", { class: "ok-box shard" }, "Application sent. Staff will review it in the Discord server and message you with the result."));
+        const fd = new FormData();
+        fd.append("data", JSON.stringify({ roblox: d.roblox.trim(), rank: d.rank.trim(), playtime: d.playtime.trim(), gamepasses: d.gamepasses.trim(), masteries: d.masteries.trim(), can_spend: d.spend === "yes", note: d.note.trim() }));
+        d.images.forEach((im) => fd.append("images", im.blob, im.name));
+        await api("/api/apply", { method: "POST", body: fd, timeout: 90000 });
+        S.reapply = false; await refreshMe(); rerender();
       } catch (ex) {
         err.textContent = APPLY_ERRORS[ex.message] || "Something went wrong. Please try again in a minute.";
         btn.disabled = false; btn.textContent = "Send application";
@@ -571,26 +705,242 @@
     view.replaceChildren(head, card);
   }
 
+  /* ------------------------------------------------------------------ */
+  /* Roblox link, BIG Games connection, live drops, inventories, owner   */
+  /* ------------------------------------------------------------------ */
+  const CONNECT_ERRORS = {
+    invalid_roblox_name: "That Roblox username does not look right.",
+    roblox_user_not_found: "Roblox does not know that username.",
+    roblox_already_linked: "That Roblox account is already linked to another Discord account.",
+    no_pending_code: "Your code expired. Get a new one.",
+    code_not_found: "We could not find the code in your Roblox profile yet. Save your About text on Roblox, wait a few seconds and press verify again.",
+    roblox_unreachable: "Roblox did not answer. Try again in a minute.",
+    big_not_configured: "The site owner has not enabled the BIG Games connection yet.",
+    roblox_link_first: "Link your Roblox account first.",
+    state_mismatch: "The connection could not be verified. Please start again.",
+    big_exchange_failed: "BIG Games rejected the connection. Please start again.",
+    not_connected: "You are not connected.",
+  };
+  const errText = (e) => CONNECT_ERRORS[e.message] || APPLY_ERRORS[e.message] || "Something went wrong. Please try again.";
+  const ago2 = (ts) => (ts ? ago(ts) : "never");
+  const inFuture = (ts) => { const s = Math.round(ts - Date.now() / 1000); return s <= 0 ? "any moment" : s < 3600 ? "in " + Math.ceil(s / 60) + " min" : "in " + Math.round(s / 3600) + " h"; };
+
+  function robloxWidget(onChange) {
+    const box = h("div", { class: "rbx" });
+    let pend = null, msg = "";
+    const draw = () => {
+      const me = S.me, kids = [];
+      if (me.roblox) {
+        kids.push(h("div", { class: "verified" }, h("span", { class: "tick" }, "✓"), h("div", {}, h("b", {}, me.roblox.name), h("small", {}, "Roblox account verified"))),
+          h("button", { type: "button", class: "btn ghost small", onclick: async () => { try { await api("/api/roblox/unlink", { method: "POST" }); await refreshMe(); pend = null; draw(); onChange && onChange(); } catch (e) { toast(errText(e)); } } }, "Unlink"));
+      } else if (pend) {
+        kids.push(h("p", {}, "Put this code anywhere in the ", h("b", {}, "About"), " (description) of your Roblox profile ", h("b", {}, pend.name), ", save it, then press verify. You can remove it afterwards."),
+          h("div", { class: "code-row" }, h("code", { class: "bigcode" }, pend.code), h("button", { type: "button", class: "btn ghost small", onclick: () => { navigator.clipboard && navigator.clipboard.writeText(pend.code); toast("Code copied."); } }, "Copy")),
+          h("div", { class: "editor-actions" },
+            h("button", { type: "button", class: "btn", onclick: async (e) => { e.currentTarget.disabled = true; try { await api("/api/roblox/verify", { method: "POST" }); await refreshMe(); pend = null; msg = ""; draw(); onChange && onChange(); } catch (ex) { msg = errText(ex); draw(); } } }, "I added it, verify"),
+            h("button", { type: "button", class: "btn ghost", onclick: () => { pend = null; draw(); } }, "Cancel")));
+      } else {
+        const input = h("input", { type: "text", maxlength: 20, placeholder: "Your Roblox username", autocomplete: "off" });
+        kids.push(h("div", { class: "field" }, h("label", {}, "Roblox username"), input),
+          h("button", { type: "button", class: "btn", onclick: async (e) => { e.currentTarget.disabled = true; try { pend = await api("/api/roblox/start", { method: "POST", json: { username: input.value.trim() } }); msg = ""; } catch (ex) { msg = errText(ex); } draw(); } }, "Get my code"));
+      }
+      kids.push(h("p", { class: "err", role: "alert" }, msg));
+      box.replaceChildren(...kids);
+    };
+    draw();
+    return box;
+  }
+
+  async function viewConnect() {
+    loading();
+    if (!S.token || !S.me) { view.replaceChildren(pageHead("My account", "Connect your accounts."), h("div", { class: "card panel shard" }, h("p", {}, "Log in with Discord first."), h("button", { class: "btn", onclick: () => login() }, "Log in with Discord"))); return; }
+    await refreshMe();
+    const me = S.me, big = me.big, rerender = () => route({ silent: true });
+    const step = (n, title, ...body) => h("section", { class: "card wide panel shard connect-step" }, h("div", { class: "cs-head" }, h("span", { class: "cs-n" }, String(n)), h("h2", {}, title)), body);
+    const cards = [];
+    cards.push(step(1, "Discord", h("div", { class: "verified" }, h("span", { class: "tick" }, "✓"), h("div", {}, h("b", {}, me.user.name), h("small", {}, me.inServer ? "Member of the DUX0 server" : "Not on the DUX0 server yet"))),
+      me.canAutoJoin ? h("p", { class: "hint" }, "You allowed the bot to add you to the server when you are accepted.") : null));
+    cards.push(step(2, "Roblox", h("p", { class: "hint" }, "This proves the account is yours. It also tells us who is in the clan and on the Discord server."), robloxWidget(rerender)));
+
+    let bigBody;
+    if (!me.bigReady) bigBody = h("p", { class: "hint" }, "The site owner has not switched on inventory sharing yet.");
+    else if (!me.roblox) bigBody = h("p", { class: "hint" }, "Link your Roblox account in step 2 first.");
+    else if (!big) {
+      const inv = h("input", { type: "checkbox", checked: true }), feed = h("input", { type: "checkbox", checked: true });
+      bigBody = h("div", {},
+        h("p", {}, "Connect your Pet Simulator 99 data through BIG Games. BIG Games shows its own consent screen and DUX0 only gets ", h("b", {}, "read access"), " to your inventory and profile statistics. The connection lasts 30 days and you can disconnect and delete everything at any time."),
+        h("div", { class: "choice col" }, h("label", {}, inv, "Show my inventory to DUX0 members"), h("label", {}, feed, "Show my new Huge, Titanic and Gargantuan pets in the public live feed")),
+        h("p", { class: "hint" }, "New pets are checked about every 45 minutes. BIG Games limits how often a player's data may refresh."),
+        h("button", { class: "btn", type: "button", onclick: async (e) => { e.currentTarget.disabled = true; try { const r = await api("/api/big/start", { method: "POST", json: { share_inventory: inv.checked, share_feed: feed.checked } }); location.href = r.url; } catch (ex) { toast(errText(ex)); e.currentTarget.disabled = false; } } }, "Connect with BIG Games"));
+    } else {
+      const set = async (patch) => { try { await api("/api/big/settings", { method: "POST", json: { share_inventory: inv.checked, share_feed: feed.checked, ...patch } }); toast("Saved."); } catch (ex) { toast(errText(ex)); } };
+      const inv = h("input", { type: "checkbox", checked: big.shareInventory, onchange: () => set() }), feed = h("input", { type: "checkbox", checked: big.shareFeed, onchange: () => set() });
+      const daysLeft = Math.round((big.expiresAt - Date.now() / 1000) / 86400);
+      bigBody = h("div", {},
+        big.error === "token_expired" || daysLeft <= 0 ? h("p", { class: "err" }, "Your BIG Games connection expired. Connect again to keep sharing.") : null,
+        h("div", { class: "verified" }, h("span", { class: "tick" }, "✓"), h("div", {}, h("b", {}, "Connected to BIG Games"), h("small", {}, `Last update ${ago2(big.lastFetch)} · next check ${big.nextPoll ? inFuture(big.nextPoll) : "soon"}${big.quotaLimit ? ` · refresh budget ${big.quotaUsed || 0}/${big.quotaLimit} today` : ""}`))),
+        h("div", { class: "choice col" }, h("label", {}, inv, "Show my inventory to DUX0 members"), h("label", {}, feed, "Show my new big pets in the public live feed")),
+        h("p", { class: "hint" }, `The connection ends in ${Math.max(0, daysLeft)} days. Then you connect again.`),
+        h("div", { class: "editor-actions" },
+          h("button", { class: "btn ghost", type: "button", onclick: () => { logoutBig(); } }, "Reconnect"),
+          h("button", { class: "btn danger", type: "button", onclick: async () => { if (!confirm("Disconnect and delete your stored inventory and drops?")) return; try { await api("/api/big/disconnect", { method: "POST" }); toast("Disconnected. Your data was deleted."); rerender(); } catch (ex) { toast(errText(ex)); } } }, "Disconnect and delete my data")));
+    }
+    async function logoutBig() { try { const r = await api("/api/big/start", { method: "POST", json: { share_inventory: big.shareInventory, share_feed: big.shareFeed } }); location.href = r.url; } catch (ex) { toast(errText(ex)); } }
+    cards.push(step(3, "Inventory and live drops", bigBody));
+    view.replaceChildren(pageHead("My account", "Link your accounts. Everything here is optional except what applying needs."), h("div", { class: "stack" }, cards));
+  }
+
+  const vClass = (v) => (/Shiny/.test(v) ? " v-shiny" : "") + (/Golden/.test(v) ? " v-golden" : "") + (/Rainbow/.test(v) ? " v-rainbow" : "");
+  const petImg = (it, cls) => h("div", { class: "petimg" + vClass(it.variant || "") + " " + (cls || "") }, it.icon ? h("img", { src: it.icon, alt: it.name, loading: "lazy" }) : h("span", {}, "?"), /Shiny/.test(it.variant || "") ? h("i", { class: "sparkle" }) : null);
+  const chip = (t, cls) => h("span", { class: "chip " + (cls || "") }, t);
+
+  function dropCard(e) {
+    return h("article", { class: "drop panel shard tier-" + (e.tier || "x").toLowerCase() },
+      petImg(e, "big"),
+      h("div", { class: "drop-body" },
+        h("div", { class: "chips" }, chip(e.tier, "tier"), e.variant !== "Normal" ? chip(e.variant, "var" + vClass(e.variant)) : chip("Normal", "var"), e.hatched === true ? chip("hatched", "ok") : e.hatched === false ? chip("not from hatching", "mute") : null, e.new > 1 ? chip("×" + e.new, "mute") : null),
+        h("h3", {}, e.name),
+        h("p", { class: "who-line" }, h("b", {}, e.robloxName || e.discord || "Player"), " · ", ago(e.detected)),
+        h("div", { class: "nums" }, h("div", {}, h("b", { title: exact(e.rap) }, compact(e.rap)), h("small", {}, "RAP")), h("div", {}, h("b", {}, exact(e.exists)), h("small", {}, "Exists")), e.rarity ? h("div", {}, h("b", {}, e.rarity), h("small", {}, "Rarity")) : null)));
+  }
+
+  async function viewLive() {
+    loading();
+    let live = null, players = null;
+    try { live = await api("/api/live?limit=60"); } catch (_) { S.offline = true; showNotice(); }
+    if (S.token && S.me) { try { players = await api("/api/players"); } catch (_) { players = null; } }
+    const parts = [pageHead("Live drops", "New Huge, Titanic and Gargantuan pets from DUX0 players who connected their account. Shiny, Golden and Rainbow variants are shown with their exact RAP and Exists numbers. Data comes from BIG Games and is checked about every 45 minutes per player.")];
+    if (!live) { parts.push(empty("Live drops need the live server. Try again later.")); view.replaceChildren(...parts); return; }
+    if (!live.enabled) parts.push(empty("Live drops are not switched on yet."));
+    else {
+      parts.push(h("div", { class: "cta" }, h("a", { class: "btn", href: "#/connect" }, "Connect my account"), h("span", { class: "hint" }, `${live.connected} player${live.connected === 1 ? "" : "s"} connected`)));
+      parts.push(live.events.length ? h("div", { class: "drops" }, live.events.map(dropCard)) : empty("No drops yet. They appear here as connected players find big pets."));
+    }
+    if (players && players.length) {
+      parts.push(h("section", { class: "section" }, h("h2", {}, "Player inventories", h("small", {}, "Visible to DUX0 members")),
+        h("div", { class: "grid" }, players.map((p) => h("a", { class: "pcard panel shard", href: "#/inventory/" + p.uid },
+          h("div", { class: "pc-top" }, p.avatar ? h("img", { class: "av", src: p.avatar, alt: "" }) : h("span", { class: "av" }), h("div", { class: "who" }, h("b", {}, p.roblox || p.discord), h("small", {}, "updated " + ago2(p.polled)))),
+          h("div", { class: "nums" }, h("div", {}, h("b", {}, compact((p.summary || {}).totalRap)), h("small", {}, "Total RAP")), h("div", {}, h("b", {}, ((p.summary || {}).bigs || {}).Huge || 0), h("small", {}, "Huge")), h("div", {}, h("b", {}, ((p.summary || {}).bigs || {}).Titanic || 0), h("small", {}, "Titanic")), h("div", {}, h("b", {}, ((p.summary || {}).bigs || {}).Gargantuan || 0), h("small", {}, "Garg."))),
+          h("div", { class: "equip" }, (p.equipped || []).slice(0, 6).map((q) => petImg({ icon: q.icon, name: q.name, variant: (q.shiny ? "Shiny " : "") + (q.golden ? "Golden" : q.rainbow ? "Rainbow" : "") }, "tiny"))))))));
+    } else if (!S.token) parts.push(h("p", { class: "hint" }, "Log in as a DUX0 member to browse player inventories."));
+    view.replaceChildren(...parts);
+  }
+
+  async function viewInventory(uid) {
+    loading();
+    let d;
+    try { d = await api("/api/inventory/" + encodeURIComponent(uid)); }
+    catch (e) { view.replaceChildren(pageHead("Inventory", ""), empty(e.status === 401 || e.status === 403 ? "Only logged-in DUX0 members can see inventories." : "This player does not share an inventory.")); return; }
+    const sm = d.summary || {}, items = d.items || [];
+    let filter = "all", q = "", sort = "rap";
+    const grid = h("div", { class: "inv-grid" });
+    const draw = () => {
+      let rows = items.filter((i) => (filter === "all" || (filter === "big" && i.tier) || (filter === "shiny" && /Shiny/.test(i.variant)) || (filter === "golden" && /Golden/.test(i.variant)) || (filter === "rainbow" && /Rainbow/.test(i.variant))) && (!q || i.name.toLowerCase().includes(q)));
+      rows = rows.sort((a, b) => sort === "rap" ? b.rap * b.count - a.rap * a.count : sort === "exists" ? a.exists - b.exists : a.name.localeCompare(b.name));
+      grid.replaceChildren(...(rows.length ? rows.map((i) => h("div", { class: "invcard panel shard" + (i.tier ? " tier-" + i.tier.toLowerCase() : "") },
+        petImg(i), h("div", { class: "ic-body" }, h("b", {}, i.name), h("div", { class: "chips" }, i.tier ? chip(i.tier, "tier") : null, i.variant !== "Normal" ? chip(i.variant, "var" + vClass(i.variant)) : null, i.count > 1 ? chip("×" + exact(i.count), "mute") : null),
+          h("small", {}, `RAP ${compact(i.rap)}${i.rapApprox ? "~" : ""} · Exists ${exact(i.exists)}`))
+      )) : [empty("No pets match.")]));
+    };
+    const seg = h("div", { class: "seg" });
+    [["all", "All"], ["big", "Huge and bigger"], ["shiny", "Shiny"], ["golden", "Golden"], ["rainbow", "Rainbow"]].forEach(([k, l]) => seg.append(h("button", { type: "button", "aria-pressed": String(k === filter), onclick: (e) => { filter = k; seg.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b === e.currentTarget))); draw(); } }, l)));
+    const tile = (label, v) => h("div", { class: "tile panel shard" }, h("b", {}, v), h("span", {}, label));
+    view.replaceChildren(
+      h("p", {}, h("a", { href: "#/live" }, "Back to live drops")),
+      pageHead(d.roblox || d.discord, `Updated ${ago2(d.polled)}. Snapshot from BIG Games, RAP is cached for a few hours.`),
+      h("section", { class: "tiles" }, tile("Total RAP", h("span", { title: exact(sm.totalRap) }, compact(sm.totalRap))), tile("Huge", (sm.bigs || {}).Huge || 0), tile("Titanic", (sm.bigs || {}).Titanic || 0), tile("Gargantuan", (sm.bigs || {}).Gargantuan || 0)),
+      (d.equipped || []).length ? h("section", { class: "section" }, h("h2", {}, "Equipped"), h("div", { class: "equip" }, d.equipped.map((q) => petImg({ icon: q.icon, name: q.name, variant: (q.shiny ? "Shiny " : "") + (q.golden ? "Golden" : q.rainbow ? "Rainbow" : "") }, "mid")))) : null,
+      h("section", { class: "section" }, h("h2", {}, "Pets"), h("div", { class: "tools" }, seg, h("input", { type: "text", placeholder: "Search a pet", oninput: (e) => { q = e.target.value.trim().toLowerCase(); draw(); } })), grid));
+    draw();
+  }
+
+  /* ---------------- owner dashboard ---------------- */
+  async function viewOwner() {
+    loading();
+    if (!S.me || !S.me.owner) { view.replaceChildren(pageHead("Owner dashboard", "Only the site owner can open this."), S.token ? empty("Your Discord account is not the owner account.") : h("button", { class: "btn", onclick: () => login() }, "Log in with Discord")); return; }
+    if (S.offline) { view.replaceChildren(pageHead("Owner dashboard", ""), empty("The live server is offline.")); return; }
+    const body = h("div"); let cur = S.ownerTab || "apps";
+    const tabs = { apps: "Applications", sync: "Clan and Discord", content: "Website content", settings: "Settings" };
+    const seg = h("div", { class: "seg", role: "tablist" });
+    const show = async (k) => {
+      cur = S.ownerTab = k;
+      seg.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.k === k)));
+      body.replaceChildren(h("div", { class: "loading" }, h("div", { class: "skel shard" })));
+      try { body.replaceChildren(await ({ apps: ownerApps, sync: ownerSync, content: buildContentEditor, settings: ownerSettings })[k]()); }
+      catch (e) { body.replaceChildren(empty("Could not load: " + e.message)); }
+    };
+    Object.entries(tabs).forEach(([k, l]) => seg.append(h("button", { type: "button", "data-k": k, "aria-pressed": String(k === cur), onclick: () => show(k) }, l)));
+    view.replaceChildren(pageHead("Owner dashboard", "Everything you can steer on the website. Only your Discord account can open this page."), h("div", { class: "tools" }, seg), body);
+    show(cur);
+  }
+
+  async function ownerApps() {
+    const d = await api("/api/owner/overview");
+    const list = h("div", { class: "hist panel shard" });
+    const rows = d.applications.map((a) => {
+      const reason = h("input", { type: "text", placeholder: "Reason for declining (optional)", maxlength: 500 });
+      const act = async (accept) => { try { const r = await api("/api/owner/decide", { method: "POST", json: { id: a.id, accept, reason: reason.value } }); toast((accept ? "Accepted. " : "Declined. ") + (r.notes || []).join(" ")); route({ silent: true }); } catch (e) { toast(e.message === "not_pending" ? "Already handled." : "Failed: " + e.message); } };
+      const f = a.fields || {};
+      return h("details", { class: "app-row" },
+        h("summary", {}, h("b", {}, a.roblox), h("span", { class: "tag " + a.status }, a.status), h("small", {}, `${a.name || ""} · ${dateTime(a.created)}${a.images ? " · " + a.images + " screenshots (in Discord)" : ""}${a.status === "accepted" ? (a.joined ? " · joined" : " · not joined yet") : ""}`)),
+        h("div", { class: "app-body" }, h("p", {}, `Rank ${f.rank || "-"} · Playtime ${f.playtime || "-"} · Can spend 3B: ${f.can_spend || "-"}`), h("p", {}, "Gamepasses: " + (f.gamepasses || "-")), h("p", {}, "Masteries: " + (f.masteries || "-")), f.note ? h("p", {}, "Note: " + f.note) : null, a.reason ? h("p", { class: "hint" }, "Decline reason: " + a.reason) : null,
+          a.status === "pending" ? h("div", { class: "editor-actions" }, h("button", { class: "btn small", type: "button", onclick: () => act(true) }, "Accept"), reason, h("button", { class: "btn danger small", type: "button", onclick: () => act(false) }, "Decline")) : null));
+    });
+    list.append(...(rows.length ? rows : [empty("No applications yet.")]));
+    return h("div", {}, h("p", { class: "hint" }, "Screenshots are attached to the application channel in Discord. You can accept or decline here or with the Discord buttons."), list);
+  }
+
+  async function ownerSync() {
+    const box = h("div"), out = h("div");
+    const run = async (btn) => {
+      btn.disabled = true; btn.textContent = "Checking…";
+      try {
+        const d = await api("/api/owner/sync", { timeout: 60000 });
+        const sec = (title, rows, render, note) => h("section", { class: "section" }, h("h2", {}, title, h("small", {}, rows.length + "")), note ? h("p", { class: "hint" }, note) : null, rows.length ? h("div", { class: "hist panel shard" }, rows.map(render)) : empty("Nobody."));
+        const row = (main, sub, ...actions) => h("div", { class: "clanrow" }, h("div", { class: "who" }, h("b", {}, main), h("small", {}, sub)), h("span"), h("div", { class: "editor-actions" }, actions));
+        const rm = (uid, mode) => h("button", { class: "btn small " + (mode === "kick" ? "danger" : "ghost"), type: "button", onclick: async () => { if (!confirm(mode === "kick" ? "Kick this member from Discord?" : "Remove the member role?")) return; try { await api("/api/owner/remove", { method: "POST", json: { uid, mode } }); toast("Done."); run(btn); } catch (e) { toast("Failed: " + e.message); } } }, mode === "kick" ? "Kick" : "Remove role");
+        out.replaceChildren(
+          h("div", { class: "tiles" }, h("div", { class: "tile panel shard" }, h("b", {}, d.clanSize), h("span", {}, "In the Roblox clan")), h("div", { class: "tile panel shard" }, h("b", {}, d.linked), h("span", {}, "Linked to Discord")), h("div", { class: "tile panel shard gold" }, h("b", {}, d.onServerNotInClan.length), h("span", {}, "On Discord but left the clan"))),
+          sec("On Discord but no longer in the clan", d.onServerNotInClan, (x) => row(x.roblox, `Discord: ${x.discord}`, rm(x.uid, "role"), rm(x.uid, "kick")), "These members still have the member role, but their verified Roblox account is not in the clan any more."),
+          sec("In the clan but not on the Discord server", d.linkedNotOnServer, (x) => row(x.roblox, `Discord: ${x.discord || "?"}`), "Verified, but not on the server (left or was removed)."),
+          sec("In the clan but not linked yet", d.clanNotLinked, (x) => row(x.roblox, "has not verified a Roblox account on the website"), "Ask them to open My account and verify. Until then they cannot be matched with a Discord account."),
+          sec("Member role but no linked Roblox account", d.roleNotLinked, (x) => row(x.discord, "cannot be checked against the clan", rm(x.uid, "role")), d.fullList ? "" : "Server member list unavailable. Enable the Server Members Intent."));
+      } catch (e) { out.replaceChildren(empty("Check failed: " + e.message)); }
+      btn.disabled = false; btn.textContent = "Run the check again";
+    };
+    const btn = h("button", { class: "btn", type: "button", onclick: () => run(btn) }, "Run the check");
+    box.append(h("p", {}, "Compares your Roblox clan roster with the people on the Discord server. Nothing changes unless you press a button."), btn, out);
+    return box;
+  }
+
+  async function ownerSettings() {
+    const d = await api("/api/owner/overview"), s = d.settings;
+    const gate = h("input", { type: "checkbox", checked: s.gate }), req = h("input", { type: "checkbox", checked: s.requireRoblox });
+    const poll = h("input", { type: "text", value: String(s.hatchPollMinutes) }), reapply = h("input", { type: "text", value: String(s.reapplyDays) });
+    const save = h("button", { class: "btn", type: "button", onclick: async () => { try { await api("/api/owner/settings", { method: "PUT", json: { gate: gate.checked, requireRoblox: req.checked, hatchPollMinutes: poll.value, reapplyDays: reapply.value } }); toast("Saved."); } catch (e) { toast("Failed: " + e.message); } } }, "Save settings");
+    return h("div", { class: "stack" },
+      h("div", { class: "card wide panel shard" },
+        h("div", { class: "choice col" }, h("label", {}, gate, "Gate: remove people who join without an accepted application"), h("label", {}, req, "Applicants must verify their Roblox account first")),
+        h("div", { class: "two" }, h("div", { class: "field" }, h("label", {}, "Minutes between inventory checks per player ", h("span", { class: "hint" }, "(10 to 240)")), poll), h("div", { class: "field" }, h("label", {}, "Days before a declined player may apply again"), reapply)), save),
+      h("section", { class: "section" }, h("h2", {}, "Connected players", h("small", {}, d.connections.length + "")),
+        h("p", { class: "hint" }, `${d.links} Roblox accounts linked. BIG Games connection: ${d.bigConfigured ? "switched on" : "not configured (BIG_CLIENT_ID / BIG_CLIENT_SECRET)"}. Discord channel for drops: ${d.hatchChannel ? "set" : "not set (DUX0_HATCH_CHANNEL_ID)"}.`),
+        d.connections.length ? h("div", { class: "hist panel shard" }, d.connections.map((c) => h("div", { class: "clanrow" }, h("div", { class: "who" }, h("b", {}, c.roblox || c.discord), h("small", {}, `updated ${ago2(c.lastFetch)}${c.error ? " · " + c.error : ""} · inventory ${c.shareInventory ? "shared" : "private"} · feed ${c.shareFeed ? "public" : "off"}`)), h("span"), h("span", { class: "hint" }, "expires " + dateTime(c.expiresAt))))) : empty("Nobody connected yet.")));
+  }
+
   /* ---------------- admin ---------------- */
   async function uploadImage(file) {
     const fd = new FormData(); fd.append("file", file);
     return (await api("/api/upload", { method: "POST", body: fd, timeout: 60000 })).path;
   }
 
-  async function viewAdmin() {
-    loading();
-    if (!S.me || !S.me.admin) {
-      view.replaceChildren(pageHead("Admin", "Only clan staff can edit the website."), S.token ? empty("Your account does not have the admin role.") : h("button", { class: "btn", onclick: login }, "Log in with Discord"));
-      return;
-    }
-    if (S.offline) { view.replaceChildren(pageHead("Admin", ""), empty("The live server is offline. Editing is not possible right now.")); return; }
+  async function buildContentEditor() {
     const d = JSON.parse(JSON.stringify(await api("/api/content")));
     d.achievements = d.achievements || []; d.gallery = d.gallery || []; d.requirements = d.requirements || [];
     const achBox = h("div"), galBox = h("div", { class: "gallery-edit" });
     const pickFile = (onPath) => {
       const input = h("input", { type: "file", accept: "image/png,image/jpeg,image/webp,image/gif", multiple: true });
       input.addEventListener("change", async () => {
-        for (const file of input.files) {
+        for (const file of Array.from(input.files)) {
           if (file.size > 5 * 1024 * 1024) { toast(file.name + " is larger than 5 MB."); continue; }
           try { toast("Uploading…"); onPath(await uploadImage(file)); } catch (e) { toast("Upload failed: " + e.message); }
         }
@@ -612,7 +962,6 @@
 
     const ann = h("input", { type: "text", maxlength: 240, value: d.announcement || "", placeholder: "Shown as a banner on the home page. Leave empty for none.", oninput: (e) => (d.announcement = e.target.value) });
     const about = h("textarea", { maxlength: 4000, style: "min-height:9rem", oninput: (e) => (d.about = e.target.value) }, d.about || "");
-    const invite = h("input", { type: "url", value: d.invite || "", oninput: (e) => (d.invite = e.target.value) });
     const reqs = h("textarea", { placeholder: "One requirement per line", oninput: (e) => (d.requirements = e.target.value.split("\n")) }, d.requirements.join("\n"));
     const save = h("button", { class: "btn", type: "button" }, "Save changes");
     save.addEventListener("click", async () => {
@@ -622,12 +971,10 @@
       save.disabled = false;
     });
     drawAch(); drawGal();
-    view.replaceChildren(
-      pageHead("Admin", "Changes go live for every visitor as soon as you save. No GitHub step needed."),
+    return h("div", {},
       h("div", { class: "card wide panel shard" },
         h("div", { class: "field" }, h("label", {}, "Announcement banner"), ann),
         h("div", { class: "field" }, h("label", {}, "About text"), about),
-        h("div", { class: "field" }, h("label", {}, "Discord invite link"), invite),
         h("div", { class: "field" }, h("label", {}, "Requirements"), reqs)),
       h("section", { class: "section" }, h("h2", {}, "Achievements"), achBox, h("button", { type: "button", class: "btn ghost", onclick: () => { d.achievements.push({ id: "", title: "", desc: "", date: "", image: "" }); drawAch(); } }, "Add achievement")),
       h("section", { class: "section" }, h("h2", {}, "Clan gallery"), galBox, h("button", { type: "button", class: "btn ghost", onclick: () => pickFile((p) => { d.gallery.push({ image: p, caption: "" }); drawGal(); }) }, "Add images")),
@@ -649,8 +996,10 @@
       add(st.categoryFound ? "ok" : "bad", "Discord server and applications category found", st.categoryFound ? "Server: " + st.guild : "The bot cannot see the applications category. Check that the bot is on the server and can view that category.");
       add(st.loginReady ? "ok" : "bad", "Discord login configured", st.loginReady ? "Client secret is set." : "DUX0_CLIENT_SECRET is missing in settings.env, so nobody can log in. Copy it from Developer Portal, OAuth2.");
       add("warn", "Redirect URL in the Discord Developer Portal", h("span", {}, "In the application with client ID ", h("code", {}, cfg.clientId), " open OAuth2, Redirects and add exactly: ", h("code", {}, cfg.redirectUri), ". A missing or different entry makes Discord show \"Invalid OAuth2 redirect_uri\"."));
+      add(st.gate ? "ok" : "warn", "Application gate", st.gate ? "On. New members without an accepted application are removed automatically. This needs the Server Members Intent and the Kick Members permission for the bot." : "Off (DUX0_GATE=0). Anyone with an invite can stay.");
       add(st.githubToken ? "ok" : "warn", "GitHub token", st.githubToken ? "Set. The bot can update config.json and back up content." : "Not set. Without it you must enter the tunnel address into config.json by hand after every restart.");
       add(st.tunnel ? "ok" : "warn", "Tunnel", st.tunnel || "No tunnel is running from this bot process.");
+      add(st.bigConfigured ? "ok" : "warn", "BIG Games connection", st.bigConfigured ? "Configured. Players can connect their inventory." : "Not configured. Set BIG_CLIENT_ID and BIG_CLIENT_SECRET in settings.env to turn on live drops and inventories.");
     }
     const clan = cfg ? await load("clan", true) : null;
     if (clan && clan.health) {
@@ -667,17 +1016,23 @@
   /* ------------------------------------------------------------------ */
   /* router                                                              */
   /* ------------------------------------------------------------------ */
-  const routes = { home: viewHome, battles: viewBattles, members: viewMembers, stats: viewStats, achievements: viewAchievements, apply: viewApply, admin: viewAdmin, status: viewStatus };
+  const routes = { home: viewHome, battles: viewBattles, members: viewMembers, stats: viewStats, achievements: viewAchievements, live: viewLive, connect: viewConnect, apply: viewApply, owner: viewOwner, status: viewStatus };
   const LIVE_VIEWS = ["home", "battles", "members", "stats"];
 
   async function route(opts = {}) {
     S.silent = !!opts.silent;
+    view.classList.toggle("silent", S.silent);
     S.timers.forEach(clearInterval); S.timers = [];
-    const name = location.hash.replace(/^#\/?/, "").split("?")[0] || "home";
+    const path = location.hash.replace(/^#\/?/, "").split("?")[0];
+    const parts = path.split("/").filter(Boolean);
+    const name = parts[0] || "home";
     const key = routes[name] ? name : "home";
     S.route = key;
     document.querySelectorAll("#links a").forEach((a) => a.classList.toggle("on", a.dataset.r === key));
-    try { await routes[key](); }
+    try {
+      if (name === "inventory" && parts[1]) await viewInventory(parts[1]);
+      else await routes[key]();
+    }
     catch (e) { console.error(e); view.replaceChildren(pageHead("Something went wrong", "Please reload the page.")); }
     if (!S.silent) window.scrollTo(0, 0);
     S.silent = false;
@@ -686,7 +1041,7 @@
   async function boot() {
     try { const cfg = await (await fetch("config.json?t=" + Date.now())).json(); S.api = (cfg.api || "").replace(/\/$/, ""); } catch (_) { /* none */ }
     if (S.api) { try { S.cfg = await api("/api/config", { timeout: 6000 }); } catch (_) { S.offline = true; } } else S.offline = true;
-    if (S.cfg) { $("#foot-discord").href = S.cfg.invite || "https://discord.gg/dux0"; await refreshMe(); }
+    if (S.cfg) await refreshMe();
     showNotice(); renderAccount();
     addEventListener("hashchange", () => route());
     addEventListener("scroll", () => $("#nav").classList.toggle("scrolled", scrollY > 10), { passive: true });
@@ -694,7 +1049,7 @@
       const a = document.activeElement;
       if (document.hidden || S.modal || S.offline || !LIVE_VIEWS.includes(S.route) || (a && /INPUT|TEXTAREA/.test(a.tagName))) return;
       delete S.cache.clan; route({ silent: true });
-    }, 90000);
+    }, 30000);
     embers(); route();
   }
   boot();

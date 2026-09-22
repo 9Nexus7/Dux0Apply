@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DUX0 – Pet Simulator 99 clan</title>
+  <meta name="description" content="DUX0 is a Pet Simulator 99 clan. Live clan battle standings, member points and gems, achievements, and applications.">
+  <meta name="theme-color" content="#06030d">
+  <meta property="og:title" content="DUX0 – United as one. Built to win.">
+  <meta property="og:description" content="Live clan battle standings, member points and gems, achievements and applications for the DUX0 Pet Simulator 99 clan.">
+  <meta property="og:image" content="assets/banner.png">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="embers" aria-hidden="true"></canvas>
+
+  <header class="nav" id="nav">
+    <a class="brand" href="#/" aria-label="DUX0 home">
+      <img src="assets/logo.png" alt="" width="44" height="35">
+      <span>DUX0</span>
+    </a>
+    <nav id="links" aria-label="Main">
+      <a href="#/" data-r="home">Home</a>
+      <a href="#/battles" data-r="battles">Battles</a>
+      <a href="#/members" data-r="members">Members</a>
+      <a href="#/stats" data-r="stats">Stats</a>
+      <a href="#/live" data-r="live">Live drops</a>
+      <a href="#/achievements" data-r="achievements">Achievements</a>
+      <a href="#/apply" data-r="apply">Apply</a>
+      <a href="#/connect" data-r="connect">My account</a>
+      <a href="#/owner" data-r="owner" id="owner-link" hidden>Owner</a>
+    </nav>
+    <div id="account"></div>
+  </header>
+
+  <div id="notice" class="notice" hidden></div>
+  <main id="view" tabindex="-1"></main>
+
+  <footer class="foot">
+    <span>DUX0 · United as one. Built to win.</span>
+    <span class="foot-links">
+      <a href="#/apply">Apply to join</a>
+      <a href="#/status">Site status</a>
+    </span>
+    <small>Game data from the BIG Games public API. Not affiliated with BIG Games or Roblox.</small>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="lightbox" class="lightbox" hidden><img alt=""></div>
+  <div id="modal" class="modal" hidden role="dialog" aria-modal="true"><div class="modal-card"></div></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
