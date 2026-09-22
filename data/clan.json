@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updated": 1790088935,
+  "updated": 1790089105,
   "clan": {
     "name": "DUX0",
     "desc": "gg/dux0",
@@ -25,8 +25,8 @@
       "role": "Member",
       "permission": 50,
       "joined": 1788803333,
-      "event": 227279414,
-      "points": 307635914,
+      "event": 227382144,
+      "points": 307738644,
       "gems": 10000000,
       "eventRank": 1,
       "pointsRank": 1,
@@ -40,8 +40,8 @@
       "role": "Member",
       "permission": 50,
       "joined": 1778401789,
-      "event": 212022171,
-      "points": 303395495,
+      "event": 212024166,
+      "points": 303397490,
       "gems": 60000000,
       "eventRank": 2,
       "pointsRank": 2,
@@ -70,8 +70,8 @@
       "role": "Member",
       "permission": 50,
       "joined": 1788211420,
-      "event": 185873801,
-      "points": 212621665,
+      "event": 185949434,
+      "points": 212697298,
       "gems": 0,
       "eventRank": 4,
       "pointsRank": 4,
@@ -190,8 +190,8 @@
       "role": "Member",
       "permission": 50,
       "joined": 1786346944,
-      "event": 36496397,
-      "points": 81890234,
+      "event": 36508402,
+      "points": 81902239,
       "gems": 33000000,
       "eventRank": 12,
       "pointsRank": 10,
@@ -235,8 +235,8 @@
       "role": "Member",
       "permission": 50,
       "joined": 1788802775,
-      "event": 22475934,
-      "points": 31575684,
+      "event": 22516560,
+      "points": 31616310,
       "gems": 0,
       "eventRank": 15,
       "pointsRank": 19,
@@ -455,8 +455,8 @@
   ],
   "totals": {
     "members": 29,
-    "event": 1573709985,
-    "points": 2561674308,
+    "event": 1573942974,
+    "points": 2561907297,
     "gems": 2557177498,
     "contributors": 29
   },
@@ -517,19 +517,19 @@
         "amount": 1
       }
     ],
-    "points": 1573709985,
+    "points": 1573942974,
     "rank": {
       "place": 348,
       "total": 169313,
-      "points": 1573481989,
+      "points": 1574644359,
       "gems": 2557177498,
       "above": {
         "name": "PSWF",
-        "points": 1576174818
+        "points": 1576610366
       },
       "below": {
         "name": "BEET",
-        "points": 1536921694
+        "points": 1538894930
       }
     },
     "topClans": [
@@ -647,62 +647,62 @@
     "topPlayers": [
       {
         "rank": 1,
-        "name": "2041486311",
-        "points": 7324938396,
+        "name": "John",
+        "points": 7325157976,
         "clan": "UN0"
       },
       {
         "rank": 2,
-        "name": "3850006283",
-        "points": 6599915563,
+        "name": "dez",
+        "points": 6605834893,
         "clan": "C0LD"
       },
       {
         "rank": 3,
-        "name": "2961636717",
-        "points": 6560214771,
+        "name": "nichozr",
+        "points": 6578399260,
         "clan": "UN0"
       },
       {
         "rank": 4,
-        "name": "470464024",
-        "points": 6501652753,
+        "name": "elliesbf",
+        "points": 6509235699,
         "clan": "C0LD"
       },
       {
         "rank": 5,
-        "name": "303729688",
-        "points": 5692302149,
+        "name": "FutteDk11",
+        "points": 5696979175,
         "clan": "UN0"
       },
       {
         "rank": 6,
-        "name": "1522057458",
-        "points": 5640763083,
+        "name": "Vietnam_Zack",
+        "points": 5657937853,
         "clan": "UN0"
       },
       {
         "rank": 7,
-        "name": "1339738254",
-        "points": 5412060849,
+        "name": "Marvin",
+        "points": 5417048287,
         "clan": "UN0"
       },
       {
         "rank": 8,
         "name": "Zabi",
-        "points": 5265936478,
+        "points": 5272784779,
         "clan": "C0LD"
       },
       {
         "rank": 9,
-        "name": "7515473066",
-        "points": 5098053162,
+        "name": "ThriveOnTop",
+        "points": 5101431953,
         "clan": "K0i2"
       },
       {
         "rank": 10,
-        "name": "5510809744",
-        "points": 5035174378,
+        "name": "MoneysKallin",
+        "points": 5041771937,
         "clan": "UN0"
       }
     ],
@@ -792,7 +792,7 @@
     {
       "id": "SpaceMineBattle2026",
       "title": "Space Mine Battle2026",
-      "points": 1573709985,
+      "points": 1573942974,
       "place": 348,
       "medal": null,
       "live": true
