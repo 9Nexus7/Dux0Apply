@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updated": 1790049193,
+  "updated": 1790049364,
   "clan": {
     "name": "DUX0",
     "desc": "gg/dux0",
@@ -25,8 +25,8 @@
       "role": "Member",
       "permission": 50,
       "joined": 1788803333,
-      "event": 217238764,
-      "points": 297595264,
+      "event": 217288576,
+      "points": 297645076,
       "gems": 10000000,
       "eventRank": 1,
       "pointsRank": 1,
@@ -40,8 +40,8 @@
       "role": "Member",
       "permission": 50,
       "joined": 1787171456,
-      "event": 208210584,
-      "points": 294425568,
+      "event": 208449090,
+      "points": 294664074,
       "gems": 10000000,
       "eventRank": 2,
       "pointsRank": 2,
@@ -100,8 +100,8 @@
       "role": "Officer",
       "permission": 90,
       "joined": 1787436042,
-      "event": 77531667,
-      "points": 164785385,
+      "event": 77755532,
+      "points": 165009250,
       "gems": 999999,
       "eventRank": 6,
       "pointsRank": 7,
@@ -470,8 +470,8 @@
   ],
   "totals": {
     "members": 30,
-    "event": 1407524867,
-    "points": 2395489190,
+    "event": 1408037050,
+    "points": 2396001373,
     "gems": 2557177498,
     "contributors": 30
   },
@@ -532,11 +532,11 @@
         "amount": 1
       }
     ],
-    "points": 1407524867,
+    "points": 1408037050,
     "rank": {
       "place": 317,
       "total": 169315,
-      "points": 1407664750,
+      "points": 1408188387,
       "gems": 2557177498,
       "above": {
         "name": "3MMS",
@@ -544,7 +544,7 @@
       },
       "below": {
         "name": "4tru",
-        "points": 1392633652
+        "points": 1393403308
       }
     },
     "topClans": [
@@ -663,61 +663,61 @@
       {
         "rank": 1,
         "name": "nichozr",
-        "points": 5451852487,
+        "points": 5457110750,
         "clan": "UN0"
       },
       {
         "rank": 2,
         "name": "John",
-        "points": 5404040736,
+        "points": 5414644544,
         "clan": "UN0"
       },
       {
         "rank": 3,
         "name": "dez",
-        "points": 5360840060,
+        "points": 5366568982,
         "clan": "C0LD"
       },
       {
         "rank": 4,
-        "name": "470464024",
-        "points": 5110490869,
+        "name": "elliesbf",
+        "points": 5113503195,
         "clan": "C0LD"
       },
       {
         "rank": 5,
         "name": "FutteDk11",
-        "points": 4947941198,
+        "points": 4952327469,
         "clan": "UN0"
       },
       {
         "rank": 6,
         "name": "Marvin",
-        "points": 4317605801,
+        "points": 4322375622,
         "clan": "UN0"
       },
       {
         "rank": 7,
         "name": "7515473066",
-        "points": 4293014363,
+        "points": 4299430005,
         "clan": "K0i2"
       },
       {
         "rank": 8,
         "name": "MoneysKallin",
-        "points": 4118071004,
+        "points": 4123042713,
         "clan": "UN0"
       },
       {
         "rank": 9,
         "name": "Vietnam_Zack",
-        "points": 4001749205,
+        "points": 4006226659,
         "clan": "UN0"
       },
       {
         "rank": 10,
         "name": "Zabi",
-        "points": 3957153832,
+        "points": 3960616722,
         "clan": "C0LD"
       }
     ],
@@ -807,7 +807,7 @@
     {
       "id": "SpaceMineBattle2026",
       "title": "Space Mine Battle2026",
-      "points": 1407524867,
+      "points": 1408037050,
       "place": 317,
       "medal": null,
       "live": true
