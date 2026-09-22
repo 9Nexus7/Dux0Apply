@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "updated": 1790078097,
+  "updated": 1790078264,
   "clan": {
     "name": "DUX0",
     "desc": "gg/dux0",
@@ -25,8 +25,8 @@
       "role": "Member",
       "permission": 50,
       "joined": 1788803333,
-      "event": 220029387,
-      "points": 300385887,
+      "event": 220037594,
+      "points": 300394094,
       "gems": 10000000,
       "eventRank": 1,
       "pointsRank": 2,
@@ -40,8 +40,8 @@
       "role": "Member",
       "permission": 50,
       "joined": 1778401789,
-      "event": 211204489,
-      "points": 302577813,
+      "event": 211221612,
+      "points": 302594936,
       "gems": 60000000,
       "eventRank": 2,
       "pointsRank": 1,
@@ -70,8 +70,8 @@
       "role": "Member",
       "permission": 50,
       "joined": 1788211420,
-      "event": 181660566,
-      "points": 208408430,
+      "event": 181769767,
+      "points": 208517631,
       "gems": 0,
       "eventRank": 4,
       "pointsRank": 4,
@@ -100,8 +100,8 @@
       "role": "Officer",
       "permission": 90,
       "joined": 1787436042,
-      "event": 103184321,
-      "points": 190438039,
+      "event": 103454728,
+      "points": 190708446,
       "gems": 999999,
       "eventRank": 6,
       "pointsRank": 6,
@@ -145,8 +145,8 @@
       "role": "Officer",
       "permission": 90,
       "joined": 1786215992,
-      "event": 50359491,
-      "points": 111763190,
+      "event": 50472482,
+      "points": 111876181,
       "gems": 999999,
       "eventRank": 9,
       "pointsRank": 8,
@@ -220,8 +220,8 @@
       "role": "Member",
       "permission": 50,
       "joined": 1786346944,
-      "event": 23525633,
-      "points": 68919470,
+      "event": 23552061,
+      "points": 68945898,
       "gems": 33000000,
       "eventRank": 14,
       "pointsRank": 10,
@@ -455,8 +455,8 @@
   ],
   "totals": {
     "members": 29,
-    "event": 1492231726,
-    "points": 2480196049,
+    "event": 1492776083,
+    "points": 2480740406,
     "gems": 2557177498,
     "contributors": 29
   },
@@ -517,19 +517,19 @@
         "amount": 1
       }
     ],
-    "points": 1492231726,
+    "points": 1492776083,
     "rank": {
       "place": 344,
       "total": 169315,
-      "points": 1492426453,
+      "points": 1492923244,
       "gems": 2557177498,
       "above": {
         "name": "SDAD",
-        "points": 1493699791
+        "points": 1494088322
       },
       "below": {
         "name": "STOZ",
-        "points": 1488767050
+        "points": 1490007757
       }
     },
     "topClans": [
@@ -540,7 +540,7 @@
         "country": "GB",
         "members": 74,
         "capacity": 75,
-        "points": 208898209130,
+        "points": 209318522389,
         "gems": 824278236639,
         "ours": false
       },
@@ -551,7 +551,7 @@
         "country": "JP",
         "members": 74,
         "capacity": 75,
-        "points": 158490308663,
+        "points": 158999401759,
         "gems": 48801985643,
         "ours": false
       },
@@ -562,7 +562,7 @@
         "country": "XK",
         "members": 74,
         "capacity": 75,
-        "points": 156455410123,
+        "points": 156775485690,
         "gems": 425230799163,
         "ours": false
       },
@@ -573,7 +573,7 @@
         "country": "US",
         "members": 74,
         "capacity": 75,
-        "points": 77928231924,
+        "points": 78086338391,
         "gems": 67070135849,
         "ours": false
       },
@@ -584,7 +584,7 @@
         "country": "US",
         "members": 72,
         "capacity": 75,
-        "points": 73512437136,
+        "points": 73700414053,
         "gems": 194633357331,
         "ours": false
       },
@@ -595,7 +595,7 @@
         "country": "US",
         "members": 74,
         "capacity": 75,
-        "points": 71802722964,
+        "points": 71961486321,
         "gems": 15645584051,
         "ours": false
       },
@@ -606,7 +606,7 @@
         "country": "CZ",
         "members": 71,
         "capacity": 75,
-        "points": 63881289384,
+        "points": 63992142704,
         "gems": 32078071540,
         "ours": false
       },
@@ -617,7 +617,7 @@
         "country": "NL",
         "members": 72,
         "capacity": 75,
-        "points": 58032113971,
+        "points": 58141135170,
         "gems": 86053183617,
         "ours": false
       },
@@ -628,7 +628,7 @@
         "country": "PL",
         "members": 72,
         "capacity": 75,
-        "points": 55377948952,
+        "points": 55474007512,
         "gems": 701854653511,
         "ours": false
       },
@@ -639,7 +639,7 @@
         "country": "US",
         "members": 74,
         "capacity": 75,
-        "points": 54152798825,
+        "points": 54246466268,
         "gems": 78122303824,
         "ours": false
       }
@@ -648,61 +648,61 @@
       {
         "rank": 1,
         "name": "John",
-        "points": 6952947649,
+        "points": 6986690142,
         "clan": "UN0"
       },
       {
         "rank": 2,
         "name": "dez",
-        "points": 6253119929,
+        "points": 6260868063,
         "clan": "C0LD"
       },
       {
         "rank": 3,
         "name": "nichozr",
-        "points": 6183636743,
+        "points": 6188367432,
         "clan": "UN0"
       },
       {
         "rank": 4,
         "name": "elliesbf",
-        "points": 6013194766,
+        "points": 6013499149,
         "clan": "C0LD"
       },
       {
         "rank": 5,
         "name": "FutteDk11",
-        "points": 5481119212,
+        "points": 5484441301,
         "clan": "UN0"
       },
       {
         "rank": 6,
         "name": "Marvin",
-        "points": 4975195150,
+        "points": 4979428120,
         "clan": "UN0"
       },
       {
         "rank": 7,
         "name": "Zabi",
-        "points": 4927519618,
+        "points": 4933150115,
         "clan": "C0LD"
       },
       {
         "rank": 8,
         "name": "ThriveOnTop",
-        "points": 4917900757,
+        "points": 4921849621,
         "clan": "K0i2"
       },
       {
         "rank": 9,
         "name": "MoneysKallin",
-        "points": 4756067091,
+        "points": 4762288795,
         "clan": "UN0"
       },
       {
         "rank": 10,
         "name": "Vietnam_Zack",
-        "points": 4676071211,
+        "points": 4679007561,
         "clan": "UN0"
       }
     ],
@@ -792,7 +792,7 @@
     {
       "id": "SpaceMineBattle2026",
       "title": "Space Mine Battle2026",
-      "points": 1492231726,
+      "points": 1492776083,
       "place": 344,
       "medal": null,
       "live": true
