@@ -1,11 +1,11 @@
 {
   "ok": true,
-  "updated": 1790125403,
+  "updated": 1790127233,
   "tracking": {
     "window": 3605,
     "since": 1790105439,
-    "rate1h": 21177046,
-    "rate24h": 31897912,
+    "rate1h": 21467088,
+    "rate24h": 30957853,
     "trend": [
       [
         1790105439,
@@ -543,9 +543,59 @@
         346
       ],
       [
-        1790125372,
-        1923062380,
-        346
+        1790125436,
+        1923236371,
+        347
+      ],
+      [
+        1790125626,
+        1924866085,
+        347
+      ],
+      [
+        1790125812,
+        1925708366,
+        347
+      ],
+      [
+        1790125997,
+        1926298003,
+        347
+      ],
+      [
+        1790126182,
+        1927763395,
+        347
+      ],
+      [
+        1790126368,
+        1928595854,
+        347
+      ],
+      [
+        1790126555,
+        1929871611,
+        347
+      ],
+      [
+        1790126740,
+        1930896362,
+        347
+      ],
+      [
+        1790126925,
+        1932266052,
+        348
+      ],
+      [
+        1790127110,
+        1933322212,
+        348
+      ],
+      [
+        1790127233,
+        1933860820,
+        348
       ]
     ]
   },
@@ -573,13 +623,13 @@
       "role": "Member",
       "permission": 50,
       "joined": 1787171456,
-      "event": 283152253,
-      "points": 369367237,
+      "event": 285154447,
+      "points": 371369431,
       "gems": 10000000,
       "eventRank": 1,
       "pointsRank": 1,
       "gemsRank": 12,
-      "gain": 3147414
+      "gain": 3686245
     },
     {
       "id": 2485362828,
@@ -589,13 +639,13 @@
       "role": "Member",
       "permission": 50,
       "joined": 1788803333,
-      "event": 271783560,
-      "points": 352140060,
+      "event": 275856511,
+      "points": 356213011,
       "gems": 10000000,
       "eventRank": 2,
       "pointsRank": 3,
       "gemsRank": 10,
-      "gain": 7698007
+      "gain": 7836859
     },
     {
       "id": 2822863890,
@@ -605,13 +655,13 @@
       "role": "Member",
       "permission": 50,
       "joined": 1778401789,
-      "event": 268934182,
-      "points": 360307506,
+      "event": 272002994,
+      "points": 363376318,
       "gems": 60000000,
       "eventRank": 3,
       "pointsRank": 2,
       "gemsRank": 2,
-      "gain": 6999761
+      "gain": 6722667
     },
     {
       "id": 3403894937,
@@ -669,13 +719,13 @@
       "role": "Member",
       "permission": 50,
       "joined": 1788636608,
-      "event": 105521731,
-      "points": 122476468,
+      "event": 106755574,
+      "points": 123710311,
       "gems": 67000,
       "eventRank": 7,
       "pointsRank": 9,
       "gemsRank": 18,
-      "gain": 2582207
+      "gain": 2463657
     },
     {
       "id": 3462521468,
@@ -733,13 +783,13 @@
       "role": "Member",
       "permission": 50,
       "joined": 1783796005,
-      "event": 54085517,
-      "points": 71332780,
+      "event": 54182160,
+      "points": 71429423,
       "gems": 10000000,
       "eventRank": 11,
       "pointsRank": 12,
       "gemsRank": 11,
-      "gain": 189361
+      "gain": 187712
     },
     {
       "id": 3173977423,
@@ -797,13 +847,13 @@
       "role": "Member",
       "permission": 50,
       "joined": 1788932195,
-      "event": 32646363,
-      "points": 41188113,
+      "event": 32737724,
+      "points": 41279474,
       "gems": 0,
       "eventRank": 15,
       "pointsRank": 18,
       "gemsRank": 22,
-      "gain": 177953
+      "gain": 184501
     },
     {
       "id": 3730037769,
@@ -829,13 +879,13 @@
       "role": "Member",
       "permission": 50,
       "joined": 1787597716,
-      "event": 7858783,
-      "points": 14125465,
+      "event": 7995683,
+      "points": 14262365,
       "gems": 10000000,
       "eventRank": 17,
       "pointsRank": 23,
       "gemsRank": 9,
-      "gain": 255530
+      "gain": 263833
     },
     {
       "id": 3232560642,
@@ -941,13 +991,13 @@
       "role": "Member",
       "permission": 50,
       "joined": 1786223869,
-      "event": 879028,
-      "points": 17537752,
+      "event": 974764,
+      "points": 17633488,
       "gems": 0,
       "eventRank": 24,
       "pointsRank": 21,
       "gemsRank": 24,
-      "gain": 156226
+      "gain": 151429
     },
     {
       "id": 9652486272,
@@ -1032,8 +1082,8 @@
   ],
   "totals": {
     "members": 29,
-    "event": 1923062380,
-    "points": 2911026703,
+    "event": 1933860820,
+    "points": 2921825143,
     "gems": 2557177498,
     "contributors": 29
   },
@@ -1094,19 +1144,19 @@
         "amount": 1
       }
     ],
-    "points": 1923062380,
+    "points": 1933860820,
     "rank": {
-      "place": 347,
+      "place": 348,
       "total": 169315,
-      "points": 1923232880,
+      "points": 1933790114,
       "gems": 2557177498,
       "above": {
-        "name": "SDAD",
-        "points": 1923383808
+        "name": "3MMS",
+        "points": 1939655516
       },
       "below": {
-        "name": "3MMS",
-        "points": 1908453968
+        "name": "Suju",
+        "points": 1930867916
       }
     },
     "topClans": [
@@ -1117,7 +1167,7 @@
         "country": "GB",
         "members": 74,
         "capacity": 75,
-        "points": 283914455760,
+        "points": 286637898504,
         "gems": 824278236639,
         "ours": false
       },
@@ -1128,7 +1178,7 @@
         "country": "JP",
         "members": 74,
         "capacity": 75,
-        "points": 219888876368,
+        "points": 222274395260,
         "gems": 48801985643,
         "ours": false
       },
@@ -1139,7 +1189,7 @@
         "country": "XK",
         "members": 74,
         "capacity": 75,
-        "points": 216335572174,
+        "points": 218744542753,
         "gems": 425230799163,
         "ours": false
       },
@@ -1150,7 +1200,7 @@
         "country": "US",
         "members": 74,
         "capacity": 75,
-        "points": 103497340102,
+        "points": 104268557434,
         "gems": 67070135849,
         "ours": false
       },
@@ -1161,7 +1211,7 @@
         "country": "US",
         "members": 71,
         "capacity": 75,
-        "points": 98085040878,
+        "points": 99088039455,
         "gems": 194633357331,
         "ours": false
       },
@@ -1172,7 +1222,7 @@
         "country": "US",
         "members": 74,
         "capacity": 75,
-        "points": 95578931476,
+        "points": 96448974286,
         "gems": 15645584051,
         "ours": false
       },
@@ -1183,7 +1233,7 @@
         "country": "CZ",
         "members": 70,
         "capacity": 75,
-        "points": 90881227643,
+        "points": 91745012671,
         "gems": 32078071540,
         "ours": false
       },
@@ -1194,7 +1244,7 @@
         "country": "NL",
         "members": 72,
         "capacity": 75,
-        "points": 77232068819,
+        "points": 78279222749,
         "gems": 86053183617,
         "ours": false
       },
@@ -1205,7 +1255,7 @@
         "country": "PL",
         "members": 73,
         "capacity": 75,
-        "points": 71734454943,
+        "points": 72235703742,
         "gems": 701854653511,
         "ours": false
       },
@@ -1216,7 +1266,7 @@
         "country": "US",
         "members": 74,
         "capacity": 75,
-        "points": 69473292514,
+        "points": 70138556192,
         "gems": 78122303824,
         "ours": false
       }
@@ -1225,61 +1275,61 @@
       {
         "rank": 1,
         "name": "2961636717",
-        "points": 9359741150,
+        "points": 9471007891,
         "clan": "UN0"
       },
       {
         "rank": 2,
         "name": "2041486311",
-        "points": 8692583828,
+        "points": 8733657473,
         "clan": "UN0"
       },
       {
         "rank": 3,
         "name": "3850006283",
-        "points": 8295725998,
+        "points": 8353982064,
         "clan": "C0LD"
       },
       {
         "rank": 4,
         "name": "470464024",
-        "points": 8207996244,
+        "points": 8270565737,
         "clan": "C0LD"
       },
       {
         "rank": 5,
         "name": "1522057458",
-        "points": 7495734012,
+        "points": 7551064677,
         "clan": "UN0"
       },
       {
         "rank": 6,
         "name": "1339738254",
-        "points": 7220875920,
+        "points": 7267495663,
         "clan": "UN0"
       },
       {
         "rank": 7,
         "name": "413758213",
-        "points": 6878072147,
+        "points": 6920506636,
         "clan": "UN0"
       },
       {
         "rank": 8,
         "name": "7515473066",
-        "points": 6850744897,
+        "points": 6894365059,
         "clan": "K0i2"
       },
       {
         "rank": 9,
         "name": "1415150214",
-        "points": 6764834331,
+        "points": 6801622630,
         "clan": "UN0"
       },
       {
         "rank": 10,
         "name": "123813615",
-        "points": 6620809551,
+        "points": 6669326842,
         "clan": "C0LD"
       }
     ],
@@ -1369,8 +1419,8 @@
     {
       "id": "SpaceMineBattle2026",
       "title": "Space Mine Battle2026",
-      "points": 1923062380,
-      "place": 346,
+      "points": 1933860820,
+      "place": 348,
       "medal": null,
       "live": true
     }
