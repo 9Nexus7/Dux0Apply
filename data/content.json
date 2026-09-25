@@ -6,23 +6,51 @@
     {
       "id": "e1f12571",
       "title": "First Clan Battle",
-      "desc": "",
+      "desc": "#555",
       "date": "25.04.2026",
       "image": "/uploads/84c217807910.png"
     },
     {
       "id": "d7fa1789",
       "title": "Second Clan Battle",
-      "desc": "",
+      "desc": "#551",
       "date": "02.05.2026",
       "image": "/uploads/8a6495dd21e8.png"
     },
     {
       "id": "4bfd890c",
       "title": "Third Clan Battle",
-      "desc": "Place #153",
+      "desc": "#153",
       "date": "03.07.2026",
       "image": "/uploads/d1d59972c6da.png"
+    },
+    {
+      "id": "71b6d068",
+      "title": "Pet vs Coins Battel",
+      "desc": "# 515",
+      "date": "02.08.2026",
+      "image": "/uploads/952ac6224723.png"
+    },
+    {
+      "id": "613e4b14",
+      "title": "Pinjata Battel",
+      "desc": "#285",
+      "date": "14.08.2026",
+      "image": "/uploads/abf781f7efeb.png"
+    },
+    {
+      "id": "cb7c0145",
+      "title": "",
+      "desc": "#282",
+      "date": "28.08.2026",
+      "image": "/uploads/f2f029dfebbd.png"
+    },
+    {
+      "id": "7255c86b",
+      "title": "",
+      "desc": "#271",
+      "date": "11.09.2026",
+      "image": "/uploads/bef584af75a0.png"
     }
   ],
   "gallery": []
