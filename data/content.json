@@ -2,18 +2,6 @@
   "announcement": "",
   "about": "DUX0 is a Pet Simulator 99 clan built around teamwork and clan battles. United as one. Built to win.",
   "requirements": [],
-  "requirementsDetail": {
-    "minRank": "20",
-    "minPlaytime": "10",
-    "gamepasses": [
-      265320491,
-      205379487,
-      257803774,
-      655859720,
-      259437976
-    ],
-    "notes": ""
-  },
   "achievements": [
     {
       "id": "e1f12571",
@@ -65,5 +53,17 @@
       "image": "/uploads/bef584af75a0.png"
     }
   ],
-  "gallery": []
+  "gallery": [],
+  "requirementsDetail": {
+    "minRank": "20",
+    "minPlaytime": "10",
+    "gamepasses": [
+      265320491,
+      205379487,
+      257803774,
+      655859720,
+      259437976
+    ],
+    "notes": ""
+  }
 }
