@@ -1,22 +1,12 @@
 {
   "ok": true,
-  "updated": 1790527095,
+  "updated": 1790528905,
   "tracking": {
-    "window": 3663,
-    "since": 1790354323,
+    "window": 3625,
+    "since": 1790356115,
     "rate1h": 0,
     "rate24h": 0,
     "trend": [
-      [
-        1790440743,
-        4378986052,
-        329
-      ],
-      [
-        1790441607,
-        4378986052,
-        329
-      ],
       [
         1790442510,
         4378986052,
@@ -508,7 +498,17 @@
         329
       ],
       [
-        1790527095,
+        1790527534,
+        4378986052,
+        329
+      ],
+      [
+        1790528434,
+        4378986052,
+        329
+      ],
+      [
+        1790528873,
         4378986052,
         329
       ]
@@ -1062,7 +1062,7 @@
     "points": 4378986052,
     "rank": {
       "place": 329,
-      "total": 169321,
+      "total": 169322,
       "points": 4378986052,
       "gems": 2620177498,
       "above": {
@@ -1113,7 +1113,7 @@
         "name": "3zEZ",
         "icon": "https://ps99.biggamesapi.io/image/113393687287274",
         "country": "US",
-        "members": 68,
+        "members": 67,
         "capacity": 75,
         "points": 285302350811,
         "gems": 194633357331,
@@ -1124,7 +1124,7 @@
         "name": "XB0X",
         "icon": "https://ps99.biggamesapi.io/image/18628542197",
         "country": "US",
-        "members": 70,
+        "members": 71,
         "capacity": 75,
         "points": 270006589968,
         "gems": 67154879616,
@@ -1179,7 +1179,7 @@
         "name": "V1LN",
         "icon": "https://ps99.biggamesapi.io/image/78740922586430",
         "country": "PL",
-        "members": 71,
+        "members": 72,
         "capacity": 75,
         "points": 200236815980,
         "gems": 701875653511,
