@@ -1,22 +1,12 @@
 {
   "ok": true,
-  "updated": 1790616126,
+  "updated": 1790617937,
   "tracking": {
-    "window": 3611,
-    "since": 1790443309,
+    "window": 3645,
+    "since": 1790445155,
     "rate1h": 0,
     "rate24h": 0,
     "trend": [
-      [
-        1790529752,
-        4378986052,
-        329
-      ],
-      [
-        1790530651,
-        4378986052,
-        329
-      ],
       [
         1790531547,
         4378986052,
@@ -498,7 +488,17 @@
         328
       ],
       [
-        1790616090,
+        1790616608,
+        4378986052,
+        328
+      ],
+      [
+        1790617486,
+        4378986052,
+        328
+      ],
+      [
+        1790617937,
         4378986052,
         328
       ]
@@ -745,22 +745,6 @@
       "gain": 0
     },
     {
-      "id": 9652486272,
-      "name": "Robert328753",
-      "display": "Robert328753",
-      "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-1542A5DCE54F2FD9DEBFED398CF693CD-Png/150/150/AvatarHeadshot/Png/noFilter",
-      "role": "Member",
-      "permission": 50,
-      "joined": 1789826774,
-      "event": 17791511,
-      "points": 17791511,
-      "gems": 0,
-      "eventRank": 15,
-      "pointsRank": 21,
-      "gemsRank": 28,
-      "gain": 0
-    },
-    {
       "id": 1527412575,
       "name": "kippenbibsstrijder",
       "display": "kippenbibsstrijder",
@@ -771,7 +755,7 @@
       "event": 11912436,
       "points": 28571160,
       "gems": 0,
-      "eventRank": 16,
+      "eventRank": 15,
       "pointsRank": 20,
       "gemsRank": 26,
       "gain": 0
@@ -787,8 +771,8 @@
       "event": 10191433,
       "points": 10191433,
       "gems": 140000000,
-      "eventRank": 17,
-      "pointsRank": 24,
+      "eventRank": 16,
+      "pointsRank": 23,
       "gemsRank": 1,
       "gain": 0
     },
@@ -803,8 +787,8 @@
       "event": 10057330,
       "points": 16054184,
       "gems": 1000000,
-      "eventRank": 18,
-      "pointsRank": 22,
+      "eventRank": 17,
+      "pointsRank": 21,
       "gemsRank": 16,
       "gain": 0
     },
@@ -819,8 +803,8 @@
       "event": 7995683,
       "points": 14262365,
       "gems": 10000000,
-      "eventRank": 19,
-      "pointsRank": 23,
+      "eventRank": 18,
+      "pointsRank": 22,
       "gemsRank": 12,
       "gain": 0
     },
@@ -835,8 +819,8 @@
       "event": 5297736,
       "points": 6884314,
       "gems": 0,
-      "eventRank": 20,
-      "pointsRank": 25,
+      "eventRank": 19,
+      "pointsRank": 24,
       "gemsRank": 23,
       "gain": 0
     },
@@ -851,8 +835,8 @@
       "event": 4878231,
       "points": 4878231,
       "gems": 10000000,
-      "eventRank": 21,
-      "pointsRank": 26,
+      "eventRank": 20,
+      "pointsRank": 25,
       "gemsRank": 11,
       "gain": 0
     },
@@ -867,9 +851,9 @@
       "event": 2398110,
       "points": 54702930,
       "gems": 0,
-      "eventRank": 22,
+      "eventRank": 21,
       "pointsRank": 17,
-      "gemsRank": 29,
+      "gemsRank": 28,
       "gain": 0
     },
     {
@@ -883,8 +867,8 @@
       "event": 2123329,
       "points": 2123329,
       "gems": 0,
-      "eventRank": 23,
-      "pointsRank": 28,
+      "eventRank": 22,
+      "pointsRank": 27,
       "gemsRank": 27,
       "gain": 0
     },
@@ -899,8 +883,8 @@
       "event": 1852632,
       "points": 1852632,
       "gems": 0,
-      "eventRank": 24,
-      "pointsRank": 29,
+      "eventRank": 23,
+      "pointsRank": 28,
       "gemsRank": 25,
       "gain": 0
     },
@@ -915,7 +899,7 @@
       "event": 1481605,
       "points": 36616847,
       "gems": 21000000,
-      "eventRank": 25,
+      "eventRank": 24,
       "pointsRank": 18,
       "gemsRank": 7,
       "gain": 0
@@ -931,7 +915,7 @@
       "event": 138508,
       "points": 68312244,
       "gems": 20000000,
-      "eventRank": 26,
+      "eventRank": 25,
       "pointsRank": 13,
       "gemsRank": 8,
       "gain": 0
@@ -947,7 +931,7 @@
       "event": 78488,
       "points": 31195849,
       "gems": 70000000,
-      "eventRank": 27,
+      "eventRank": 26,
       "pointsRank": 19,
       "gemsRank": 2,
       "gain": 0
@@ -963,8 +947,8 @@
       "event": 31684,
       "points": 3835538,
       "gems": 0,
-      "eventRank": 28,
-      "pointsRank": 27,
+      "eventRank": 27,
+      "pointsRank": 26,
       "gemsRank": 21,
       "gain": 0
     },
@@ -979,18 +963,18 @@
       "event": 1220,
       "points": 66074753,
       "gems": 30000000,
-      "eventRank": 29,
+      "eventRank": 28,
       "pointsRank": 14,
       "gemsRank": 6,
       "gain": 0
     }
   ],
   "totals": {
-    "members": 29,
+    "members": 28,
     "event": 4378986052,
-    "points": 5092164499,
+    "points": 5074372988,
     "gems": 2620177498,
-    "contributors": 29
+    "contributors": 28
   },
   "event": {
     "id": "SpaceMineBattle2026",
@@ -1052,7 +1036,7 @@
     "points": 4378986052,
     "rank": {
       "place": 328,
-      "total": 169314,
+      "total": 169315,
       "points": 4378986052,
       "gems": 2620177498,
       "above": {
@@ -1070,7 +1054,7 @@
         "name": "UN0",
         "icon": "https://ps99.biggamesapi.io/image/14976561960",
         "country": "GB",
-        "members": 70,
+        "members": 69,
         "capacity": 75,
         "points": 713972201093,
         "gems": 824278236639,
@@ -1209,19 +1193,19 @@
       },
       {
         "rank": 6,
-        "name": "1339738254",
+        "name": "Marvin",
         "points": 17002453006,
         "clan": "UN0"
       },
       {
         "rank": 7,
-        "name": "2041486311",
+        "name": "John",
         "points": 16358294669,
         "clan": "UN0"
       },
       {
         "rank": 8,
-        "name": "470464024",
+        "name": "elliesbf",
         "points": 16269162982,
         "clan": "C0LD"
       },
@@ -1233,7 +1217,7 @@
       },
       {
         "rank": 10,
-        "name": "456142044",
+        "name": "Icy",
         "points": 16013894533,
         "clan": "C0LD"
       }
@@ -1331,9 +1315,9 @@
     }
   ],
   "health": {
-    "members": 29,
-    "eventContributions": 30,
-    "allTimeContributions": 37,
+    "members": 28,
+    "eventContributions": 29,
+    "allTimeContributions": 36,
     "gemEntries": 86,
     "battles": 11,
     "activeBattle": true,
