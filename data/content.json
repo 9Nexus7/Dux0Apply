@@ -5,7 +5,13 @@
   "requirementsDetail": {
     "minRank": "",
     "minPlaytime": "",
-    "gamepasses": [],
+    "gamepasses": [
+      265320491,
+      259437976,
+      205379487,
+      655859720,
+      257803774
+    ],
     "notes": ""
   },
   "achievements": [
