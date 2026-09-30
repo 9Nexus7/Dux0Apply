@@ -1,8 +1,8 @@
 {
   "ok": true,
-  "updated": 1790788196,
+  "updated": 1790790014,
   "tracking": {
-    "window": 3578,
+    "window": 3639,
     "since": 1790723874,
     "rate1h": 0,
     "rate24h": 0,
@@ -513,7 +513,22 @@
         328
       ],
       [
-        1790788166,
+        1790788414,
+        4378986052,
+        328
+      ],
+      [
+        1790789030,
+        4378986052,
+        328
+      ],
+      [
+        1790789646,
+        4378986052,
+        328
+      ],
+      [
+        1790790014,
         4378986052,
         328
       ]
@@ -1069,10 +1084,10 @@
         "name": "UN0",
         "icon": "https://ps99.biggamesapi.io/image/14976561960",
         "country": "GB",
-        "members": 66,
+        "members": 67,
         "capacity": 75,
         "points": 713972201093,
-        "gems": 824412236639,
+        "gems": 824479236639,
         "ours": false
       },
       {
@@ -1091,7 +1106,7 @@
         "name": "SOPU",
         "icon": "https://ps99.biggamesapi.io/image/92415264775072",
         "country": "XK",
-        "members": 72,
+        "members": 71,
         "capacity": 75,
         "points": 565384480988,
         "gems": 425369866163,
@@ -1124,7 +1139,7 @@
         "name": "VLP",
         "icon": "https://ps99.biggamesapi.io/image/15281988558",
         "country": "CZ",
-        "members": 65,
+        "members": 66,
         "capacity": 75,
         "points": 260228073494,
         "gems": 32128071540,
@@ -1135,7 +1150,7 @@
         "name": "RFIL",
         "icon": "https://ps99.biggamesapi.io/image/17726113306",
         "country": "US",
-        "members": 66,
+        "members": 68,
         "capacity": 75,
         "points": 232930617230,
         "gems": 15645584051,
