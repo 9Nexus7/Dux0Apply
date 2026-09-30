@@ -1,8 +1,8 @@
 {
   "ok": true,
-  "updated": 1790773606,
+  "updated": 1790775434,
   "tracking": {
-    "window": 3585,
+    "window": 3646,
     "since": 1790723874,
     "rate1h": 0,
     "rate24h": 0,
@@ -493,7 +493,22 @@
         328
       ],
       [
-        1790773575,
+        1790773945,
+        4378986052,
+        328
+      ],
+      [
+        1790774438,
+        4378986052,
+        328
+      ],
+      [
+        1790774943,
+        4378986052,
+        328
+      ],
+      [
+        1790775434,
         4378986052,
         328
       ]
@@ -1093,7 +1108,7 @@
         "name": "XB0X",
         "icon": "https://ps99.biggamesapi.io/image/18628542197",
         "country": "US",
-        "members": 69,
+        "members": 67,
         "capacity": 75,
         "points": 270006589968,
         "gems": 67162821683,
@@ -1115,7 +1130,7 @@
         "name": "RFIL",
         "icon": "https://ps99.biggamesapi.io/image/17726113306",
         "country": "US",
-        "members": 68,
+        "members": 66,
         "capacity": 75,
         "points": 232930617230,
         "gems": 15645584051,
