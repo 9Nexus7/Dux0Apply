@@ -1,8 +1,8 @@
 {
   "ok": true,
-  "updated": 1790806434,
+  "updated": 1790808251,
   "tracking": {
-    "window": 3644,
+    "window": 3579,
     "since": 1790723874,
     "rate1h": 0,
     "rate24h": 0,
@@ -513,7 +513,17 @@
         328
       ],
       [
-        1790806434,
+        1790807173,
+        4378986052,
+        328
+      ],
+      [
+        1790807973,
+        4378986052,
+        328
+      ],
+      [
+        1790808221,
         4378986052,
         328
       ]
@@ -1051,7 +1061,7 @@
     "points": 4378986052,
     "rank": {
       "place": 328,
-      "total": 169333,
+      "total": 169334,
       "points": 4378986052,
       "gems": 2630177498,
       "above": {
@@ -1069,7 +1079,7 @@
         "name": "UN0",
         "icon": "https://ps99.biggamesapi.io/image/14976561960",
         "country": "GB",
-        "members": 70,
+        "members": 72,
         "capacity": 75,
         "points": 713972201093,
         "gems": 824479236639,
@@ -1080,7 +1090,7 @@
         "name": "C0LD",
         "icon": "https://ps99.biggamesapi.io/image/126265328107529",
         "country": "JP",
-        "members": 70,
+        "members": 71,
         "capacity": 75,
         "points": 621461222779,
         "gems": 51783305651,
@@ -1178,61 +1188,61 @@
     "topPlayers": [
       {
         "rank": 1,
-        "name": "2961636717",
+        "name": "nichozr",
         "points": 20574408238,
         "clan": "UN0"
       },
       {
         "rank": 2,
-        "name": "1522057458",
+        "name": "Vietnam_Zack",
         "points": 18874346007,
         "clan": "UN0"
       },
       {
         "rank": 3,
-        "name": "3850006283",
+        "name": "dez",
         "points": 18314973809,
         "clan": "C0LD"
       },
       {
         "rank": 4,
-        "name": "3380919660",
+        "name": "larpchris",
         "points": 17652778697,
         "clan": "C0LD"
       },
       {
         "rank": 5,
-        "name": "1415150214",
+        "name": "Disppy",
         "points": 17299457148,
         "clan": "UN0"
       },
       {
         "rank": 6,
-        "name": "1339738254",
+        "name": "Marvin",
         "points": 17002453006,
         "clan": "UN0"
       },
       {
         "rank": 7,
-        "name": "2041486311",
+        "name": "John",
         "points": 16358294669,
         "clan": "UN0"
       },
       {
         "rank": 8,
-        "name": "470464024",
+        "name": "elliesbf",
         "points": 16269162982,
         "clan": "C0LD"
       },
       {
         "rank": 9,
-        "name": "1445203091",
+        "name": "Squidward",
         "points": 16112223532,
         "clan": "C0LD"
       },
       {
         "rank": 10,
-        "name": "456142044",
+        "name": "Icy",
         "points": 16013894533,
         "clan": "C0LD"
       }
