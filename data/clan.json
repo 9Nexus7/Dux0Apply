@@ -1,8 +1,8 @@
 {
   "ok": true,
-  "updated": 1790786375,
+  "updated": 1790788196,
   "tracking": {
-    "window": 3641,
+    "window": 3578,
     "since": 1790723874,
     "rate1h": 0,
     "rate24h": 0,
@@ -498,7 +498,22 @@
         328
       ],
       [
-        1790786375,
+        1790786565,
+        4378986052,
+        328
+      ],
+      [
+        1790787178,
+        4378986052,
+        328
+      ],
+      [
+        1790787797,
+        4378986052,
+        328
+      ],
+      [
+        1790788166,
         4378986052,
         328
       ]
@@ -1036,7 +1051,7 @@
     "points": 4378986052,
     "rank": {
       "place": 328,
-      "total": 169331,
+      "total": 169332,
       "points": 4378986052,
       "gems": 2620177498,
       "above": {
@@ -1054,7 +1069,7 @@
         "name": "UN0",
         "icon": "https://ps99.biggamesapi.io/image/14976561960",
         "country": "GB",
-        "members": 68,
+        "members": 66,
         "capacity": 75,
         "points": 713972201093,
         "gems": 824412236639,
@@ -1109,7 +1124,7 @@
         "name": "VLP",
         "icon": "https://ps99.biggamesapi.io/image/15281988558",
         "country": "CZ",
-        "members": 62,
+        "members": 65,
         "capacity": 75,
         "points": 260228073494,
         "gems": 32128071540,
