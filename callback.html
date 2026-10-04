@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Logging in… – DUX0</title>
+  <link rel="icon" href="assets/favicon.png">
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #06030d; color: #f2ecfc; font: 1rem/1.6 system-ui, sans-serif; text-align: center; padding: 1.5rem; }
+    a { color: #dcc9ff; } .box { max-width: 34rem; } h1 { font-size: 1.4rem; margin: 0 0 .6rem; } code { background: #120b22; padding: .1rem .4rem; }
+    .spin { width: 34px; height: 34px; margin: 0 auto 1rem; border: 3px solid #31205a; border-top-color: #8b3dff; border-radius: 50%; animation: s 1s linear infinite; }
+    @keyframes s { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="box" id="box"><div class="spin"></div><p>Logging you in…</p></div>
+  <script>
+    (async () => {
+      const box = document.getElementById("box");
+      const MESSAGES = {
+        login_not_configured: "The bot has no Discord client secret yet. The site owner must set DUX0_CLIENT_SECRET in settings.env and restart the bot.",
+        oauth_invalid_client: "Discord rejected the client secret. The site owner must copy the current Client Secret from the Developer Portal (OAuth2) into DUX0_CLIENT_SECRET. It must belong to the same application as the bot token.",
+        oauth_invalid_grant: "The login code was rejected. This happens when the Redirect URL in the Developer Portal does not match exactly, or when the page was reloaded. Please try logging in again.",
+        oauth_redirect_uri: "The Redirect URL does not match the one in the Developer Portal.",
+        oauth_invalid_request: "Discord rejected the request. Please try logging in again.",
+        bad_request: "The login response was incomplete. Please try again.",
+      };
+      const fail = (title, text, code) => {
+        box.innerHTML = "";
+        const h = document.createElement("h1"); h.textContent = title;
+        const p = document.createElement("p"); p.textContent = text;
+        const a = document.createElement("a"); a.href = "./#/status"; a.textContent = "Open the site status page";
+        const b = document.createElement("a"); b.href = "./"; b.textContent = "Back to the website"; b.style.marginLeft = "1rem";
+        box.append(h, p);
+        if (code) { const c = document.createElement("p"); c.append("Error code: "); const k = document.createElement("code"); k.textContent = code; c.append(k); box.append(c); }
+        box.append(a, b);
+      };
+      try {
+        const q = new URLSearchParams(location.search);
+        if (q.get("error")) return fail("Login was cancelled", "You closed or declined the Discord login.", q.get("error"));
+        const code = q.get("code");
+        if (!code) return fail("Login could not start", "No login code was received from Discord.");
+        if (q.get("state") !== sessionStorage.getItem("dux0_state")) return fail("Login could not be verified", "The security check failed. Please open the website and click login again (do not reload this page).");
+        const cfg = await (await fetch("config.json?t=" + Date.now())).json();
+        const api = (cfg.api || "").replace(/\/$/, "");
+        if (!api) return fail("The live server is offline", "The website does not know the bot address yet.", "no_api");
+        let res, data = {};
+        try {
+          res = await fetch(api + "/api/auth/exchange", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ code }) });
+          data = await res.json().catch(() => ({}));
+        } catch (e) {
+          return fail("The bot did not answer", "The address in config.json is not reachable. The bot may be off or restarted with a new tunnel address.", "network");
+        }
+        if (!res.ok) return fail("Login failed", MESSAGES[data.error] || "The bot could not finish the login.", data.error || ("http_" + res.status));
+        localStorage.setItem("dux0_token", data.token);
+        sessionStorage.removeItem("dux0_state");
+        const back = sessionStorage.getItem("dux0_return") || "#/";
+        sessionStorage.removeItem("dux0_return");
+        location.replace("./" + back);
+      } catch (e) {
+        fail("Something went wrong", String(e));
+      }
+    })();
+  </script>
+</body>
+</html>
