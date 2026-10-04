@@ -1,11 +1,11 @@
 {
   "ok": true,
-  "updated": 1791077345,
+  "updated": 1791079145,
   "tracking": {
-    "window": 3641,
+    "window": 3648,
     "since": 1791045134,
-    "rate1h": 53392,
-    "rate24h": 361330,
+    "rate1h": 57237,
+    "rate24h": 345277,
     "trend": [
       [
         1791045134,
@@ -533,9 +533,34 @@
         596
       ],
       [
-        1791077345,
-        3233000,
-        597
+        1791077592,
+        3236000,
+        599
+      ],
+      [
+        1791077905,
+        3242000,
+        605
+      ],
+      [
+        1791078217,
+        3245500,
+        608
+      ],
+      [
+        1791078523,
+        3250500,
+        614
+      ],
+      [
+        1791078827,
+        3256000,
+        618
+      ],
+      [
+        1791079145,
+        3262000,
+        622
       ]
     ]
   },
@@ -668,6 +693,22 @@
       "gain": 0
     },
     {
+      "id": 8085345792,
+      "name": "PikalinaMama",
+      "display": "PikalinaMama",
+      "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-57CEB5CBBAA5D0B8FB25E10CB29CC7AD-Png/150/150/AvatarHeadshot/Png/noFilter",
+      "role": "Member",
+      "permission": 50,
+      "joined": 1787171456,
+      "event": 90000,
+      "points": 865898489,
+      "gems": 10000000,
+      "eventRank": 8,
+      "pointsRank": 2,
+      "gemsRank": 15,
+      "gain": 11500
+    },
+    {
       "id": 4964029083,
       "name": "Emongo234",
       "display": "Emongo234",
@@ -678,26 +719,10 @@
       "event": 84000,
       "points": 257687984,
       "gems": 10007000,
-      "eventRank": 8,
+      "eventRank": 9,
       "pointsRank": 7,
       "gemsRank": 11,
       "gain": 0
-    },
-    {
-      "id": 8085345792,
-      "name": "PikalinaMama",
-      "display": "PikalinaMama",
-      "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-57CEB5CBBAA5D0B8FB25E10CB29CC7AD-Png/150/150/AvatarHeadshot/Png/noFilter",
-      "role": "Member",
-      "permission": 50,
-      "joined": 1787171456,
-      "event": 83500,
-      "points": 865891989,
-      "gems": 10000000,
-      "eventRank": 9,
-      "pointsRank": 2,
-      "gemsRank": 15,
-      "gain": 11500
     },
     {
       "id": 3232560642,
@@ -1006,8 +1031,8 @@
   ],
   "totals": {
     "members": 28,
-    "event": 3233000,
-    "points": 5061064294,
+    "event": 3262000,
+    "points": 5061070794,
     "gems": 2632176498,
     "contributors": 17
   },
@@ -1068,19 +1093,19 @@
         "amount": 1
       }
     ],
-    "points": 3233000,
+    "points": 3262000,
     "rank": {
-      "place": 597,
-      "total": 169344,
-      "points": 3233000,
+      "place": 622,
+      "total": 169342,
+      "points": 3262000,
       "gems": 2632176498,
       "above": {
-        "name": "TgZt",
-        "points": 3241000
+        "name": "dp",
+        "points": 3271500
       },
       "below": {
-        "name": "AORB",
-        "points": 3217000
+        "name": "TgZt",
+        "points": 3241000
       }
     },
     "topClans": [
@@ -1091,7 +1116,7 @@
         "country": "GB",
         "members": 74,
         "capacity": 75,
-        "points": 1390556000,
+        "points": 1537750500,
         "gems": 825757236639,
         "ours": false
       },
@@ -1102,7 +1127,7 @@
         "country": "XK",
         "members": 74,
         "capacity": 75,
-        "points": 1033729000,
+        "points": 1106041000,
         "gems": 429503649346,
         "ours": false
       },
@@ -1113,7 +1138,7 @@
         "country": "JP",
         "members": 74,
         "capacity": 75,
-        "points": 677287000,
+        "points": 716894824,
         "gems": 55300156275,
         "ours": false
       },
@@ -1124,7 +1149,7 @@
         "country": "US",
         "members": 74,
         "capacity": 75,
-        "points": 601114500,
+        "points": 650993000,
         "gems": 75333754683,
         "ours": false
       },
@@ -1135,63 +1160,63 @@
         "country": "PL",
         "members": 74,
         "capacity": 75,
-        "points": 470510500,
+        "points": 489389131,
         "gems": 702212220511,
         "ours": false
       },
       {
         "rank": 6,
-        "name": "GSTG",
-        "icon": "https://ps99.biggamesapi.io/image/17699945644",
-        "country": "US",
-        "members": 74,
-        "capacity": 75,
-        "points": 355615500,
-        "gems": 78189303824,
-        "ours": false
-      },
-      {
-        "rank": 7,
         "name": "POPS",
         "icon": "https://ps99.biggamesapi.io/image/17451171044",
         "country": "US",
         "members": 74,
         "capacity": 75,
-        "points": 352984000,
+        "points": 392724000,
         "gems": 35073575068,
         "ours": false
       },
       {
-        "rank": 8,
-        "name": "RFIL",
-        "icon": "https://ps99.biggamesapi.io/image/17726113306",
+        "rank": 7,
+        "name": "GSTG",
+        "icon": "https://ps99.biggamesapi.io/image/17699945644",
         "country": "US",
         "members": 74,
         "capacity": 75,
-        "points": 326894000,
-        "gems": 15714584051,
+        "points": 389213790,
+        "gems": 78189303824,
         "ours": false
       },
       {
-        "rank": 9,
-        "name": "surx",
-        "icon": "https://ps99.biggamesapi.io/image/14976485216",
-        "country": "US",
-        "members": 72,
-        "capacity": 75,
-        "points": 308807500,
-        "gems": 14341484119,
-        "ours": false
-      },
-      {
-        "rank": 10,
+        "rank": 8,
         "name": "OLDD",
         "icon": "https://ps99.biggamesapi.io/image/13959016084",
         "country": "US",
         "members": 74,
         "capacity": 75,
-        "points": 299919000,
-        "gems": 20810668954,
+        "points": 355419876,
+        "gems": 20910668954,
+        "ours": false
+      },
+      {
+        "rank": 9,
+        "name": "RFIL",
+        "icon": "https://ps99.biggamesapi.io/image/17726113306",
+        "country": "US",
+        "members": 74,
+        "capacity": 75,
+        "points": 348239007,
+        "gems": 15714584051,
+        "ours": false
+      },
+      {
+        "rank": 10,
+        "name": "surx",
+        "icon": "https://ps99.biggamesapi.io/image/14976485216",
+        "country": "US",
+        "members": 72,
+        "capacity": 75,
+        "points": 328978789,
+        "gems": 14341484119,
         "ours": false
       }
     ],
@@ -1199,62 +1224,62 @@
       {
         "rank": 1,
         "name": "CLANKBOT",
-        "points": 54371500,
+        "points": 61192500,
         "clan": "UN0"
       },
       {
         "rank": 2,
+        "name": "nichozr",
+        "points": 58303000,
+        "clan": "UN0"
+      },
+      {
+        "rank": 3,
+        "name": "1642679118",
+        "points": 53375000,
+        "clan": "OLDD"
+      },
+      {
+        "rank": 4,
+        "name": "ExcessSlayer",
+        "points": 52940500,
+        "clan": "UN0"
+      },
+      {
+        "rank": 5,
+        "name": "rachel",
+        "points": 52119000,
+        "clan": "SOPU"
+      },
+      {
+        "rank": 6,
+        "name": "578352268",
+        "points": 51965500,
+        "clan": "HSTL"
+      },
+      {
+        "rank": 7,
         "name": "Macraft",
         "points": 49771000,
         "clan": "UN0"
       },
       {
-        "rank": 3,
+        "rank": 8,
         "name": "Disppy",
         "points": 49653500,
         "clan": "UN0"
       },
       {
-        "rank": 4,
-        "name": "savagexmummy",
-        "points": 48079500,
-        "clan": "OLDD"
-      },
-      {
-        "rank": 5,
-        "name": "Janratheween",
-        "points": 45985000,
-        "clan": "SOPU"
-      },
-      {
-        "rank": 6,
-        "name": "nichozr",
-        "points": 45638500,
-        "clan": "UN0"
-      },
-      {
-        "rank": 7,
-        "name": "MoneysKallin",
-        "points": 42489500,
-        "clan": "UN0"
-      },
-      {
-        "rank": 8,
-        "name": "Emalele093",
-        "points": 42287500,
-        "clan": "SOPU"
-      },
-      {
         "rank": 9,
-        "name": "ErujTozz",
-        "points": 42177000,
-        "clan": "SOPU"
+        "name": "Sloop",
+        "points": 47081500,
+        "clan": "UN0"
       },
       {
         "rank": 10,
-        "name": "howtoplaygot",
-        "points": 41567500,
-        "clan": "HSTL"
+        "name": "Emalele093",
+        "points": 46659000,
+        "clan": "SOPU"
       }
     ],
     "participating": 100
@@ -1351,8 +1376,8 @@
     {
       "id": "HatchWarBattle2026",
       "title": "Hatch War Battle2026",
-      "points": 3233000,
-      "place": 596,
+      "points": 3262000,
+      "place": 622,
       "medal": null,
       "live": true
     }
