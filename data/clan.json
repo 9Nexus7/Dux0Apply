@@ -1,22 +1,12 @@
 {
   "ok": true,
-  "updated": 1791550952,
+  "updated": 1791552762,
   "tracking": {
-    "window": 3609,
-    "since": 1791378177,
-    "rate1h": 4930478,
-    "rate24h": 1731094,
+    "window": 3618,
+    "since": 1791379964,
+    "rate1h": 498603,
+    "rate24h": 1716804,
     "trend": [
-      [
-        1791464610,
-        207915747,
-        436
-      ],
-      [
-        1791465498,
-        208251247,
-        435
-      ],
       [
         1791466370,
         208425247,
@@ -508,9 +498,19 @@
         434
       ],
       [
-        1791550921,
-        249449029,
+        1791551173,
+        249478029,
         434
+      ],
+      [
+        1791552049,
+        249560529,
+        435
+      ],
+      [
+        1791552731,
+        249625529,
+        435
       ]
     ]
   },
@@ -544,7 +544,7 @@
       "eventRank": 1,
       "pointsRank": 2,
       "gemsRank": 15,
-      "gain": 4692000
+      "gain": 197500
     },
     {
       "id": 2485362828,
@@ -618,13 +618,13 @@
       "role": "Officer",
       "permission": 90,
       "joined": 1786215992,
-      "event": 11162500,
-      "points": 168856204,
+      "event": 11225500,
+      "points": 168919204,
       "gems": 999999,
       "eventRank": 6,
       "pointsRank": 10,
       "gemsRank": 19,
-      "gain": 500
+      "gain": 63500
     },
     {
       "id": 3173977423,
@@ -634,13 +634,13 @@
       "role": "Member",
       "permission": 50,
       "joined": 1786346944,
-      "event": 8651500,
-      "points": 100242652,
+      "event": 8659500,
+      "points": 100250652,
       "gems": 33000000,
       "eventRank": 7,
       "pointsRank": 11,
       "gemsRank": 5,
-      "gain": 105000
+      "gain": 52000
     },
     {
       "id": 3785603072,
@@ -931,6 +931,22 @@
       "gain": 0
     },
     {
+      "id": 5494316531,
+      "name": "Torbenay",
+      "display": "Zyroxx",
+      "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-C41F472B3301D084D04CDC7A4CD888DE-Png/150/150/AvatarHeadshot/Png/noFilter",
+      "role": "Member",
+      "permission": 50,
+      "joined": 1787494355,
+      "event": 33804,
+      "points": 54736734,
+      "gems": 0,
+      "eventRank": 26,
+      "pointsRank": 17,
+      "gemsRank": 30,
+      "gain": 33596
+    },
+    {
       "id": 1663969809,
       "name": "19k_qvxt",
       "display": "rahoofi",
@@ -941,26 +957,10 @@
       "event": 18000,
       "points": 201247069,
       "gems": 0,
-      "eventRank": 26,
+      "eventRank": 27,
       "pointsRank": 9,
       "gemsRank": 24,
       "gain": 0
-    },
-    {
-      "id": 5494316531,
-      "name": "Torbenay",
-      "display": "Zyroxx",
-      "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-C41F472B3301D084D04CDC7A4CD888DE-Png/150/150/AvatarHeadshot/Png/noFilter",
-      "role": "Member",
-      "permission": 50,
-      "joined": 1787494355,
-      "event": 17304,
-      "points": 54720234,
-      "gems": 0,
-      "eventRank": 27,
-      "pointsRank": 17,
-      "gemsRank": 30,
-      "gain": 17304
     },
     {
       "id": 11308637442,
@@ -1013,8 +1013,8 @@
   ],
   "totals": {
     "members": 30,
-    "event": 249459029,
-    "points": 5235067974,
+    "event": 249630029,
+    "points": 5235155474,
     "gems": 2732343498,
     "contributors": 28
   },
@@ -1075,19 +1075,19 @@
         "amount": 1
       }
     ],
-    "points": 249459029,
+    "points": 249630029,
     "rank": {
-      "place": 434,
+      "place": 435,
       "total": 169412,
-      "points": 249457029,
+      "points": 249626529,
       "gems": 2732343498,
       "above": {
-        "name": "L2GO",
-        "points": 250521609
+        "name": "NS4R",
+        "points": 249982038
       },
       "below": {
-        "name": "NS4R",
-        "points": 249281038
+        "name": "PB",
+        "points": 249601051
       }
     },
     "topClans": [
@@ -1098,7 +1098,7 @@
         "country": "GB",
         "members": 74,
         "capacity": 75,
-        "points": 152725595407,
+        "points": 153706124466,
         "gems": 826319075895,
         "ours": false
       },
@@ -1109,7 +1109,7 @@
         "country": "XK",
         "members": 74,
         "capacity": 75,
-        "points": 68396114016,
+        "points": 69198523516,
         "gems": 429581536526,
         "ours": false
       },
@@ -1120,7 +1120,7 @@
         "country": "JP",
         "members": 74,
         "capacity": 75,
-        "points": 53749808194,
+        "points": 54326385694,
         "gems": 57370056397,
         "ours": false
       },
@@ -1131,7 +1131,7 @@
         "country": "US",
         "members": 74,
         "capacity": 75,
-        "points": 50418271344,
+        "points": 50908278844,
         "gems": 15714584051,
         "ours": false
       },
@@ -1142,7 +1142,7 @@
         "country": "US",
         "members": 74,
         "capacity": 75,
-        "points": 43313947633,
+        "points": 43733945633,
         "gems": 75333754683,
         "ours": false
       },
@@ -1153,7 +1153,7 @@
         "country": "US",
         "members": 73,
         "capacity": 75,
-        "points": 38302932469,
+        "points": 38527044969,
         "gems": 195788253341,
         "ours": false
       },
@@ -1164,7 +1164,7 @@
         "country": "US",
         "members": 74,
         "capacity": 75,
-        "points": 36609459863,
+        "points": 36895822863,
         "gems": 78189303824,
         "ours": false
       },
@@ -1175,7 +1175,7 @@
         "country": "GB",
         "members": 74,
         "capacity": 75,
-        "points": 33115511531,
+        "points": 33438668531,
         "gems": 82332813299,
         "ours": false
       },
@@ -1186,7 +1186,7 @@
         "country": "US",
         "members": 74,
         "capacity": 75,
-        "points": 30216320128,
+        "points": 30382580628,
         "gems": 35073642068,
         "ours": false
       },
@@ -1197,7 +1197,7 @@
         "country": "US",
         "members": 74,
         "capacity": 75,
-        "points": 25850078392,
+        "points": 26156380584,
         "gems": 36177327082,
         "ours": false
       }
@@ -1205,63 +1205,63 @@
     "topPlayers": [
       {
         "rank": 1,
-        "name": "Galooney",
-        "points": 4141693386,
+        "name": "41215233",
+        "points": 4170438386,
         "clan": "UN0"
       },
       {
         "rank": 2,
-        "name": "unoyea",
-        "points": 4113425734,
+        "name": "33492395",
+        "points": 4149689734,
         "clan": "UN0"
       },
       {
         "rank": 3,
-        "name": "nichozr",
-        "points": 3630892704,
+        "name": "2961636717",
+        "points": 3657204789,
         "clan": "UN0"
       },
       {
         "rank": 4,
-        "name": "DarkPhoenix917",
-        "points": 3304549139,
+        "name": "3214496713",
+        "points": 3317928639,
         "clan": "UN0"
       },
       {
         "rank": 5,
-        "name": "ziIlionaires",
-        "points": 3108008658,
+        "name": "45130460",
+        "points": 3133077658,
         "clan": "UN0"
       },
       {
         "rank": 6,
-        "name": "Lavoo_02",
-        "points": 2917361929,
+        "name": "5024374530",
+        "points": 2928867929,
         "clan": "UN0"
       },
       {
         "rank": 7,
-        "name": "SirWabbs",
-        "points": 2886257500,
+        "name": "7742077490",
+        "points": 2919041500,
         "clan": "UN0"
       },
       {
         "rank": 8,
-        "name": "mihokkon",
-        "points": 2883403500,
+        "name": "2443619256",
+        "points": 2883861500,
         "clan": "UN0"
       },
       {
         "rank": 9,
-        "name": "Vietnam_Zack",
-        "points": 2820033923,
-        "clan": "UN0"
+        "name": "822733770",
+        "points": 2833816106,
+        "clan": "minx"
       },
       {
         "rank": 10,
-        "name": "Clinton",
-        "points": 2797581106,
-        "clan": "minx"
+        "name": "1522057458",
+        "points": 2820577923,
+        "clan": "UN0"
       }
     ],
     "participating": 100
@@ -1358,8 +1358,8 @@
     {
       "id": "HatchWarBattle2026",
       "title": "Hatch War Battle2026",
-      "points": 249459029,
-      "place": 434,
+      "points": 249630029,
+      "place": 435,
       "medal": null,
       "live": true
     }
