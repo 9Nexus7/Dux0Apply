@@ -16,14 +16,18 @@
   <div class="box" id="box"><div class="spin"></div><p>Connecting your BIG Games account…</p></div>
   <script>
     (async () => {
+      // Kommt die Verbindung von der Bewerbungsseite (apply2), hat diese ihr Login-Token und die
+      // Ruecksprung-Adresse in sessionStorage abgelegt - sonst verhaelt sich die Seite wie bisher.
+      const fromApply = sessionStorage.getItem("dux0_big_return");
+      const back = fromApply || "./#/connect";
       const box = document.getElementById("box");
-      const fail = (t) => { box.innerHTML = ""; const p = document.createElement("p"); p.textContent = t; const a = document.createElement("a"); a.href = "./#/connect"; a.textContent = "Back to My account"; box.append(p, a); };
+      const fail = (t) => { box.innerHTML = ""; const p = document.createElement("p"); p.textContent = t; const a = document.createElement("a"); a.href = back; a.textContent = fromApply ? "Zurück zur Bewerbung" : "Back to My account"; box.append(p, a); };
       try {
         const q = new URLSearchParams(location.search);
-        if (q.get("error")) return fail("BIG Games login was cancelled or denied.");
+        if (q.get("error")) return fail(fromApply ? "Die Verbindung mit BIG Games wurde abgebrochen." : "BIG Games login was cancelled or denied.");
         const code = q.get("code"), state = q.get("state");
         if (!code || !state) return fail("No login code was received.");
-        const token = localStorage.getItem("dux0_token");
+        const token = sessionStorage.getItem("dux0_big_token") || localStorage.getItem("dux0_token");
         if (!token) return fail("You are logged out. Log in with Discord again, then reconnect.");
         const cfg = await (await fetch("config.json?t=" + Date.now())).json();
         const api = (cfg.api || "").replace(/\/$/, "");
@@ -34,7 +38,9 @@
         });
         const data = await res.json().catch(() => ({}));
         if (!res.ok) return fail(data.error === "state_mismatch" ? "The connection could not be verified. Please try again." : "BIG Games could not connect your account. Please try again.");
-        location.replace("./#/connect");
+        sessionStorage.removeItem("dux0_big_token");
+        sessionStorage.removeItem("dux0_big_return");
+        location.replace(back);
       } catch (e) {
         fail("Something went wrong. Please try again.");
       }
