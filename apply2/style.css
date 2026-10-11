@@ -64,6 +64,10 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .icon-btn { display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; border: 1px solid var(--line); background: var(--panel-hi); cursor: pointer; font-size: 1.05rem; }
 .icon-btn:hover { background: rgba(255,255,255,.12); }
 .icon-btn.on { background: linear-gradient(var(--violet-hi), var(--violet)); border-color: transparent; }
+.lang-sw { display: inline-flex; padding: 3px; gap: 2px; border-radius: 12px; border: 1px solid var(--line); background: var(--panel-hi); }
+.lang-sw button { border: 0; background: transparent; color: inherit; font: inherit; font-weight: 600; font-size: .85rem; padding: 6px 9px; border-radius: 9px; cursor: pointer; opacity: .7; }
+.lang-sw button.on { background: linear-gradient(var(--violet-hi), var(--violet)); opacity: 1; }
+@media (max-width: 520px) { .lang-sw button { padding: 6px 6px; font-size: .78rem; } .top .pill { display: none; } }
 
 /* ---------- Knoepfe (Spiel-Look) ---------- */
 .btn { --c1: var(--gold-1); --c2: var(--gold-2); --c3: var(--gold-3); --sh: var(--gold-sh); --tx: #3b0764;
@@ -165,7 +169,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .pass.miss .st { background: rgba(255,255,255,.12); color: var(--muted); }
 .pass.unk .st { background: rgba(255,181,71,.25); color: var(--warn); }
 .pass.req { border-style: dashed; }
-.pass.req::before { content: "Pflicht"; position: absolute; top: -9px; left: 50%; transform: translateX(-50%); padding: 1px 8px; border-radius: 999px; font: 400 .72rem/1.4 "Lilita", sans-serif; letter-spacing: .05em; background: var(--pink); color: #3b0764; }
+.pass.req::before { content: "Pflicht"; } html[lang="en"] .pass.req::before { content: "Required"; } .pass.req::before { position: absolute; top: -9px; left: 50%; transform: translateX(-50%); padding: 1px 8px; border-radius: 999px; font: 400 .72rem/1.4 "Lilita", sans-serif; letter-spacing: .05em; background: var(--pink); color: #3b0764; }
 .pass.req.miss { border-color: rgba(255,92,122,.6); }
 .pass-count { font: 400 1.6rem/1 "Lilita", sans-serif; }
 .pass-count small { font-size: 1rem; color: var(--muted); }
