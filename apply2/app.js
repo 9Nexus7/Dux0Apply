@@ -15,7 +15,35 @@
   const S = {
     api: "", cfg: null, token: localStorage.getItem(TOKEN_KEY) || "", me: null, st: null, offline: false,
     files: [], view: null, reapply: false, skipInv: sessionStorage.getItem("dux0a2_skipinv") === "1",
+    lang: "de",
   };
+
+  // ---------------------------------------------------------------- Sprache (DE / EN)
+  const LANG_KEY = "dux0a2_lang";
+  (() => {
+    let l = new URLSearchParams(location.search).get("lang");
+    if (l !== "de" && l !== "en") { try { l = localStorage.getItem(LANG_KEY); } catch (_) { l = null; } }
+    if (l !== "de" && l !== "en") l = /^de\b/i.test(navigator.language || "") ? "de" : "en";
+    S.lang = l;
+  })();
+  const EN = () => S.lang === "en";
+  const tr = (s) => (EN() && typeof s === "string" && window.DUX0_EN && Object.prototype.hasOwnProperty.call(window.DUX0_EN, s)) ? window.DUX0_EN[s] : s;
+  const L = (de, en) => (EN() ? en : de);
+  const LOC = () => (EN() ? "en-GB" : "de-DE");
+  const fLabel = (f) => (EN() && f.labelEn) || f.label;
+  const fPh = (f) => (EN() && f.placeholderEn) || f.placeholder || "";
+  const fOpt = (f, i) => (EN() && f.optionsEn && f.optionsEn[i]) || (f.options || [])[i];
+  function applyDocLang() {
+    document.documentElement.lang = S.lang;
+    document.title = L("Bewerbung – DUX0", "Apply – DUX0");
+    document.querySelectorAll("[data-de]").forEach((el) => { el.textContent = EN() ? el.dataset.en : el.dataset.de; });
+  }
+  function setLang(l) {
+    S.lang = l;
+    try { localStorage.setItem(LANG_KEY, l); } catch (_) {}
+    applyDocLang();
+    render();
+  }
 
   // ---------------------------------------------------------------- Helfer
   function h(tag, attrs, ...kids) {
@@ -27,18 +55,19 @@
       else if (k.startsWith("on") && typeof v === "function") el.addEventListener(k.slice(2), v);
       else if (k === "html") el.innerHTML = v;
       else if (k === "value") el.value = v;
+      else if (k === "placeholder" || k === "title" || k === "aria-label" || k === "alt") el.setAttribute(k, tr(v));
       else el.setAttribute(k, v === true ? "" : v);
     }
     for (const kid of kids.flat(Infinity)) {
       if (kid == null || kid === false) continue;
-      el.append(kid.nodeType ? kid : document.createTextNode(String(kid)));
+      el.append(kid.nodeType ? kid : document.createTextNode(tr(String(kid))));
     }
     return el;
   }
   const rc = (root, ...kids) => { root.innerHTML = ""; root.append(...kids.flat(Infinity).filter((x) => x != null && x !== false)); };
 
   function toast(msg) {
-    TOAST.textContent = msg;
+    TOAST.textContent = tr(msg);
     TOAST.classList.add("show");
     clearTimeout(TOAST._t);
     TOAST._t = setTimeout(() => TOAST.classList.remove("show"), 4200);
@@ -94,23 +123,27 @@
     forbidden: "Dafür hast du keine Berechtigung.",
     owner_only: "Nur Owner dürfen das.",
   };
-  const errText = (e) => ERR[(e && e.message) || ""] || ("Fehler: " + ((e && e.message) || "unbekannt"));
+  const errText = (e) => {
+    const code = (e && e.message) || "";
+    const tab = EN() ? (window.DUX0_ERR_EN || {}) : ERR;
+    return tab[code] || ERR[code] || (L("Fehler: ", "Error: ") + (code || L("unbekannt", "unknown")));
+  };
 
-  const fmtNum = (n) => Number(n || 0).toLocaleString("de-DE");
+  const fmtNum = (n) => Number(n || 0).toLocaleString(LOC());
   function short(n) {
     n = Number(n || 0);
     const units = [[1e12, "T"], [1e9, "B"], [1e6, "M"], [1e3, "K"]];
     for (const [d, s] of units) if (Math.abs(n) >= d) return (n / d).toFixed(2).replace(/\.?0+$/, "") + s;
     return String(Math.round(n));
   }
-  const dateTime = (ts) => ts ? new Date(ts * 1000).toLocaleString("de-DE", { dateStyle: "medium", timeStyle: "short" }) : "";
+  const dateTime = (ts) => ts ? new Date(ts * 1000).toLocaleString(LOC(), { dateStyle: "medium", timeStyle: "short" }) : "";
   const ago = (ts) => {
     if (!ts) return "";
     const s = Math.max(0, Date.now() / 1000 - ts);
-    if (s < 90) return "gerade eben";
-    if (s < 3600) return `vor ${Math.round(s / 60)} Min.`;
-    if (s < 86400) return `vor ${Math.round(s / 3600)} Std.`;
-    return `vor ${Math.round(s / 86400)} Tagen`;
+    if (s < 90) return L("gerade eben", "just now");
+    if (s < 3600) return L(`vor ${Math.round(s / 60)} Min.`, `${Math.round(s / 60)} min ago`);
+    if (s < 86400) return L(`vor ${Math.round(s / 3600)} Std.`, `${Math.round(s / 3600)} h ago`);
+    return L(`vor ${Math.round(s / 86400)} Tagen`, `${Math.round(s / 86400)} days ago`);
   };
 
   function gemSvg(size = 40) {
@@ -153,6 +186,9 @@
     rc(TOP, h("div", { class: "wrap top-in" },
       h("a", { class: "brand", href: "#/" }, h("img", { src: "assets/icon.png", alt: "" }), h("b", {}, "DUX0"), h("span", { class: "pill" }, "BEWERBUNG")),
       h("span", { class: "spacer" }),
+      h("div", { class: "lang-sw", role: "group", "aria-label": "Sprache / Language" },
+        h("button", { type: "button", class: S.lang === "de" ? "on" : "", title: "Deutsch", onclick: () => setLang("de") }, "🇩🇪 DE"),
+        h("button", { type: "button", class: S.lang === "en" ? "on" : "", title: "English", onclick: () => setLang("en") }, "🇬🇧 EN")),
       owner ? h("button", { class: "icon-btn" + (S.view === "settings" ? " on" : ""), title: "Bewerbung einstellen", type: "button",
         onclick: () => { location.hash = S.view === "settings" ? "#/" : "#/einstellungen"; } }, "⚙️") : null,
       me ? h("span", { class: "chip" }, me.user.avatar ? h("img", { src: me.user.avatar, alt: "" }) : null, h("span", {}, me.user.name)) : null,
@@ -181,7 +217,7 @@
         h("div", { class: "mascot" }, h("img", { src: "assets/mascot.webp", alt: "DUX0 Maskottchen" }), h("span", { class: "bubble" }, "Hi! 💎"))),
       h("section", { class: "features" },
         feature("⚡", "Kein Bio-Code", "Roblox-Name eingeben, Avatar bestätigen – fertig."),
-        feature("💎", "Inventar automatisch", "Huges, Titanics & RAP direkt aus deinem Spielstand."),
+        feature("💎", "Alles automatisch", "Bei BIG Games anmelden – Rang, Spielzeit, Masterys, Pets & Gamepässe werden automatisch ausgefüllt."),
         feature("🎟️", "Gamepässe live", "Wir sehen sofort, welche Gamepässe du hast."),
         feature("🚀", "Direkt in den Clan", "Angenommen? Der Bot holt dich automatisch auf unseren Discord.")));
   }
@@ -298,7 +334,7 @@
           h("div", { class: "nm" }, x.name),
           h("span", { class: "st" }, x.owned ? "✓" : x.owned === false ? "–" : "?"));
       })),
-      p.source === "big" ? h("p", { class: "hint" }, "Quelle: dein Spielstand (BIG Games).") : h("p", { class: "hint" }, `Geprüft ${ago(p.checked)} über Roblox.`),
+      p.source === "big" ? h("p", { class: "hint" }, "Quelle: dein Spielstand (BIG Games).") : h("p", { class: "hint" }, L(`Geprüft ${ago(p.checked)} über Roblox.`, `Checked ${ago(p.checked)} via Roblox.`)),
       box);
   }
 
@@ -324,11 +360,13 @@
       rc(bigCard, h("div", { class: "big-cta" },
         h("div", { class: "logo" }, gemSvg(54)),
         h("div", {},
-          h("h3", {}, "💎 Inventar verbinden", required ? h("span", { class: "tag bad", style: { marginLeft: "8px", verticalAlign: "middle" } }, "Pflicht") : null),
+          h("h3", {}, "💎 Bei BIG Games anmelden", required ? h("span", { class: "tag bad", style: { marginLeft: "8px", verticalAlign: "middle" } }, "Pflicht") : null),
+          h("div", { class: "notice info", style: { margin: "6px 0 12px" } }, h("span", { class: "ico" }, "✨"),
+            h("p", {}, h("b", {}, "Melde dich einmal bei BIG Games an – dann ist deine Bewerbung automatisch ausgefüllt: "), "Rang, Spielzeit, Masterys, Diamanten, Rebirths, Huges/Titanics, RAP und Gamepässe. Du musst nichts abtippen.")),
           h("p", { class: "mt0" }, "Verbinde deinen Pet-Simulator-99-Spielstand über ", h("b", {}, "BIG Games"), " (die Macher von PS99). Dann sehen wir deine Huges, Titanics, deinen RAP, Rang und deine Masterys – und füllen die Bewerbung für dich aus."),
           h("ul", {}, h("li", {}, "Offizielle Anmeldung bei BIG Games"), h("li", {}, "Nur Lesezugriff – niemand kann etwas verändern oder traden"), h("li", {}, "Du kannst die Verbindung jederzeit wieder trennen")),
           h("div", { class: "row" },
-            h("button", { class: "btn cyan big", type: "button", onclick: connectBig }, "💎 Mit BIG Games verbinden"),
+            h("button", { class: "btn cyan big", type: "button", onclick: connectBig }, "💎 Bei BIG Games anmelden"),
             required ? null : h("button", { class: "link", type: "button", onclick: () => { S.skipInv = true; sessionStorage.setItem("dux0a2_skipinv", "1"); render(); } }, "Überspringen")))));
     } else if (!big.loaded) {
       rc(bigCard, h("h3", {}, "💎 Inventar"),
@@ -342,7 +380,7 @@
       const b = sm.bigs || {};
       const pr = big.profile || {};
       rc(bigCard,
-        h("div", { class: "section-head" }, h("h3", {}, "💎 Dein Inventar"), h("span", { class: "tag ok" }, "✔ verbunden · " + ago(big.lastFetch))),
+        h("div", { class: "section-head" }, h("h3", {}, "💎 Dein Inventar"), h("span", { class: "tag ok" }, L("✔ verbunden · ", "✔ connected · ") + ago(big.lastFetch))),
         h("div", { class: "stats" },
           stat("Gesamt-RAP", short(sm.totalRap), "gold"),
           stat("Huge", fmtNum(b.Huge), "huge"), stat("Titanic", fmtNum(b.Titanic), "titanic"), stat("Gargantuan", fmtNum(b.Gargantuan), "garg")),
@@ -384,18 +422,20 @@
     const d = draft();
     const answers = d.answers || {};
     for (const f of form.fields) {
-      const v = f.auto && st.prefill ? st.prefill[f.auto] : null;
+      let v = f.auto && st.prefill ? st.prefill[f.auto] : null;
+      if (v && EN() && f.auto === "playtime") v = String(v).replace(/\./g, ",").replace(/Stunden/, "hours");
       if (v && (answers[f.key] == null || answers[f.key] === "")) answers[f.key] = v;
     }
     const store = () => saveDraft({ ...draft(), answers });
     const err = h("p", { class: "err" });
 
     const fieldEls = form.fields.filter((f) => f.enabled !== false).map((f) => {
-      const auto = f.auto && st.prefill && st.prefill[f.auto] && String(answers[f.key] || "") === String(st.prefill[f.auto]);
-      const lbl = h("label", { class: "lbl", for: "f_" + f.key }, f.label, f.required ? h("span", { class: "req" }, "*") : null, auto ? h("span", { class: "tag auto" }, "✨ aus deinem Spielstand") : null);
+      const pv = f.auto && st.prefill && st.prefill[f.auto] ? String(st.prefill[f.auto]) : "";
+      const auto = pv && (String(answers[f.key] || "") === pv || (f.auto === "playtime" && String(answers[f.key] || "") === pv.replace(/\./g, ",").replace(/Stunden/, "hours")));
+      const lbl = h("label", { class: "lbl", for: "f_" + f.key }, fLabel(f), f.required ? h("span", { class: "req" }, "*") : null, auto ? h("span", { class: "tag auto" }, "✨ aus deinem Spielstand") : null);
       let ctl;
       if (f.type === "textarea") {
-        ctl = h("textarea", { id: "f_" + f.key, placeholder: f.placeholder || "", maxlength: 1000, value: answers[f.key] || "", oninput: (e) => { answers[f.key] = e.target.value; store(); } });
+        ctl = h("textarea", { id: "f_" + f.key, placeholder: fPh(f), maxlength: 1000, value: answers[f.key] || "", oninput: (e) => { answers[f.key] = e.target.value; store(); } });
       } else if (f.type === "yesno") {
         const yes = h("button", { type: "button", class: "choice yes" + (answers[f.key] === "yes" ? " on" : "") }, "👍 Ja");
         const no = h("button", { type: "button", class: "choice no" + (answers[f.key] === "no" ? " on" : "") }, "👎 Nein");
@@ -403,18 +443,18 @@
         no.onclick = () => { answers[f.key] = "no"; no.classList.add("on"); yes.classList.remove("on"); store(); };
         ctl = h("div", { class: "choices" }, yes, no);
       } else if (f.type === "select") {
-        const btns = (f.options || []).map((o) => {
-          const b = h("button", { type: "button", class: "choice" + (answers[f.key] === o ? " on" : "") }, o);
+        const btns = (f.options || []).map((o, oi) => {
+          const b = h("button", { type: "button", class: "choice" + (answers[f.key] === o ? " on" : "") }, fOpt(f, oi));
           b.onclick = () => { answers[f.key] = o; btns.forEach((x) => x.classList.toggle("on", x === b)); store(); };
           return b;
         });
         ctl = h("div", { class: "choices" }, btns);
       } else {
         ctl = h("input", { id: "f_" + f.key, type: f.type === "number" ? "text" : "text", inputmode: f.type === "number" ? "decimal" : null,
-          placeholder: f.placeholder || "", maxlength: f.type === "number" ? 30 : 200, value: answers[f.key] || "",
+          placeholder: fPh(f), maxlength: f.type === "number" ? 30 : 200, value: answers[f.key] || "",
           oninput: (e) => { answers[f.key] = e.target.value; store(); } });
       }
-      const full = f.type === "textarea" || f.type === "select" || f.type === "yesno" || (f.label || "").length > 38;
+      const full = f.type === "textarea" || f.type === "select" || f.type === "yesno" || (fLabel(f) || "").length > 38;
       return h("div", { class: "field" + (full ? " full" : "") }, lbl, ctl);
     });
 
@@ -425,12 +465,12 @@
     const drop = h("div", { class: "drop", tabindex: "0", role: "button" },
       h("div", { class: "ico" }, "📸"),
       h("b", {}, "Screenshots hierher ziehen oder klicken"),
-      h("span", { class: "hint" }, minShots ? `Mindestens ${minShots} – z.B. Inventar, Stats, Huges (max. 5, je 4 MB)` : "Freiwillig – z.B. Inventar, Stats, Huges (max. 5, je 4 MB)"));
+      h("span", { class: "hint" }, minShots ? L(`Mindestens ${minShots} – z.B. Inventar, Stats, Huges (max. 5, je 4 MB)`, `At least ${minShots} – e.g. inventory, stats, Huges (max. 5, 4 MB each)`) : "Freiwillig – z.B. Inventar, Stats, Huges (max. 5, je 4 MB)"));
     const addFiles = (list) => {
       for (const f of list) {
         if (!f.type.startsWith("image/")) { toast("Nur Bilder, bitte."); continue; }
         if (S.files.length >= 5) { toast("Höchstens 5 Bilder."); break; }
-        if (f.size > 4 * 1024 * 1024) { toast(`${f.name} ist zu groß (max. 4 MB).`); continue; }
+        if (f.size > 4 * 1024 * 1024) { toast(L(`${f.name} ist zu groß (max. 4 MB).`, `${f.name} is too large (max. 4 MB).`)); continue; }
         S.files.push(f);
       }
       drawThumbs();
@@ -453,15 +493,15 @@
     // Anforderungen
     const rq = st.requirements || {};
     const reqTags = [];
-    if (rq.minRank) reqTags.push(rq.rankOk === true ? h("span", { class: "tag ok" }, `✔ Rang ${rq.rank} (min. ${rq.minRank})`)
-      : rq.rankOk === false ? h("span", { class: "tag bad" }, `✖ Rang ${rq.rank} – mindestens ${rq.minRank}`) : h("span", { class: "tag warn" }, `Mindest-Rang: ${rq.minRank}`));
+    if (rq.minRank) reqTags.push(rq.rankOk === true ? h("span", { class: "tag ok" }, L(`✔ Rang ${rq.rank} (min. ${rq.minRank})`, `✔ Rank ${rq.rank} (min. ${rq.minRank})`))
+      : rq.rankOk === false ? h("span", { class: "tag bad" }, L(`✖ Rang ${rq.rank} – mindestens ${rq.minRank}`, `✖ Rank ${rq.rank} – minimum ${rq.minRank}`)) : h("span", { class: "tag warn" }, L(`Mindest-Rang: ${rq.minRank}`, `Minimum rank: ${rq.minRank}`)));
     if ((form.requiredPasses || []).length) {
-      reqTags.push(rq.missingPasses && rq.missingPasses.length ? h("span", { class: "tag bad" }, "✖ Es fehlt: " + rq.missingPasses.join(", "))
-        : rq.unknownPasses && rq.unknownPasses.length ? h("span", { class: "tag warn" }, "? Nicht prüfbar: " + rq.unknownPasses.join(", "))
+      reqTags.push(rq.missingPasses && rq.missingPasses.length ? h("span", { class: "tag bad" }, L("✖ Es fehlt: ", "✖ Missing: ") + rq.missingPasses.join(", "))
+        : rq.unknownPasses && rq.unknownPasses.length ? h("span", { class: "tag warn" }, L("? Nicht prüfbar: ", "? Can't check: ") + rq.unknownPasses.join(", "))
           : h("span", { class: "tag ok" }, "✔ Alle Pflicht-Gamepässe"));
     }
     const owned = ((st.passes || {}).items || []).filter((x) => x.owned).length;
-    if (st.passes && !st.passes.private) reqTags.push(h("span", { class: "tag" }, `🎟️ ${owned}/${st.passes.items.length} Gamepässe`));
+    if (st.passes && !st.passes.private) reqTags.push(h("span", { class: "tag" }, `🎟️ ${owned}/${st.passes.items.length} ` + L("Gamepässe", "gamepasses")));
     if (st.big && st.big.summary) reqTags.push(h("span", { class: "tag" }, `💎 ${short(st.big.summary.totalRap)} RAP`));
     const blocked = (form.blockLowRank && rq.rankOk === false) || (form.blockMissingPasses && rq.missingPasses && rq.missingPasses.length);
 
@@ -470,12 +510,12 @@
       e.preventDefault();
       err.textContent = "";
       const missing = form.fields.filter((f) => f.enabled !== false && f.required && !String(answers[f.key] || "").trim());
-      if (missing.length) { err.textContent = "Bitte noch ausfüllen: " + missing.map((f) => f.label).join(", "); const el = document.getElementById("f_" + missing[0].key); if (el) el.focus(); return; }
-      if (S.files.length < minShots) { err.textContent = `Bitte lade mindestens ${minShots} Screenshot${minShots > 1 ? "s" : ""} hoch.`; return; }
-      submit.disabled = true; submit.textContent = "Wird gesendet …";
+      if (missing.length) { err.textContent = L("Bitte noch ausfüllen: ", "Please fill in: ") + missing.map((f) => fLabel(f)).join(", "); const el = document.getElementById("f_" + missing[0].key); if (el) el.focus(); return; }
+      if (S.files.length < minShots) { err.textContent = L(`Bitte lade mindestens ${minShots} Screenshot${minShots > 1 ? "s" : ""} hoch.`, `Please upload at least ${minShots} screenshot${minShots > 1 ? "s" : ""}.`); return; }
+      submit.disabled = true; submit.textContent = tr("Wird gesendet …");
       try {
         const fd = new FormData();
-        fd.append("data", JSON.stringify({ answers, lang: "de" }));
+        fd.append("data", JSON.stringify({ answers, lang: S.lang }));
         for (const f of S.files) fd.append("images", f);
         await api("/api/apply2", { method: "POST", body: fd, timeout: 120000 });
         sessionStorage.removeItem(DRAFT_KEY); S.files = [];
@@ -484,7 +524,7 @@
       } catch (ex) {
         err.textContent = errText(ex);
         if (ex.message === "inventory_required" || ex.message === "inventory_loading") { await refreshState(); }
-      } finally { submit.disabled = !!blocked; submit.textContent = "🚀 Bewerbung absenden"; }
+      } finally { submit.disabled = !!blocked; submit.textContent = tr("🚀 Bewerbung absenden"); }
     } },
       h("div", { class: "fields" }, fieldEls,
         h("div", { class: "field full" }, h("label", { class: "lbl" }, "Screenshots", minShots ? h("span", { class: "req" }, "*") : null), drop, fileInput, thumbs)),
@@ -498,7 +538,7 @@
         h("div", { class: "row between" },
           h("div", {}, h("h2", {}, "Deine Bewerbung"), h("p", { class: "lead mb0" }, "Felder mit * sind Pflicht. Was wir aus deinem Spielstand kennen, ist schon ausgefüllt – du kannst es ändern.")),
           rbxCard(st.roblox, true)),
-        form.intro ? h("div", { class: "notice info mt" }, h("span", { class: "ico" }, "📣"), h("p", { style: { whiteSpace: "pre-line" } }, form.intro)) : null,
+        (EN() && form.introEn) || form.intro ? h("div", { class: "notice info mt" }, h("span", { class: "ico" }, "📣"), h("p", { style: { whiteSpace: "pre-line" } }, (EN() && form.introEn) || form.intro)) : null,
         reqTags.length ? h("div", { class: "req-box mt" }, reqTags) : null),
       h("div", { class: "card" }, formEl),
       h("div", { class: "row mt" }, h("button", { class: "ghost", type: "button", onclick: () => { S.view = "inventory"; render(); } }, "← Zurück zum Account")));
@@ -511,7 +551,7 @@
       rc(APP, stepper(5), h("div", { class: "card status wait" },
         h("div", { class: "badge" }, "⏳"),
         h("h2", {}, "Bewerbung ist unterwegs!"),
-        h("p", {}, `Gesendet ${dateTime(app.created)} als `, h("b", {}, app.roblox), ". Unser Team schaut sich jede Bewerbung persönlich an."),
+        h("p", {}, L(`Gesendet ${dateTime(app.created)} als `, `Sent ${dateTime(app.created)} as `), h("b", {}, app.roblox), ". Unser Team schaut sich jede Bewerbung persönlich an."),
         h("div", { class: "timeline" },
           h("div", { class: "on" }, h("b", {}, "1 · Gesendet ✔"), "Deine Bewerbung ist beim Team."),
           h("div", { class: "on" }, h("b", {}, "2 · Prüfung"), "Das Team checkt Inventar, Gamepässe & Antworten."),
@@ -543,10 +583,10 @@
       rc(APP, stepper(6), h("div", { class: "card status bad" },
         h("div", { class: "badge" }, "💔"),
         h("h2", {}, "Diesmal leider nicht"),
-        h("p", {}, `Deine Bewerbung als ${app.roblox} wurde abgelehnt.`),
+        h("p", {}, L(`Deine Bewerbung als ${app.roblox} wurde abgelehnt.`, `Your application as ${app.roblox} was declined.`)),
         app.reason ? h("div", { class: "notice", style: { textAlign: "left", maxWidth: "36rem", margin: "16px auto" } }, h("span", { class: "ico" }, "💬"), h("p", {}, h("b", {}, "Grund: "), app.reason)) : null,
         me.canReapply ? h("button", { class: "btn violet mt", type: "button", onclick: () => { S.reapply = true; S.view = null; render(); } }, "Erneut bewerben")
-          : h("p", { class: "hint" }, `Du kannst dich ab ${dateTime(me.reapplyAt)} erneut bewerben. Bis dahin: weiter grinden! 💪`)));
+          : h("p", { class: "hint" }, L(`Du kannst dich ab ${dateTime(me.reapplyAt)} erneut bewerben. Bis dahin: weiter grinden! 💪`, `You can apply again from ${dateTime(me.reapplyAt)}. Until then: keep grinding! 💪`))));
     }
   }
 
@@ -603,8 +643,11 @@
             h("button", { type: "button", title: "Nach unten", disabled: i === F.fields.length - 1 ? true : null, onclick: () => { F.fields.splice(i + 1, 0, F.fields.splice(i, 1)[0]); drawQ(); } }, "▼")),
           h("div", { class: "body" },
             h("div", { class: "opts" }, h("input", { type: "text", value: f.label, maxlength: 120, placeholder: "Frage", oninput: (e) => { f.label = e.target.value; } }), typeSel),
+            h("input", { type: "text", value: f.labelEn || "", maxlength: 120, placeholder: "🇬🇧 Frage auf Englisch (optional)", oninput: (e) => { f.labelEn = e.target.value; } }),
             f.type === "select" ? h("input", { type: "text", value: (f.options || []).join(", "), placeholder: "Antworten, mit Komma getrennt", oninput: (e) => { f.options = e.target.value.split(",").map((x) => x.trim()).filter(Boolean); } }) : null,
+            f.type === "select" ? h("input", { type: "text", value: (f.optionsEn || []).join(", "), placeholder: "🇬🇧 Antworten auf Englisch (gleiche Reihenfolge)", oninput: (e) => { f.optionsEn = e.target.value.split(",").map((x) => x.trim()).filter(Boolean); } }) : null,
             f.type !== "yesno" && f.type !== "select" ? h("input", { type: "text", value: f.placeholder || "", maxlength: 120, placeholder: "Beispiel-Text im Feld (optional)", oninput: (e) => { f.placeholder = e.target.value; } }) : null,
+            f.type !== "yesno" && f.type !== "select" ? h("input", { type: "text", value: f.placeholderEn || "", maxlength: 120, placeholder: "🇬🇧 Beispiel-Text auf Englisch (optional)", oninput: (e) => { f.placeholderEn = e.target.value; } }) : null,
             h("div", { class: "flags" },
               h("label", {}, h("input", { type: "checkbox", checked: f.enabled !== false ? true : null, onchange: (e) => { f.enabled = e.target.checked; drawQ(); } }), "Anzeigen"),
               h("label", {}, h("input", { type: "checkbox", checked: f.required ? true : null, onchange: (e) => { f.required = e.target.checked; } }), "Pflicht"),
@@ -617,6 +660,7 @@
     const minRank = h("input", { type: "number", min: 0, max: 9999, value: F.minRank || 0, style: { maxWidth: "140px" }, oninput: (e) => { F.minRank = Number(e.target.value || 0); } });
     const shots = h("input", { type: "number", min: 0, max: 5, value: F.minScreenshots || 0, style: { maxWidth: "140px" }, oninput: (e) => { F.minScreenshots = Number(e.target.value || 0); } });
     const intro = h("textarea", { maxlength: 1500, placeholder: "z.B. Wir suchen gerade aktive Spieler für Clan Battles! …", value: F.intro || "", oninput: (e) => { F.intro = e.target.value; } });
+    const introEn = h("textarea", { maxlength: 1500, placeholder: "🇬🇧 Same text in English (optional)", value: F.introEn || "", oninput: (e) => { F.introEn = e.target.value; } });
 
     const saveBtn = h("button", { class: "btn green", type: "button", onclick: async () => {
       saveBtn.disabled = true;
@@ -648,7 +692,7 @@
       h("div", { class: "set-section" }, h("h3", {}, "📸 Screenshots"),
         h("div", { class: "row" }, shots, h("span", { class: "hint" }, "So viele Screenshots muss man mindestens hochladen (0–5)."))),
 
-      h("div", { class: "set-section" }, h("h3", {}, "📣 Text oben auf der Bewerbung"), intro),
+      h("div", { class: "set-section" }, h("h3", {}, "📣 Text oben auf der Bewerbung"), intro, h("p", { class: "hint" }, "🇬🇧 Englische Version (für Bewerber, die Englisch gewählt haben):"), introEn),
 
       h("div", { class: "set-section" },
         h("div", { class: "section-head" }, h("h3", {}, "📝 Fragen"),
@@ -731,6 +775,7 @@
   window.addEventListener("hashchange", () => { readHash(); render(); });
 
   async function init() {
+    applyDocLang();
     sparkles();
     readHash();
     try {
