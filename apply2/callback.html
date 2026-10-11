@@ -6,10 +6,13 @@
   <title>Anmeldung… – DUX0 Bewerbung</title>
   <link rel="icon" href="assets/favicon.png">
   <style>
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #06030d; color: #f2ecfc; font: 1rem/1.6 system-ui, sans-serif; text-align: center; padding: 1.5rem; }
-    a { color: #dcc9ff; } .box { max-width: 34rem; } h1 { font-size: 1.4rem; margin: 0 0 .6rem; } code { background: #120b22; padding: .1rem .4rem; }
-    .spin { width: 34px; height: 34px; margin: 0 auto 1rem; border: 3px solid #31205a; border-top-color: #8b3dff; border-radius: 50%; animation: s 1s linear infinite; }
-    @keyframes s { to { transform: rotate(360deg); } }
+    @font-face { font-family: "Fredoka"; font-weight: 500; src: url("assets/fredoka-500.woff2") format("woff2"); }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; color: #f7f2ff; font: 500 1.05rem/1.6 "Fredoka", system-ui, sans-serif; text-align: center; padding: 1.5rem;
+      background: radial-gradient(120% 90% at 50% 0%, #6a1fd6 0%, #2b0a6b 45%, #12042b 100%); }
+    a { color: #ffd23f; font-weight: 600; } .box { max-width: 34rem; background: rgba(30,12,66,.72); border: 2px solid rgba(255,255,255,.1); border-radius: 26px; padding: 2rem 1.6rem; box-shadow: 0 20px 60px rgba(0,0,0,.4); }
+    h1 { font-size: 1.4rem; margin: 0 0 .6rem; } code { background: #12042b; padding: .1rem .4rem; border-radius: 6px; }
+    .spin { width: 56px; height: 56px; margin: 0 auto 1rem; background: url("assets/mascot.webp") center/cover; border-radius: 50%; animation: b 1s ease-in-out infinite alternate; box-shadow: 0 0 0 4px #2a0b52, 0 0 30px #b47bff; }
+    @keyframes b { from { transform: translateY(0) } to { transform: translateY(-10px) } }
   </style>
 </head>
 <body>
