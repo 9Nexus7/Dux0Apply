@@ -21,7 +21,7 @@
       const fromApply = sessionStorage.getItem("dux0_big_return");
       const back = fromApply || "./#/connect";
       const box = document.getElementById("box");
-      const fail = (t) => { box.innerHTML = ""; const p = document.createElement("p"); p.textContent = t; const a = document.createElement("a"); a.href = back; a.textContent = fromApply ? "Zurück zur Bewerbung" : "Back to My account"; box.append(p, a); };
+      const fail = (t) => { box.innerHTML = ""; const p = document.createElement("p"); p.textContent = t; const a = document.createElement("a"); a.href = back; let en = false; try { en = localStorage.getItem("dux0a2_lang") === "en"; } catch (_) {} a.textContent = fromApply ? (en ? "Back to your application" : "Zurück zur Bewerbung") : "Back to My account"; box.append(p, a); };
       try {
         const q = new URLSearchParams(location.search);
         if (q.get("error")) return fail(fromApply ? "Die Verbindung mit BIG Games wurde abgebrochen." : "BIG Games login was cancelled or denied.");
