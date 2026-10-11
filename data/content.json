@@ -1,99 +1,68 @@
 {
-  "announcement": "#1 Clan Website",
+  "announcement": "",
   "about": "DUX0 is a Pet Simulator 99 clan built around teamwork and clan battles. United as one. Built to win.",
-  "requirements": [
-    "Must be Active On Dc",
-    "Send also an SS of your inv pets"
-  ],
+  "requirements": [],
   "requirementsDetail": {
     "minRank": "20",
-    "minPlaytime": "15",
+    "minPlaytime": "10",
     "gamepasses": [
       265320491,
       205379487,
-      655859720,
       257803774,
+      655859720,
       259437976
     ],
     "notes": ""
   },
   "achievements": [
     {
-      "id": "f3522605",
-      "title": "Spring2026",
-      "desc": "",
-      "date": "",
-      "image": "/uploads/a868cc6bd103.png"
+      "id": "e1f12571",
+      "title": "First Clan Battle",
+      "desc": "#555",
+      "date": "25.04.2026",
+      "image": "/uploads/84c217807910.png"
     },
     {
-      "id": "6a686ee2",
-      "title": "Starry Battle",
-      "desc": "",
-      "date": "",
-      "image": "/uploads/815c6570a9a6.png"
+      "id": "d7fa1789",
+      "title": "Second Clan Battle",
+      "desc": "#551",
+      "date": "02.05.2026",
+      "image": "/uploads/8a6495dd21e8.png"
     },
     {
-      "id": "1a96ee28",
-      "title": "Angel Battle2026",
-      "desc": "Place #241",
-      "date": "",
-      "image": ""
+      "id": "4bfd890c",
+      "title": "Third Clan Battle",
+      "desc": "#153",
+      "date": "03.07.2026",
+      "image": "/uploads/d1d59972c6da.png"
     },
     {
-      "id": "491ece63",
-      "title": "Backrooms2026",
-      "desc": "Place #583",
-      "date": "",
-      "image": ""
+      "id": "71b6d068",
+      "title": "Pet vs Coins Battel",
+      "desc": "# 515",
+      "date": "02.08.2026",
+      "image": "/uploads/952ac6224723.png"
     },
     {
-      "id": "825eda01",
-      "title": "Soccer Battle2026",
-      "desc": "",
-      "date": "",
-      "image": "/uploads/df304cc61679.png"
+      "id": "613e4b14",
+      "title": "Pinjata Battel",
+      "desc": "#285",
+      "date": "14.08.2026",
+      "image": "/uploads/abf781f7efeb.png"
     },
     {
-      "id": "3c956feb",
-      "title": "Lunar Battle2026 Place #456",
-      "desc": "Place #456",
-      "date": "",
-      "image": ""
+      "id": "cb7c0145",
+      "title": "",
+      "desc": "#282",
+      "date": "28.08.2026",
+      "image": "/uploads/f2f029dfebbd.png"
     },
     {
-      "id": "d5f65951",
-      "title": "Gummy Battle2026",
-      "desc": "",
-      "date": "",
-      "image": "/uploads/0ce7f4c8385a.png"
-    },
-    {
-      "id": "c0bf4749",
-      "title": "Ninja Battle2026",
-      "desc": "",
-      "date": "",
-      "image": "/uploads/19533f9cc9ae.png"
-    },
-    {
-      "id": "b4ce1c0c",
-      "title": "Royal Battle2026",
-      "desc": "",
-      "date": "",
-      "image": "/uploads/fdd3858f65bf.png"
-    },
-    {
-      "id": "8b31c189",
-      "title": "Arcade Battle2026",
-      "desc": "",
-      "date": "",
-      "image": "/uploads/906e5a7b66ed.png"
-    },
-    {
-      "id": "0f082d6a",
-      "title": "Space Mine Battle2026",
-      "desc": "",
-      "date": "",
-      "image": "/uploads/f998cb41a881.png"
+      "id": "7255c86b",
+      "title": "",
+      "desc": "#271",
+      "date": "11.09.2026",
+      "image": "/uploads/bef584af75a0.png"
     }
   ],
   "gallery": []
