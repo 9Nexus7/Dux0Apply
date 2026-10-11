@@ -20,6 +20,22 @@
   <script>
     (async () => {
       const box = document.getElementById("box");
+      let EN = false; try { EN = localStorage.getItem("dux0a2_lang") === "en"; } catch (_) {}
+      if (EN) { document.documentElement.lang = "en"; box.querySelector("p").textContent = "Logging you in…"; }
+      const T = EN ? {
+        "Zurück zur Bewerbungsseite": "Back to the application page", "Fehlercode: ": "Error code: ",
+        "Anmeldung abgebrochen": "Login cancelled", "Du hast den Discord-Login geschlossen oder abgelehnt.": "You closed or declined the Discord login.",
+        "Anmeldung konnte nicht starten": "Login couldn't start", "Discord hat keinen Login-Code geschickt.": "Discord didn't send a login code.",
+        "Anmeldung konnte nicht geprüft werden": "Login couldn't be verified",
+        "Die Sicherheitsprüfung ist fehlgeschlagen. Bitte öffne die Seite neu und klicke erneut auf Login (die Seite nicht einfach neu laden).": "The security check failed. Please open the page again and click login again (don't just reload).",
+        "Der Bot ist offline": "The bot is offline", "Die Seite kennt die Bot-Adresse noch nicht. Bitte später erneut versuchen.": "The page doesn't know the bot address yet. Please try again later.",
+        "Der Bot hat nicht geantwortet": "The bot didn't respond", "Die Adresse ist nicht erreichbar. Der Bot ist vielleicht aus oder wurde neu gestartet.": "The address can't be reached. The bot may be off or restarting.",
+        "Anmeldung fehlgeschlagen": "Login failed", "Der Bot konnte den Login nicht abschließen.": "The bot couldn't complete the login.",
+        "Die Login-Antwort war unvollständig. Bitte versuch es erneut.": "The login response was incomplete. Please try again.",
+        "Discord hat die Anfrage abgelehnt. Bitte versuch die Anmeldung erneut.": "Discord rejected the request. Please try logging in again.",
+        "Der Login-Code wurde abgelehnt. Das passiert, wenn die Redirect-URL im Developer Portal nicht genau passt oder die Seite neu geladen wurde. Bitte versuch die Anmeldung erneut.": "The login code was rejected. Please try logging in again.",
+      } : {};
+      const t = (x) => T[x] || x;
       const MESSAGES = {
         login_not_configured: "Der Bot hat noch kein Discord-Client-Secret. Der Server-Betreiber muss DUX0_CLIENT_SECRET in settings.env setzen und den Bot neu starten.",
         oauth_invalid_client: "Discord hat das Client-Secret abgelehnt. Der Betreiber muss das aktuelle Client Secret aus dem Developer Portal (OAuth2) in DUX0_CLIENT_SECRET eintragen.",
@@ -30,11 +46,11 @@
       };
       const fail = (title, text, code) => {
         box.innerHTML = "";
-        const h = document.createElement("h1"); h.textContent = title;
-        const p = document.createElement("p"); p.textContent = text;
-        const a = document.createElement("a"); a.href = "./"; a.textContent = "Zurück zur Bewerbungsseite";
+        const h = document.createElement("h1"); h.textContent = t(title);
+        const p = document.createElement("p"); p.textContent = t(text);
+        const a = document.createElement("a"); a.href = "./"; a.textContent = t("Zurück zur Bewerbungsseite");
         box.append(h, p);
-        if (code) { const c = document.createElement("p"); c.append("Fehlercode: "); const k = document.createElement("code"); k.textContent = code; c.append(k); box.append(c); }
+        if (code) { const c = document.createElement("p"); c.append(t("Fehlercode: ")); const k = document.createElement("code"); k.textContent = code; c.append(k); box.append(c); }
         box.append(a);
       };
       try {
