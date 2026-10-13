@@ -1,22 +1,12 @@
 {
   "ok": true,
-  "updated": 1791920948,
+  "updated": 1791922749,
   "tracking": {
-    "window": 3610,
-    "since": 1791748150,
+    "window": 3629,
+    "since": 1791749946,
     "rate1h": 0,
     "rate24h": 0,
     "trend": [
-      [
-        1791834598,
-        257470249,
-        427
-      ],
-      [
-        1791835476,
-        257470249,
-        427
-      ],
       [
         1791836351,
         257470249,
@@ -508,9 +498,19 @@
         427
       ],
       [
-        1791920916,
+        1791921174,
         257470249,
-        427
+        426
+      ],
+      [
+        1791922040,
+        257470249,
+        426
+      ],
+      [
+        1791922718,
+        257470249,
+        426
       ]
     ]
   },
@@ -1077,8 +1077,8 @@
     ],
     "points": 257470249,
     "rank": {
-      "place": 427,
-      "total": 169430,
+      "place": 426,
+      "total": 169429,
       "points": 257470249,
       "gems": 2759780998,
       "above": {
@@ -1107,7 +1107,7 @@
         "name": "SOPU",
         "icon": "https://ps99.biggamesapi.io/image/92415264775072",
         "country": "XK",
-        "members": 61,
+        "members": 58,
         "capacity": 50,
         "points": 73293025516,
         "gems": 432128512115,
@@ -1140,7 +1140,7 @@
         "name": "XB0X",
         "icon": "https://ps99.biggamesapi.io/image/18628542197",
         "country": "US",
-        "members": 72,
+        "members": 71,
         "capacity": 50,
         "points": 46129641633,
         "gems": 77541553580,
@@ -1195,7 +1195,7 @@
         "name": "0FCL",
         "icon": "https://ps99.biggamesapi.io/image/93978272178957",
         "country": "US",
-        "members": 61,
+        "members": 60,
         "capacity": 50,
         "points": 27849954709,
         "gems": 36827561551,
@@ -1253,7 +1253,7 @@
       },
       {
         "rank": 9,
-        "name": "Clinton",
+        "name": "822733770",
         "points": 2920007606,
         "clan": "minx"
       },
