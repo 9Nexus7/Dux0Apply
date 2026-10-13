@@ -1,22 +1,12 @@
 {
   "ok": true,
-  "updated": 1791900950,
+  "updated": 1791902756,
   "tracking": {
-    "window": 3658,
-    "since": 1791728159,
+    "window": 3602,
+    "since": 1791729963,
     "rate1h": 0,
     "rate24h": 0,
     "trend": [
-      [
-        1791814611,
-        257470249,
-        427
-      ],
-      [
-        1791815480,
-        257470249,
-        427
-      ],
       [
         1791816356,
         257470249,
@@ -508,7 +498,17 @@
         427
       ],
       [
-        1791900950,
+        1791901014,
+        257470249,
+        427
+      ],
+      [
+        1791901889,
+        257470249,
+        427
+      ],
+      [
+        1791902756,
         257470249,
         427
       ]
@@ -1078,7 +1078,7 @@
     "points": 257470249,
     "rank": {
       "place": 427,
-      "total": 169412,
+      "total": 169413,
       "points": 257470249,
       "gems": 2759780998,
       "above": {
@@ -1151,7 +1151,7 @@
         "name": "3zEZ",
         "icon": "https://ps99.biggamesapi.io/image/113393687287274",
         "country": "US",
-        "members": 64,
+        "members": 63,
         "capacity": 50,
         "points": 39703562117,
         "gems": 196634990841,
@@ -1184,7 +1184,7 @@
         "name": "POPS",
         "icon": "https://ps99.biggamesapi.io/image/17451171044",
         "country": "US",
-        "members": 72,
+        "members": 71,
         "capacity": 50,
         "points": 31462533128,
         "gems": 37043345568,
@@ -1205,61 +1205,61 @@
     "topPlayers": [
       {
         "rank": 1,
-        "name": "33492395",
+        "name": "unoyea",
         "points": 4261915734,
         "clan": "UN0"
       },
       {
         "rank": 2,
-        "name": "2961636717",
+        "name": "nichozr",
         "points": 3724264789,
         "clan": "UN0"
       },
       {
         "rank": 3,
-        "name": "3214496713",
+        "name": "DarkPhoenix917",
         "points": 3410707139,
         "clan": "UN0"
       },
       {
         "rank": 4,
-        "name": "45130460",
+        "name": "ziIlionaires",
         "points": 3289318158,
         "clan": "UN0"
       },
       {
         "rank": 5,
-        "name": "7742077490",
+        "name": "SirWabbs",
         "points": 3036905500,
         "clan": "UN0"
       },
       {
         "rank": 6,
-        "name": "5024374530",
+        "name": "Lavoo_02",
         "points": 3008340929,
         "clan": "UN0"
       },
       {
         "rank": 7,
-        "name": "1025208743",
+        "name": "Kenny0529ae716",
         "points": 2979042000,
         "clan": "UN0"
       },
       {
         "rank": 8,
-        "name": "2443619256",
+        "name": "mihokkon",
         "points": 2961900500,
         "clan": "UN0"
       },
       {
         "rank": 9,
-        "name": "822733770",
+        "name": "Clinton",
         "points": 2920007606,
         "clan": "minx"
       },
       {
         "rank": 10,
-        "name": "1339738254",
+        "name": "Marvin",
         "points": 2869712132,
         "clan": "UN0"
       }
