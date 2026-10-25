@@ -1,11 +1,11 @@
 {
   "ok": true,
-  "updated": 1792928210,
+  "updated": 1792928650,
   "tracking": {
-    "window": 3659,
+    "window": 3608,
     "since": 1792867732,
-    "rate1h": 2529,
-    "rate24h": 1305,
+    "rate1h": 2564,
+    "rate24h": 1295,
     "trend": [
       [
         1792867732,
@@ -503,9 +503,9 @@
         937
       ],
       [
-        1792928210,
+        1792928650,
         27675,
-        938
+        943
       ]
     ]
   },
@@ -1104,8 +1104,8 @@
     ],
     "points": 27675,
     "rank": {
-      "place": 938,
-      "total": 169560,
+      "place": 943,
+      "total": 169561,
       "points": 27675,
       "gems": 2809868998,
       "above": {
@@ -1136,7 +1136,7 @@
         "country": "XK",
         "members": 49,
         "capacity": 50,
-        "points": 1092010,
+        "points": 1094410,
         "gems": 432223530314,
         "ours": false
       },
@@ -1153,24 +1153,24 @@
       },
       {
         "rank": 4,
+        "name": "VLP",
+        "icon": "https://ps99.biggamesapi.io/image/15281988558",
+        "country": "CZ",
+        "members": 48,
+        "capacity": 50,
+        "points": 770105,
+        "gems": 33233084716,
+        "ours": false
+      },
+      {
+        "rank": 5,
         "name": "POPS",
         "icon": "https://ps99.biggamesapi.io/image/17451171044",
         "country": "US",
         "members": 49,
         "capacity": 50,
-        "points": 762660,
+        "points": 768260,
         "gems": 38558169321,
-        "ours": false
-      },
-      {
-        "rank": 5,
-        "name": "VLP",
-        "icon": "https://ps99.biggamesapi.io/image/15281988558",
-        "country": "CZ",
-        "members": 47,
-        "capacity": 50,
-        "points": 734705,
-        "gems": 33233084716,
         "ours": false
       },
       {
@@ -1180,7 +1180,7 @@
         "country": "US",
         "members": 49,
         "capacity": 50,
-        "points": 734600,
+        "points": 742175,
         "gems": 24093961456,
         "ours": false
       },
@@ -1191,12 +1191,23 @@
         "country": "US",
         "members": 47,
         "capacity": 50,
-        "points": 605395,
+        "points": 654870,
         "gems": 25230203917,
         "ours": false
       },
       {
         "rank": 8,
+        "name": "S7PY",
+        "icon": "https://ps99.biggamesapi.io/image/73813551810208",
+        "country": "GB",
+        "members": 46,
+        "capacity": 50,
+        "points": 600325,
+        "gems": 38334346157,
+        "ours": false
+      },
+      {
+        "rank": 9,
         "name": "GDSQ",
         "icon": "https://ps99.biggamesapi.io/image/110715427585169",
         "country": "BE",
@@ -1207,25 +1218,14 @@
         "ours": false
       },
       {
-        "rank": 9,
-        "name": "S7PY",
-        "icon": "https://ps99.biggamesapi.io/image/73813551810208",
-        "country": "GB",
-        "members": 46,
-        "capacity": 50,
-        "points": 598075,
-        "gems": 38334346157,
-        "ours": false
-      },
-      {
         "rank": 10,
-        "name": "KOHV",
-        "icon": "https://ps99.biggamesapi.io/image/112338152892007",
-        "country": "PK",
-        "members": 49,
+        "name": "SOP0",
+        "icon": "https://ps99.biggamesapi.io/image/92415264775072",
+        "country": "NL",
+        "members": 48,
         "capacity": 50,
-        "points": 586930,
-        "gems": 129636039290,
+        "points": 590445,
+        "gems": 2524097769,
         "ours": false
       }
     ],
@@ -1394,7 +1394,7 @@
       "id": "FantasyBattle2026",
       "title": "Fantasy Battle2026",
       "points": 27675,
-      "place": 937,
+      "place": 941,
       "medal": null,
       "live": true
     }
