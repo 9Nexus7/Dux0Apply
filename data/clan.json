@@ -1,11 +1,11 @@
 {
   "ok": true,
-  "updated": 1792900658,
+  "updated": 1792902474,
   "tracking": {
-    "window": 3628,
+    "window": 3630,
     "since": 1792867732,
-    "rate1h": 437,
-    "rate24h": 1610,
+    "rate1h": 0,
+    "rate24h": 1524,
     "trend": [
       [
         1792867732,
@@ -543,9 +543,39 @@
         688
       ],
       [
-        1792900627,
+        1792900690,
         20470,
-        689
+        691
+      ],
+      [
+        1792900996,
+        20470,
+        695
+      ],
+      [
+        1792901303,
+        20470,
+        697
+      ],
+      [
+        1792901610,
+        20470,
+        699
+      ],
+      [
+        1792901921,
+        20470,
+        704
+      ],
+      [
+        1792902229,
+        20470,
+        709
+      ],
+      [
+        1792902474,
+        20470,
+        711
       ]
     ]
   },
@@ -787,7 +817,7 @@
       "eventRank": 14,
       "pointsRank": 28,
       "gemsRank": 21,
-      "gain": 440
+      "gain": 0
     },
     {
       "id": 2822863890,
@@ -1144,7 +1174,7 @@
     ],
     "points": 20470,
     "rank": {
-      "place": 691,
+      "place": 711,
       "total": 169546,
       "points": 20470,
       "gems": 2769868998,
@@ -1153,8 +1183,8 @@
         "points": 20515
       },
       "below": {
-        "name": "srp3",
-        "points": 20455
+        "name": "Gjan",
+        "points": 20445
       }
     },
     "topClans": [
@@ -1165,7 +1195,7 @@
         "country": "GB",
         "members": 49,
         "capacity": 50,
-        "points": 575955,
+        "points": 585580,
         "gems": 830432080657,
         "ours": false
       },
@@ -1176,7 +1206,7 @@
         "country": "XK",
         "members": 49,
         "capacity": 50,
-        "points": 518125,
+        "points": 569075,
         "gems": 432223530314,
         "ours": false
       },
@@ -1187,7 +1217,7 @@
         "country": "JP",
         "members": 49,
         "capacity": 50,
-        "points": 498900,
+        "points": 522200,
         "gems": 68254266418,
         "ours": false
       },
@@ -1198,7 +1228,7 @@
         "country": "US",
         "members": 49,
         "capacity": 50,
-        "points": 381245,
+        "points": 385145,
         "gems": 24093961456,
         "ours": false
       },
@@ -1209,7 +1239,7 @@
         "country": "US",
         "members": 48,
         "capacity": 50,
-        "points": 367335,
+        "points": 370885,
         "gems": 7681823861,
         "ours": false
       },
@@ -1220,30 +1250,30 @@
         "country": "US",
         "members": 49,
         "capacity": 50,
-        "points": 338040,
+        "points": 339185,
         "gems": 38558169321,
         "ours": false
       },
       {
         "rank": 7,
-        "name": "S7PY",
-        "icon": "https://ps99.biggamesapi.io/image/73813551810208",
-        "country": "GB",
-        "members": 48,
-        "capacity": 50,
-        "points": 326005,
-        "gems": 38334346157,
-        "ours": false
-      },
-      {
-        "rank": 8,
         "name": "surx",
         "icon": "https://ps99.biggamesapi.io/image/14976485216",
         "country": "US",
         "members": 48,
         "capacity": 50,
-        "points": 319550,
+        "points": 331100,
         "gems": 25230203917,
+        "ours": false
+      },
+      {
+        "rank": 8,
+        "name": "S7PY",
+        "icon": "https://ps99.biggamesapi.io/image/73813551810208",
+        "country": "GB",
+        "members": 48,
+        "capacity": 50,
+        "points": 327930,
+        "gems": 38334346157,
         "ours": false
       },
       {
@@ -1253,19 +1283,19 @@
         "country": "US",
         "members": 47,
         "capacity": 50,
-        "points": 317385,
+        "points": 323160,
         "gems": 78824214347,
         "ours": false
       },
       {
         "rank": 10,
-        "name": "minx",
-        "icon": "https://ps99.biggamesapi.io/image/72089661585233",
-        "country": "GB",
+        "name": "GSTG",
+        "icon": "https://ps99.biggamesapi.io/image/17699945644",
+        "country": "US",
         "members": 49,
         "capacity": 50,
-        "points": 312425,
-        "gems": 90559317799,
+        "points": 320975,
+        "gems": 78306608324,
         "ours": false
       }
     ],
@@ -1320,15 +1350,15 @@
       },
       {
         "rank": 9,
-        "name": "elliesbf",
-        "points": 27925,
-        "clan": "SOPU"
+        "name": "QueenSparkleFingers",
+        "points": 30000,
+        "clan": "EVOL"
       },
       {
         "rank": 10,
-        "name": "robloxisssnotfunny12",
-        "points": 27750,
-        "clan": "R1GN"
+        "name": "merc",
+        "points": 28250,
+        "clan": "C0LD"
       }
     ],
     "participating": 100
@@ -1434,7 +1464,7 @@
       "id": "FantasyBattle2026",
       "title": "Fantasy Battle2026",
       "points": 20470,
-      "place": 688,
+      "place": 711,
       "medal": null,
       "live": true
     }
