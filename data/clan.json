@@ -1,11 +1,11 @@
 {
   "ok": true,
-  "updated": 1792924242,
+  "updated": 1792926057,
   "tracking": {
-    "window": 3636,
+    "window": 3628,
     "since": 1792867732,
-    "rate1h": 50,
-    "rate24h": 1232,
+    "rate1h": 1191,
+    "rate24h": 1269,
     "trend": [
       [
         1792867732,
@@ -521,6 +521,26 @@
         1792924242,
         25105,
         954
+      ],
+      [
+        1792924797,
+        25105,
+        966
+      ],
+      [
+        1792925349,
+        25105,
+        988
+      ],
+      [
+        1792925904,
+        26305,
+        954
+      ],
+      [
+        1792926026,
+        26305,
+        954
       ]
     ]
   },
@@ -564,13 +584,13 @@
       "role": "Member",
       "permission": 50,
       "joined": 1787081658,
-      "event": 3200,
-      "points": 258940684,
+      "event": 4400,
+      "points": 258941884,
       "gems": 10007000,
       "eventRank": 2,
       "pointsRank": 7,
       "gemsRank": 12,
-      "gain": 0
+      "gain": 1200
     },
     {
       "id": 3420297189,
@@ -602,7 +622,7 @@
       "eventRank": 4,
       "pointsRank": 25,
       "gemsRank": 5,
-      "gain": 50
+      "gain": 0
     },
     {
       "id": 3095445620,
@@ -1055,8 +1075,8 @@
   ],
   "totals": {
     "members": 32,
-    "event": 25105,
-    "points": 5242666299,
+    "event": 26305,
+    "points": 5242667499,
     "gems": 2809868998,
     "contributors": 20
   },
@@ -1117,19 +1137,19 @@
         "amount": 1
       }
     ],
-    "points": 25105,
+    "points": 26305,
     "rank": {
       "place": 954,
       "total": 169557,
-      "points": 25105,
+      "points": 26305,
       "gems": 2809868998,
       "above": {
-        "name": "0gor",
-        "points": 25125
+        "name": "czwc",
+        "points": 26315
       },
       "below": {
-        "name": "SPQR",
-        "points": 25100
+        "name": "frla",
+        "points": 26300
       }
     },
     "topClans": [
@@ -1140,7 +1160,7 @@
         "country": "JP",
         "members": 49,
         "capacity": 50,
-        "points": 988205,
+        "points": 1015780,
         "gems": 68254266418,
         "ours": false
       },
@@ -1151,7 +1171,7 @@
         "country": "XK",
         "members": 49,
         "capacity": 50,
-        "points": 987375,
+        "points": 992510,
         "gems": 432223530314,
         "ours": false
       },
@@ -1162,7 +1182,7 @@
         "country": "GB",
         "members": 49,
         "capacity": 50,
-        "points": 762190,
+        "points": 811040,
         "gems": 830432080657,
         "ours": false
       },
@@ -1173,30 +1193,30 @@
         "country": "US",
         "members": 49,
         "capacity": 50,
-        "points": 680490,
+        "points": 686915,
         "gems": 38558169321,
         "ours": false
       },
       {
         "rank": 5,
-        "name": "Iynx",
-        "icon": "https://ps99.biggamesapi.io/image/14968294740",
-        "country": "US",
-        "members": 49,
-        "capacity": 50,
-        "points": 668965,
-        "gems": 24093961456,
-        "ours": false
-      },
-      {
-        "rank": 6,
         "name": "VLP",
         "icon": "https://ps99.biggamesapi.io/image/15281988558",
         "country": "CZ",
         "members": 47,
         "capacity": 50,
-        "points": 631665,
+        "points": 684115,
         "gems": 33233084716,
+        "ours": false
+      },
+      {
+        "rank": 6,
+        "name": "Iynx",
+        "icon": "https://ps99.biggamesapi.io/image/14968294740",
+        "country": "US",
+        "members": 49,
+        "capacity": 50,
+        "points": 673950,
+        "gems": 24093961456,
         "ours": false
       },
       {
@@ -1206,41 +1226,41 @@
         "country": "GB",
         "members": 46,
         "capacity": 50,
-        "points": 573450,
+        "points": 585475,
         "gems": 38334346157,
         "ours": false
       },
       {
         "rank": 8,
+        "name": "surx",
+        "icon": "https://ps99.biggamesapi.io/image/14976485216",
+        "country": "US",
+        "members": 47,
+        "capacity": 50,
+        "points": 557310,
+        "gems": 25230203917,
+        "ours": false
+      },
+      {
+        "rank": 9,
         "name": "GSTG",
         "icon": "https://ps99.biggamesapi.io/image/17699945644",
         "country": "US",
         "members": 49,
         "capacity": 50,
-        "points": 545535,
+        "points": 554760,
         "gems": 78306608324,
         "ours": false
       },
       {
-        "rank": 9,
+        "rank": 10,
         "name": "0RY",
         "icon": "https://ps99.biggamesapi.io/image/113300727543444",
         "country": "US",
         "members": 48,
         "capacity": 50,
-        "points": 544370,
+        "points": 553255,
         "gems": 7681843861,
-        "ours": false
-      },
-      {
-        "rank": 10,
-        "name": "3zEZ",
-        "icon": "https://ps99.biggamesapi.io/image/113393687287274",
-        "country": "US",
-        "members": 49,
-        "capacity": 50,
-        "points": 519790,
-        "gems": 201402379607,
         "ours": false
       }
     ],
@@ -1283,27 +1303,27 @@
       },
       {
         "rank": 7,
+        "name": "Zenny",
+        "points": 68775,
+        "clan": "CITC"
+      },
+      {
+        "rank": 8,
+        "name": "Gamecist",
+        "points": 68100,
+        "clan": "XB0X"
+      },
+      {
+        "rank": 9,
         "name": "Yuu0703_1",
         "points": 67775,
         "clan": "C0LD"
       },
       {
-        "rank": 8,
+        "rank": 10,
         "name": "Sloop",
         "points": 66925,
         "clan": "UN0"
-      },
-      {
-        "rank": 9,
-        "name": "Zenny",
-        "points": 66275,
-        "clan": "CITC"
-      },
-      {
-        "rank": 10,
-        "name": "Esgotado",
-        "points": 65950,
-        "clan": "VNID"
       }
     ],
     "participating": 100
@@ -1408,8 +1428,8 @@
     {
       "id": "FantasyBattle2026",
       "title": "Fantasy Battle2026",
-      "points": 25105,
-      "place": 956,
+      "points": 26305,
+      "place": 954,
       "medal": null,
       "live": true
     }
