@@ -1,11 +1,11 @@
 {
   "ok": true,
-  "updated": 1792934100,
+  "updated": 1792935915,
   "tracking": {
-    "window": 3628,
+    "window": 3627,
     "since": 1792867732,
-    "rate1h": 4624,
-    "rate24h": 1468,
+    "rate1h": 149,
+    "rate24h": 1436,
     "trend": [
       [
         1792867732,
@@ -498,9 +498,24 @@
         850
       ],
       [
-        1792934069,
+        1792934194,
         32810,
-        859
+        860
+      ],
+      [
+        1792934870,
+        32810,
+        867
+      ],
+      [
+        1792935547,
+        32960,
+        877
+      ],
+      [
+        1792935915,
+        32960,
+        879
       ]
     ]
   },
@@ -534,7 +549,7 @@
       "eventRank": 1,
       "pointsRank": 15,
       "gemsRank": 7,
-      "gain": 4660
+      "gain": 0
     },
     {
       "id": 2293581360,
@@ -672,13 +687,13 @@
       "role": "Member",
       "permission": 50,
       "joined": 1792252543,
-      "event": 1190,
-      "points": 1190,
+      "event": 1340,
+      "points": 1340,
       "gems": 10000000,
       "eventRank": 10,
       "pointsRank": 31,
       "gemsRank": 13,
-      "gain": 0
+      "gain": 150
     },
     {
       "id": 3785603072,
@@ -1035,8 +1050,8 @@
   ],
   "totals": {
     "members": 32,
-    "event": 32810,
-    "points": 5242673919,
+    "event": 32960,
+    "points": 5242674069,
     "gems": 2809868998,
     "contributors": 20
   },
@@ -1097,19 +1112,19 @@
         "amount": 1
       }
     ],
-    "points": 32810,
+    "points": 32960,
     "rank": {
-      "place": 859,
-      "total": 169564,
-      "points": 32810,
+      "place": 879,
+      "total": 169569,
+      "points": 32960,
       "gems": 2809868998,
       "above": {
-        "name": "TTQ1",
-        "points": 32815
+        "name": "oIcy",
+        "points": 32975
       },
       "below": {
-        "name": "oIcy",
-        "points": 32725
+        "name": "JSK",
+        "points": 32905
       }
     },
     "topClans": [
@@ -1120,7 +1135,7 @@
         "country": "XK",
         "members": 49,
         "capacity": 50,
-        "points": 1307860,
+        "points": 1327785,
         "gems": 432223530314,
         "ours": false
       },
@@ -1131,7 +1146,7 @@
         "country": "JP",
         "members": 49,
         "capacity": 50,
-        "points": 1247130,
+        "points": 1282630,
         "gems": 68254266418,
         "ours": false
       },
@@ -1142,7 +1157,7 @@
         "country": "CZ",
         "members": 49,
         "capacity": 50,
-        "points": 1022625,
+        "points": 1034210,
         "gems": 33233084716,
         "ours": false
       },
@@ -1153,7 +1168,7 @@
         "country": "GB",
         "members": 49,
         "capacity": 50,
-        "points": 883285,
+        "points": 985460,
         "gems": 830432080657,
         "ours": false
       },
@@ -1164,7 +1179,7 @@
         "country": "US",
         "members": 49,
         "capacity": 50,
-        "points": 856700,
+        "points": 925625,
         "gems": 24093961456,
         "ours": false
       },
@@ -1175,7 +1190,7 @@
         "country": "US",
         "members": 49,
         "capacity": 50,
-        "points": 800320,
+        "points": 834545,
         "gems": 38558169321,
         "ours": false
       },
@@ -1186,7 +1201,7 @@
         "country": "GB",
         "members": 47,
         "capacity": 50,
-        "points": 744175,
+        "points": 787200,
         "gems": 38334346157,
         "ours": false
       },
@@ -1197,30 +1212,30 @@
         "country": "US",
         "members": 48,
         "capacity": 50,
-        "points": 733795,
+        "points": 743620,
         "gems": 25230203917,
         "ours": false
       },
       {
         "rank": 9,
-        "name": "KOHV",
-        "icon": "https://ps99.biggamesapi.io/image/112338152892007",
-        "country": "PK",
+        "name": "GSTG",
+        "icon": "https://ps99.biggamesapi.io/image/17699945644",
+        "country": "US",
         "members": 49,
         "capacity": 50,
-        "points": 667445,
-        "gems": 129636039290,
+        "points": 685505,
+        "gems": 78306608324,
         "ours": false
       },
       {
         "rank": 10,
-        "name": "XB0X",
-        "icon": "https://ps99.biggamesapi.io/image/18628542197",
-        "country": "US",
-        "members": 47,
+        "name": "KOHV",
+        "icon": "https://ps99.biggamesapi.io/image/112338152892007",
+        "country": "PK",
+        "members": 48,
         "capacity": 50,
-        "points": 656015,
-        "gems": 78824214347,
+        "points": 684845,
+        "gems": 129636039290,
         "ours": false
       }
     ],
@@ -1245,45 +1260,45 @@
       },
       {
         "rank": 4,
+        "name": "jonnyocd",
+        "points": 84575,
+        "clan": "SOPU"
+      },
+      {
+        "rank": 5,
+        "name": "larsdegeus2",
+        "points": 84450,
+        "clan": "POPS"
+      },
+      {
+        "rank": 6,
         "name": "MonsterCyrus",
         "points": 80225,
         "clan": "Iynx"
       },
       {
-        "rank": 5,
+        "rank": 7,
         "name": "ItzGoldie",
         "points": 77425,
         "clan": "C0LD"
       },
       {
-        "rank": 6,
+        "rank": 8,
+        "name": "light",
+        "points": 76925,
+        "clan": "Iynx"
+      },
+      {
+        "rank": 9,
         "name": "Icy",
         "points": 76700,
         "clan": "SOPU"
       },
       {
-        "rank": 7,
+        "rank": 10,
         "name": "BSSIDER",
         "points": 76375,
         "clan": "POPS"
-      },
-      {
-        "rank": 8,
-        "name": "JMBGaming03",
-        "points": 76025,
-        "clan": "M4RB"
-      },
-      {
-        "rank": 9,
-        "name": "Trevaze",
-        "points": 75100,
-        "clan": "UN0"
-      },
-      {
-        "rank": 10,
-        "name": "Duck",
-        "points": 73375,
-        "clan": "R0W"
       }
     ],
     "participating": 100
@@ -1388,8 +1403,8 @@
     {
       "id": "FantasyBattle2026",
       "title": "Fantasy Battle2026",
-      "points": 32810,
-      "place": 860,
+      "points": 32960,
+      "place": 879,
       "medal": null,
       "live": true
     }
