@@ -1,11 +1,11 @@
 {
   "ok": true,
-  "updated": 1792927871,
+  "updated": 1792928210,
   "tracking": {
-    "window": 3629,
+    "window": 3659,
     "since": 1792867732,
-    "rate1h": 2465,
-    "rate24h": 1307,
+    "rate1h": 2529,
+    "rate24h": 1305,
     "trend": [
       [
         1792867732,
@@ -498,9 +498,14 @@
         929
       ],
       [
-        1792927871,
+        1792928057,
         27590,
-        935
+        937
+      ],
+      [
+        1792928210,
+        27675,
+        938
       ]
     ]
   },
@@ -1035,7 +1040,7 @@
   ],
   "totals": {
     "members": 32,
-    "event": 27590,
+    "event": 27675,
     "points": 5242668784,
     "gems": 2809868998,
     "contributors": 20
@@ -1097,19 +1102,19 @@
         "amount": 1
       }
     ],
-    "points": 27590,
+    "points": 27675,
     "rank": {
-      "place": 935,
+      "place": 938,
       "total": 169560,
-      "points": 27590,
+      "points": 27675,
       "gems": 2809868998,
       "above": {
-        "name": "FUME",
-        "points": 27625
+        "name": "snp",
+        "points": 27705
       },
       "below": {
-        "name": "GMPL",
-        "points": 27560
+        "name": "AX01",
+        "points": 27675
       }
     },
     "topClans": [
@@ -1120,7 +1125,7 @@
         "country": "JP",
         "members": 49,
         "capacity": 50,
-        "points": 1043655,
+        "points": 1112155,
         "gems": 68254266418,
         "ours": false
       },
@@ -1131,7 +1136,7 @@
         "country": "XK",
         "members": 49,
         "capacity": 50,
-        "points": 1043160,
+        "points": 1092010,
         "gems": 432223530314,
         "ours": false
       },
@@ -1153,12 +1158,23 @@
         "country": "US",
         "members": 49,
         "capacity": 50,
-        "points": 757375,
+        "points": 762660,
         "gems": 38558169321,
         "ours": false
       },
       {
         "rank": 5,
+        "name": "VLP",
+        "icon": "https://ps99.biggamesapi.io/image/15281988558",
+        "country": "CZ",
+        "members": 47,
+        "capacity": 50,
+        "points": 734705,
+        "gems": 33233084716,
+        "ours": false
+      },
+      {
+        "rank": 6,
         "name": "Iynx",
         "icon": "https://ps99.biggamesapi.io/image/14968294740",
         "country": "US",
@@ -1169,47 +1185,36 @@
         "ours": false
       },
       {
-        "rank": 6,
-        "name": "VLP",
-        "icon": "https://ps99.biggamesapi.io/image/15281988558",
-        "country": "CZ",
-        "members": 47,
-        "capacity": 50,
-        "points": 733905,
-        "gems": 33233084716,
-        "ours": false
-      },
-      {
         "rank": 7,
-        "name": "GDSQ",
-        "icon": "https://ps99.biggamesapi.io/image/110715427585169",
-        "country": "BE",
-        "members": 49,
-        "capacity": 50,
-        "points": 598620,
-        "gems": 27442208406,
-        "ours": false
-      },
-      {
-        "rank": 8,
-        "name": "S7PY",
-        "icon": "https://ps99.biggamesapi.io/image/73813551810208",
-        "country": "GB",
-        "members": 46,
-        "capacity": 50,
-        "points": 597775,
-        "gems": 38334346157,
-        "ours": false
-      },
-      {
-        "rank": 9,
         "name": "surx",
         "icon": "https://ps99.biggamesapi.io/image/14976485216",
         "country": "US",
         "members": 47,
         "capacity": 50,
-        "points": 588570,
+        "points": 605395,
         "gems": 25230203917,
+        "ours": false
+      },
+      {
+        "rank": 8,
+        "name": "GDSQ",
+        "icon": "https://ps99.biggamesapi.io/image/110715427585169",
+        "country": "BE",
+        "members": 49,
+        "capacity": 50,
+        "points": 600270,
+        "gems": 27442208406,
+        "ours": false
+      },
+      {
+        "rank": 9,
+        "name": "S7PY",
+        "icon": "https://ps99.biggamesapi.io/image/73813551810208",
+        "country": "GB",
+        "members": 46,
+        "capacity": 50,
+        "points": 598075,
+        "gems": 38334346157,
         "ours": false
       },
       {
@@ -1281,9 +1286,9 @@
       },
       {
         "rank": 10,
-        "name": "Zenny",
-        "points": 68775,
-        "clan": "CITC"
+        "name": "12K",
+        "points": 68850,
+        "clan": "SOP0"
       }
     ],
     "participating": 100
@@ -1388,15 +1393,15 @@
     {
       "id": "FantasyBattle2026",
       "title": "Fantasy Battle2026",
-      "points": 27590,
-      "place": 932,
+      "points": 27675,
+      "place": 937,
       "medal": null,
       "live": true
     }
   ],
   "health": {
     "members": 32,
-    "eventContributions": 20,
+    "eventContributions": 21,
     "allTimeContributions": 39,
     "gemEntries": 92,
     "battles": 13,
