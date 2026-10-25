@@ -1,11 +1,11 @@
 {
   "ok": true,
-  "updated": 1792886141,
+  "updated": 1792887955,
   "tracking": {
-    "window": 3570,
+    "window": 3633,
     "since": 1792867732,
-    "rate1h": 2975,
-    "rate24h": 2683,
+    "rate1h": 3320,
+    "rate24h": 2514,
     "trend": [
       [
         1792867732,
@@ -508,9 +508,59 @@
         564
       ],
       [
-        1792886110,
+        1792886235,
         19455,
         565
+      ],
+      [
+        1792886419,
+        19805,
+        555
+      ],
+      [
+        1792886603,
+        19805,
+        556
+      ],
+      [
+        1792886787,
+        19805,
+        558
+      ],
+      [
+        1792886972,
+        19880,
+        558
+      ],
+      [
+        1792887156,
+        19880,
+        560
+      ],
+      [
+        1792887341,
+        19880,
+        563
+      ],
+      [
+        1792887524,
+        19880,
+        570
+      ],
+      [
+        1792887709,
+        19880,
+        573
+      ],
+      [
+        1792887894,
+        19880,
+        575
+      ],
+      [
+        1792887955,
+        19880,
+        576
       ]
     ]
   },
@@ -691,6 +741,22 @@
       "gain": 0
     },
     {
+      "id": 11712248820,
+      "name": "Vexari_nX",
+      "display": "Vexari_nX",
+      "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-678D52E4456885D030E408CFD438A6AB-Png/150/150/AvatarHeadshot/Png/noFilter",
+      "role": "Officer",
+      "permission": 90,
+      "joined": 1791022079,
+      "event": 665,
+      "points": 4534684,
+      "gems": 1000000,
+      "eventRank": 11,
+      "pointsRank": 25,
+      "gemsRank": 19,
+      "gain": 425
+    },
+    {
       "id": 11265154533,
       "name": "DEVP4BL00ACC",
       "display": "Pablw",
@@ -701,7 +767,7 @@
       "event": 580,
       "points": 169139784,
       "gems": 999999,
-      "eventRank": 11,
+      "eventRank": 12,
       "pointsRank": 10,
       "gemsRank": 20,
       "gain": 0
@@ -717,7 +783,7 @@
       "event": 540,
       "points": 66255293,
       "gems": 30000000,
-      "eventRank": 12,
+      "eventRank": 13,
       "pointsRank": 15,
       "gemsRank": 6,
       "gain": 0
@@ -733,25 +799,9 @@
       "event": 280,
       "points": 654231177,
       "gems": 60000000,
-      "eventRank": 13,
+      "eventRank": 14,
       "pointsRank": 3,
       "gemsRank": 3,
-      "gain": 0
-    },
-    {
-      "id": 11712248820,
-      "name": "Vexari_nX",
-      "display": "Vexari_nX",
-      "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-678D52E4456885D030E408CFD438A6AB-Png/150/150/AvatarHeadshot/Png/noFilter",
-      "role": "Officer",
-      "permission": 90,
-      "joined": 1791022079,
-      "event": 240,
-      "points": 4534259,
-      "gems": 1000000,
-      "eventRank": 14,
-      "pointsRank": 25,
-      "gemsRank": 19,
       "gain": 0
     },
     {
@@ -768,7 +818,7 @@
       "eventRank": 15,
       "pointsRank": 26,
       "gemsRank": 25,
-      "gain": 25
+      "gain": 0
     },
     {
       "id": 3232560642,
@@ -1045,8 +1095,8 @@
   ],
   "totals": {
     "members": 32,
-    "event": 19455,
-    "points": 5242660649,
+    "event": 19880,
+    "points": 5242661074,
     "gems": 2769868998,
     "contributors": 19
   },
@@ -1107,75 +1157,75 @@
         "amount": 1
       }
     ],
-    "points": 19455,
+    "points": 19880,
     "rank": {
-      "place": 565,
+      "place": 576,
       "total": 169535,
-      "points": 19455,
+      "points": 19880,
       "gems": 2769868998,
       "above": {
-        "name": "MCW2",
-        "points": 19475
+        "name": "uysr",
+        "points": 19895
       },
       "below": {
-        "name": "JANU",
-        "points": 19455
+        "name": "Mamy",
+        "points": 19780
       }
     },
     "topClans": [
       {
         "rank": 1,
+        "name": "UN0",
+        "icon": "https://ps99.biggamesapi.io/image/14976561960",
+        "country": "GB",
+        "members": 49,
+        "capacity": 50,
+        "points": 465740,
+        "gems": 830432080657,
+        "ours": false
+      },
+      {
+        "rank": 2,
         "name": "SOPU",
         "icon": "https://ps99.biggamesapi.io/image/92415264775072",
         "country": "XK",
         "members": 49,
         "capacity": 50,
-        "points": 341050,
+        "points": 392250,
         "gems": 432223530314,
         "ours": false
       },
       {
-        "rank": 2,
+        "rank": 3,
         "name": "C0LD",
         "icon": "https://ps99.biggamesapi.io/image/126265328107529",
         "country": "JP",
         "members": 49,
         "capacity": 50,
-        "points": 334030,
+        "points": 339655,
         "gems": 68254266418,
         "ours": false
       },
       {
-        "rank": 3,
+        "rank": 4,
         "name": "Iynx",
         "icon": "https://ps99.biggamesapi.io/image/14968294740",
         "country": "US",
         "members": 49,
         "capacity": 50,
-        "points": 291355,
+        "points": 291405,
         "gems": 24093961456,
         "ours": false
       },
       {
-        "rank": 4,
+        "rank": 5,
         "name": "0RY",
         "icon": "https://ps99.biggamesapi.io/image/113300727543444",
         "country": "US",
         "members": 48,
         "capacity": 50,
-        "points": 268030,
+        "points": 279005,
         "gems": 7681823861,
-        "ours": false
-      },
-      {
-        "rank": 5,
-        "name": "minx",
-        "icon": "https://ps99.biggamesapi.io/image/72089661585233",
-        "country": "GB",
-        "members": 49,
-        "capacity": 50,
-        "points": 247790,
-        "gems": 90559317799,
         "ours": false
       },
       {
@@ -1185,30 +1235,30 @@
         "country": "GB",
         "members": 48,
         "capacity": 50,
-        "points": 244020,
+        "points": 271545,
         "gems": 38334346157,
         "ours": false
       },
       {
         "rank": 7,
+        "name": "minx",
+        "icon": "https://ps99.biggamesapi.io/image/72089661585233",
+        "country": "GB",
+        "members": 49,
+        "capacity": 50,
+        "points": 263200,
+        "gems": 90559317799,
+        "ours": false
+      },
+      {
+        "rank": 8,
         "name": "surx",
         "icon": "https://ps99.biggamesapi.io/image/14976485216",
         "country": "US",
         "members": 47,
         "capacity": 50,
-        "points": 225690,
+        "points": 236225,
         "gems": 25230203917,
-        "ours": false
-      },
-      {
-        "rank": 8,
-        "name": "POPS",
-        "icon": "https://ps99.biggamesapi.io/image/17451171044",
-        "country": "US",
-        "members": 49,
-        "capacity": 50,
-        "points": 212175,
-        "gems": 38558169321,
         "ours": false
       },
       {
@@ -1218,82 +1268,82 @@
         "country": "US",
         "members": 49,
         "capacity": 50,
-        "points": 210245,
+        "points": 220905,
         "gems": 201402379607,
         "ours": false
       },
       {
         "rank": 10,
-        "name": "S4KU",
-        "icon": "https://ps99.biggamesapi.io/image/73178522475646",
+        "name": "POPS",
+        "icon": "https://ps99.biggamesapi.io/image/17451171044",
         "country": "US",
-        "members": 47,
+        "members": 49,
         "capacity": 50,
-        "points": 205275,
-        "gems": 6801667552,
+        "points": 217225,
+        "gems": 38558169321,
         "ours": false
       }
     ],
     "topPlayers": [
       {
         "rank": 1,
+        "name": "4783624873",
+        "points": 53450,
+        "clan": "UN0"
+      },
+      {
+        "rank": 2,
+        "name": "33492395",
+        "points": 53350,
+        "clan": "UN0"
+      },
+      {
+        "rank": 3,
+        "name": "20532808",
+        "points": 41575,
+        "clan": "UN0"
+      },
+      {
+        "rank": 4,
+        "name": "4820009543",
+        "points": 38325,
+        "clan": "UN0"
+      },
+      {
+        "rank": 5,
+        "name": "1533791",
+        "points": 36450,
+        "clan": "UN0"
+      },
+      {
+        "rank": 6,
+        "name": "3900819089",
+        "points": 29550,
+        "clan": "ILDK"
+      },
+      {
+        "rank": 7,
+        "name": "1006786296",
+        "points": 27450,
+        "clan": "LOVM"
+      },
+      {
+        "rank": 8,
         "name": "3373408758",
         "points": 26850,
         "clan": "VLP"
       },
       {
-        "rank": 2,
-        "name": "1302571390",
-        "points": 24500,
-        "clan": "CITC"
-      },
-      {
-        "rank": 3,
-        "name": "411763542",
-        "points": 23675,
-        "clan": "HARM"
-      },
-      {
-        "rank": 4,
-        "name": "2887195161",
-        "points": 23300,
-        "clan": "OzTM"
-      },
-      {
-        "rank": 5,
-        "name": "876254526",
-        "points": 21950,
-        "clan": "Tsne"
-      },
-      {
-        "rank": 6,
-        "name": "3580740477",
-        "points": 20525,
-        "clan": "EXYE"
-      },
-      {
-        "rank": 7,
-        "name": "1996239031",
-        "points": 20250,
-        "clan": "M2NY"
-      },
-      {
-        "rank": 8,
-        "name": "10868694328",
-        "points": 20250,
-        "clan": "R1GN"
-      },
-      {
         "rank": 9,
-        "name": "782744040",
-        "points": 20150,
-        "clan": "0FCL"
+        "name": "2316325389",
+        "points": 25725,
+        "clan": "SOPU"
       },
       {
         "rank": 10,
-        "name": "4717233486",
-        "points": 19615,
-        "clan": "OzTM"
+        "name": "1302571390",
+        "points": 24500,
+        "clan": "CITC"
       }
     ],
     "participating": 100
@@ -1398,8 +1448,8 @@
     {
       "id": "FantasyBattle2026",
       "title": "Fantasy Battle2026",
-      "points": 19455,
-      "place": 564,
+      "points": 19880,
+      "place": 576,
       "medal": null,
       "live": true
     }
