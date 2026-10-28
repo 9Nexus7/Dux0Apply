@@ -1,22 +1,12 @@
 {
   "ok": true,
-  "updated": 1793198908,
+  "updated": 1793200721,
   "tracking": {
-    "window": 3631,
-    "since": 1793026163,
+    "window": 3630,
+    "since": 1793027948,
     "rate1h": 0,
-    "rate24h": 942,
+    "rate24h": 931,
     "trend": [
-      [
-        1793112563,
-        161700,
-        478
-      ],
-      [
-        1793113427,
-        161700,
-        480
-      ],
       [
         1793114335,
         161950,
@@ -513,9 +503,19 @@
         526
       ],
       [
-        1793198908,
+        1793199525,
         184310,
-        527
+        529
+      ],
+      [
+        1793200384,
+        184310,
+        531
+      ],
+      [
+        1793200690,
+        184310,
+        531
       ]
     ]
   },
@@ -1114,17 +1114,17 @@
     ],
     "points": 184310,
     "rank": {
-      "place": 527,
-      "total": 169705,
+      "place": 531,
+      "total": 169706,
       "points": 184310,
       "gems": 2809868998,
       "above": {
-        "name": "JMDM",
-        "points": 184875
+        "name": "98ty",
+        "points": 184570
       },
       "below": {
-        "name": "98ty",
-        "points": 184245
+        "name": "Ndjx",
+        "points": 183895
       }
     },
     "topClans": [
@@ -1135,7 +1135,7 @@
         "country": "GB",
         "members": 49,
         "capacity": 50,
-        "points": 5470450,
+        "points": 5487175,
         "gems": 830432080657,
         "ours": false
       },
@@ -1146,7 +1146,7 @@
         "country": "XK",
         "members": 49,
         "capacity": 50,
-        "points": 4657695,
+        "points": 4657945,
         "gems": 432323680265,
         "ours": false
       },
@@ -1157,7 +1157,7 @@
         "country": "JP",
         "members": 49,
         "capacity": 50,
-        "points": 4536850,
+        "points": 4631525,
         "gems": 68254266418,
         "ours": false
       },
@@ -1168,7 +1168,7 @@
         "country": "US",
         "members": 49,
         "capacity": 50,
-        "points": 3781935,
+        "points": 3816810,
         "gems": 24093961456,
         "ours": false
       },
@@ -1179,7 +1179,7 @@
         "country": "GB",
         "members": 48,
         "capacity": 50,
-        "points": 3354410,
+        "points": 3435610,
         "gems": 40564346157,
         "ours": false
       },
@@ -1190,7 +1190,7 @@
         "country": "GB",
         "members": 49,
         "capacity": 50,
-        "points": 3265605,
+        "points": 3299430,
         "gems": 90559317799,
         "ours": false
       },
@@ -1212,7 +1212,7 @@
         "country": "US",
         "members": 49,
         "capacity": 50,
-        "points": 3211535,
+        "points": 3221210,
         "gems": 79324214347,
         "ours": false
       },
@@ -1223,7 +1223,7 @@
         "country": "CZ",
         "members": 49,
         "capacity": 50,
-        "points": 3177180,
+        "points": 3189280,
         "gems": 33233084716,
         "ours": false
       },
@@ -1234,7 +1234,7 @@
         "country": "US",
         "members": 49,
         "capacity": 50,
-        "points": 3107145,
+        "points": 3127395,
         "gems": 71231130805,
         "ours": false
       }
@@ -1255,7 +1255,7 @@
       {
         "rank": 3,
         "name": "Mythic",
-        "points": 178400,
+        "points": 180900,
         "clan": "C0LD"
       },
       {
@@ -1272,21 +1272,21 @@
       },
       {
         "rank": 6,
+        "name": "Bry",
+        "points": 165000,
+        "clan": "AWZY"
+      },
+      {
+        "rank": 7,
         "name": "GamesReborn",
         "points": 162550,
         "clan": "UN0"
       },
       {
-        "rank": 7,
+        "rank": 8,
         "name": "MrsBenMYu2",
         "points": 160175,
         "clan": "UN0"
-      },
-      {
-        "rank": 8,
-        "name": "Bry",
-        "points": 156500,
-        "clan": "AWZY"
       },
       {
         "rank": 9,
@@ -1404,7 +1404,7 @@
       "id": "FantasyBattle2026",
       "title": "Fantasy Battle2026",
       "points": 184310,
-      "place": 527,
+      "place": 531,
       "medal": null,
       "live": true
     }
