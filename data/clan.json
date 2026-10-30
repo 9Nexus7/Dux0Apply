@@ -1,22 +1,12 @@
 {
   "ok": true,
-  "updated": 1793365633,
+  "updated": 1793367446,
   "tracking": {
-    "window": 3630,
-    "since": 1793192879,
-    "rate1h": 0,
-    "rate24h": 84,
+    "window": 3627,
+    "since": 1793194663,
+    "rate1h": 744,
+    "rate24h": 116,
     "trend": [
-      [
-        1793279295,
-        207850,
-        545
-      ],
-      [
-        1793280207,
-        207850,
-        546
-      ],
       [
         1793281068,
         207850,
@@ -513,8 +503,18 @@
         591
       ],
       [
-        1793365633,
-        209875,
+        1793366187,
+        210625,
+        589
+      ],
+      [
+        1793367046,
+        210625,
+        591
+      ],
+      [
+        1793367415,
+        210625,
         591
       ]
     ]
@@ -648,6 +648,22 @@
       "gain": 0
     },
     {
+      "id": 3420297189,
+      "name": "OstfrieseBub",
+      "display": "OstfrieseBub",
+      "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-9825CDB8FF3200AA5DC5F31288B76B50-Png/150/150/AvatarHeadshot/Png/noFilter",
+      "role": "Member",
+      "permission": 50,
+      "joined": 1783796005,
+      "event": 8000,
+      "points": 87158761,
+      "gems": 10000000,
+      "eventRank": 8,
+      "pointsRank": 12,
+      "gemsRank": 16,
+      "gain": 750
+    },
+    {
       "id": 3173977423,
       "name": "FeliFoxFix",
       "display": "Felixx_989",
@@ -658,25 +674,9 @@
       "event": 7575,
       "points": 100349727,
       "gems": 33000000,
-      "eventRank": 8,
+      "eventRank": 9,
       "pointsRank": 11,
       "gemsRank": 6,
-      "gain": 0
-    },
-    {
-      "id": 3420297189,
-      "name": "OstfrieseBub",
-      "display": "OstfrieseBub",
-      "avatar": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-9825CDB8FF3200AA5DC5F31288B76B50-Png/150/150/AvatarHeadshot/Png/noFilter",
-      "role": "Member",
-      "permission": 50,
-      "joined": 1783796005,
-      "event": 7250,
-      "points": 87158011,
-      "gems": 10000000,
-      "eventRank": 9,
-      "pointsRank": 12,
-      "gemsRank": 16,
       "gain": 0
     },
     {
@@ -1034,8 +1034,8 @@
   ],
   "totals": {
     "members": 31,
-    "event": 209875,
-    "points": 5240715484,
+    "event": 210625,
+    "points": 5240716234,
     "gems": 2809868998,
     "contributors": 23
   },
@@ -1096,19 +1096,19 @@
         "amount": 1
       }
     ],
-    "points": 209875,
+    "points": 210625,
     "rank": {
       "place": 591,
-      "total": 169756,
-      "points": 209875,
+      "total": 169755,
+      "points": 210625,
       "gems": 2809868998,
       "above": {
-        "name": "UKPO",
-        "points": 210010
+        "name": "DGSL",
+        "points": 210885
       },
       "below": {
-        "name": "ALT1",
-        "points": 209820
+        "name": "LF4E",
+        "points": 210325
       }
     },
     "topClans": [
@@ -1119,7 +1119,7 @@
         "country": "GB",
         "members": 49,
         "capacity": 50,
-        "points": 6595250,
+        "points": 6610000,
         "gems": 830432080657,
         "ours": false
       },
@@ -1130,7 +1130,7 @@
         "country": "JP",
         "members": 49,
         "capacity": 50,
-        "points": 5735100,
+        "points": 5744550,
         "gems": 68254266418,
         "ours": false
       },
@@ -1141,7 +1141,7 @@
         "country": "XK",
         "members": 49,
         "capacity": 50,
-        "points": 5675570,
+        "points": 5675645,
         "gems": 432323680265,
         "ours": false
       },
@@ -1152,7 +1152,7 @@
         "country": "US",
         "members": 49,
         "capacity": 50,
-        "points": 4728285,
+        "points": 4738285,
         "gems": 24094028456,
         "ours": false
       },
@@ -1163,7 +1163,7 @@
         "country": "GB",
         "members": 48,
         "capacity": 50,
-        "points": 4343310,
+        "points": 4373710,
         "gems": 40564346157,
         "ours": false
       },
@@ -1174,7 +1174,7 @@
         "country": "US",
         "members": 49,
         "capacity": 50,
-        "points": 4304260,
+        "points": 4318010,
         "gems": 201402379607,
         "ours": false
       },
@@ -1185,7 +1185,7 @@
         "country": "GB",
         "members": 49,
         "capacity": 50,
-        "points": 4299030,
+        "points": 4316530,
         "gems": 90559317799,
         "ours": false
       },
@@ -1196,7 +1196,7 @@
         "country": "US",
         "members": 49,
         "capacity": 50,
-        "points": 4288110,
+        "points": 4295610,
         "gems": 79324214347,
         "ours": false
       },
@@ -1207,7 +1207,7 @@
         "country": "US",
         "members": 49,
         "capacity": 50,
-        "points": 4168995,
+        "points": 4200995,
         "gems": 71231130805,
         "ours": false
       },
@@ -1218,7 +1218,7 @@
         "country": "US",
         "members": 49,
         "capacity": 50,
-        "points": 4052065,
+        "points": 4062990,
         "gems": 38558169321,
         "ours": false
       }
@@ -1251,7 +1251,7 @@
       {
         "rank": 5,
         "name": "mybanana367",
-        "points": 185900,
+        "points": 185975,
         "clan": "SOPU"
       },
       {
@@ -1387,7 +1387,7 @@
     {
       "id": "FantasyBattle2026",
       "title": "Fantasy Battle2026",
-      "points": 209875,
+      "points": 210625,
       "place": 591,
       "medal": null,
       "live": true
