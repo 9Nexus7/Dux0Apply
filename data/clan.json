@@ -1,10 +1,11 @@
 {
   "ok": true,
-  "updated": 1793463546,
+  "updated": 1793467172,
   "tracking": {
-    "window": 308,
+    "window": 3626,
     "since": 1793463238,
     "rate1h": 0,
+    "rate24h": 0,
     "trend": [
       [
         1793463238,
@@ -33,6 +34,301 @@
       ],
       [
         1793463546,
+        0,
+        null
+      ],
+      [
+        1793463609,
+        0,
+        null
+      ],
+      [
+        1793463670,
+        0,
+        null
+      ],
+      [
+        1793463731,
+        0,
+        null
+      ],
+      [
+        1793463793,
+        0,
+        null
+      ],
+      [
+        1793463854,
+        0,
+        null
+      ],
+      [
+        1793463915,
+        0,
+        null
+      ],
+      [
+        1793463977,
+        0,
+        null
+      ],
+      [
+        1793464038,
+        0,
+        null
+      ],
+      [
+        1793464100,
+        0,
+        null
+      ],
+      [
+        1793464161,
+        0,
+        null
+      ],
+      [
+        1793464222,
+        0,
+        null
+      ],
+      [
+        1793464283,
+        0,
+        null
+      ],
+      [
+        1793464344,
+        0,
+        null
+      ],
+      [
+        1793464394,
+        0,
+        null
+      ],
+      [
+        1793464467,
+        0,
+        null
+      ],
+      [
+        1793464528,
+        0,
+        null
+      ],
+      [
+        1793464590,
+        0,
+        null
+      ],
+      [
+        1793464651,
+        0,
+        null
+      ],
+      [
+        1793464713,
+        0,
+        null
+      ],
+      [
+        1793464774,
+        0,
+        null
+      ],
+      [
+        1793464836,
+        0,
+        null
+      ],
+      [
+        1793464897,
+        0,
+        null
+      ],
+      [
+        1793464958,
+        0,
+        null
+      ],
+      [
+        1793465020,
+        0,
+        null
+      ],
+      [
+        1793465081,
+        0,
+        null
+      ],
+      [
+        1793465143,
+        0,
+        null
+      ],
+      [
+        1793465204,
+        0,
+        null
+      ],
+      [
+        1793465265,
+        0,
+        null
+      ],
+      [
+        1793465327,
+        0,
+        null
+      ],
+      [
+        1793465388,
+        0,
+        null
+      ],
+      [
+        1793465449,
+        0,
+        null
+      ],
+      [
+        1793465510,
+        0,
+        null
+      ],
+      [
+        1793465572,
+        0,
+        null
+      ],
+      [
+        1793465633,
+        0,
+        null
+      ],
+      [
+        1793465694,
+        0,
+        null
+      ],
+      [
+        1793465756,
+        0,
+        null
+      ],
+      [
+        1793465816,
+        0,
+        null
+      ],
+      [
+        1793465878,
+        0,
+        null
+      ],
+      [
+        1793465939,
+        0,
+        null
+      ],
+      [
+        1793466001,
+        0,
+        null
+      ],
+      [
+        1793466062,
+        0,
+        null
+      ],
+      [
+        1793466124,
+        0,
+        null
+      ],
+      [
+        1793466186,
+        0,
+        null
+      ],
+      [
+        1793466247,
+        0,
+        null
+      ],
+      [
+        1793466309,
+        0,
+        null
+      ],
+      [
+        1793466371,
+        0,
+        null
+      ],
+      [
+        1793466432,
+        0,
+        null
+      ],
+      [
+        1793466494,
+        0,
+        null
+      ],
+      [
+        1793466556,
+        0,
+        null
+      ],
+      [
+        1793466618,
+        0,
+        null
+      ],
+      [
+        1793466679,
+        0,
+        null
+      ],
+      [
+        1793466741,
+        0,
+        null
+      ],
+      [
+        1793466802,
+        0,
+        null
+      ],
+      [
+        1793466864,
+        0,
+        null
+      ],
+      [
+        1793466925,
+        0,
+        null
+      ],
+      [
+        1793466987,
+        0,
+        null
+      ],
+      [
+        1793467049,
+        0,
+        null
+      ],
+      [
+        1793467110,
+        0,
+        null
+      ],
+      [
+        1793467172,
         0,
         null
       ]
@@ -563,7 +859,7 @@
     "title": "HalloweenGamesBattle2026",
     "start": 1793466000,
     "finish": 1793984400,
-    "state": "upcoming",
+    "state": "live",
     "goals": [],
     "rewards": [
       {
@@ -620,117 +916,178 @@
     "topClans": [
       {
         "rank": 1,
-        "name": "EXP",
-        "icon": "https://ps99.biggamesapi.io/image/82897805352319",
-        "country": "JP",
-        "members": 47,
+        "name": "SOPU",
+        "icon": "https://ps99.biggamesapi.io/image/92415264775072",
+        "country": "XK",
+        "members": 49,
         "capacity": 50,
-        "points": 0,
-        "gems": 2007377227149,
+        "points": 10197,
+        "gems": 432577501032,
         "ours": false
       },
       {
         "rank": 2,
-        "name": "TAJC",
-        "icon": "https://ps99.biggamesapi.io/image/14976584980",
-        "country": "QA",
-        "members": 3,
-        "capacity": 50,
-        "points": 0,
-        "gems": 1735116971091,
-        "ours": false
-      },
-      {
-        "rank": 3,
-        "name": "EMTE",
-        "icon": "https://ps99.biggamesapi.io/image/72098032642775",
-        "country": "CA",
-        "members": 12,
-        "capacity": 50,
-        "points": 0,
-        "gems": 1721372649999,
-        "ours": false
-      },
-      {
-        "rank": 4,
-        "name": "43",
-        "icon": "https://ps99.biggamesapi.io/image/15281989490",
-        "country": "US",
-        "members": 49,
-        "capacity": 50,
-        "points": 0,
-        "gems": 841949621849,
-        "ours": false
-      },
-      {
-        "rank": 5,
         "name": "UN0",
         "icon": "https://ps99.biggamesapi.io/image/14976561960",
         "country": "GB",
         "members": 49,
         "capacity": 50,
-        "points": 0,
+        "points": 7553,
         "gems": 830432080657,
         "ours": false
       },
       {
-        "rank": 6,
-        "name": "dohw",
-        "icon": "https://ps99.biggamesapi.io/image/105420679784540",
-        "country": "US",
+        "rank": 3,
+        "name": "C0LD",
+        "icon": "https://ps99.biggamesapi.io/image/126265328107529",
+        "country": "JP",
         "members": 49,
         "capacity": 50,
-        "points": 0,
-        "gems": 786361392429,
+        "points": 5701,
+        "gems": 68654333418,
+        "ours": false
+      },
+      {
+        "rank": 4,
+        "name": "Iynx",
+        "icon": "https://ps99.biggamesapi.io/image/14968294740",
+        "country": "US",
+        "members": 47,
+        "capacity": 50,
+        "points": 4631,
+        "gems": 26340028456,
+        "ours": false
+      },
+      {
+        "rank": 5,
+        "name": "LXCC",
+        "icon": "https://ps99.biggamesapi.io/image/88283615252366",
+        "country": "CH",
+        "members": 43,
+        "capacity": 50,
+        "points": 3993,
+        "gems": 323796753224,
+        "ours": false
+      },
+      {
+        "rank": 6,
+        "name": "tw0",
+        "icon": "https://ps99.biggamesapi.io/image/94385614216161",
+        "country": "US",
+        "members": 34,
+        "capacity": 50,
+        "points": 3549,
+        "gems": 10412477190,
         "ours": false
       },
       {
         "rank": 7,
-        "name": "V1LN",
-        "icon": "https://ps99.biggamesapi.io/image/78740922586430",
-        "country": "PL",
-        "members": 25,
+        "name": "MCWV",
+        "icon": "https://ps99.biggamesapi.io/image/86955165991915",
+        "country": "GB",
+        "members": 46,
         "capacity": 50,
-        "points": 0,
-        "gems": 703569536122,
+        "points": 3168,
+        "gems": 8320453866,
         "ours": false
       },
       {
         "rank": 8,
-        "name": "K_TB",
-        "icon": "https://ps99.biggamesapi.io/image/18365627448",
-        "country": "US",
-        "members": 32,
+        "name": "B1ZE",
+        "icon": "https://ps99.biggamesapi.io/image/76912317772527",
+        "country": "RU",
+        "members": 33,
         "capacity": 50,
-        "points": 0,
-        "gems": 584239025632,
+        "points": 3046,
+        "gems": 2109018823,
         "ours": false
       },
       {
         "rank": 9,
-        "name": "Y0R",
-        "icon": "https://ps99.biggamesapi.io/image/136510816753716",
-        "country": "NP",
-        "members": 2,
+        "name": "S7PY",
+        "icon": "https://ps99.biggamesapi.io/image/121534764190245",
+        "country": "GB",
+        "members": 45,
         "capacity": 50,
-        "points": 0,
-        "gems": 550856500913,
+        "points": 3007,
+        "gems": 40820426157,
         "ours": false
       },
       {
         "rank": 10,
-        "name": "x75p",
-        "icon": "https://ps99.biggamesapi.io/image/94695514174420",
-        "country": "US",
-        "members": 0,
+        "name": "KOHV",
+        "icon": "https://ps99.biggamesapi.io/image/112338152892007",
+        "country": "PK",
+        "members": 46,
         "capacity": 50,
-        "points": 0,
-        "gems": 540480621863,
+        "points": 2844,
+        "gems": 130711234290,
         "ours": false
       }
     ],
-    "topPlayers": [],
-    "participating": 0
+    "topPlayers": [
+      {
+        "rank": 1,
+        "name": "LeroXx",
+        "points": 2176,
+        "clan": "LXCC"
+      },
+      {
+        "rank": 2,
+        "name": "DimaFilimonow87",
+        "points": 1508,
+        "clan": "B1ZE"
+      },
+      {
+        "rank": 3,
+        "name": "dieee",
+        "points": 1305,
+        "clan": "VYOX"
+      },
+      {
+        "rank": 4,
+        "name": "maya",
+        "points": 1250,
+        "clan": "QU3N"
+      },
+      {
+        "rank": 5,
+        "name": "TaB",
+        "points": 1239,
+        "clan": "BRTD"
+      },
+      {
+        "rank": 6,
+        "name": "randomnub",
+        "points": 1142,
+        "clan": "QSO"
+      },
+      {
+        "rank": 7,
+        "name": "deffibox",
+        "points": 1127,
+        "clan": "CCrw"
+      },
+      {
+        "rank": 8,
+        "name": "Vincent",
+        "points": 1061,
+        "clan": "tw0"
+      },
+      {
+        "rank": 9,
+        "name": "FLspike",
+        "points": 1015,
+        "clan": "S7PY"
+      },
+      {
+        "rank": 10,
+        "name": "Bablu",
+        "points": 1004,
+        "clan": "sly3"
+      }
+    ],
+    "participating": 100
   },
   "history": [
     {
